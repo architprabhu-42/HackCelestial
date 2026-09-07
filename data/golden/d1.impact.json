@@ -1,0 +1,434 @@
+{
+  "catalog_version": "catalog:mumbai-goa-v2",
+  "constraint_checks": [
+    {
+      "constraint_id": "constraint:act:T1:readiness",
+      "observed": {
+        "unit": null,
+        "value": "2026-09-26T05:15:00+05:30",
+        "value_kind": "timestamp"
+      },
+      "passed": true,
+      "provenance_ids": [
+        "prov:replay:D1"
+      ],
+      "reason_code": "HARD_CONSTRAINTS_PASS",
+      "required": {
+        "unit": null,
+        "value": "2026-09-26T08:30:00+05:30",
+        "value_kind": "timestamp"
+      }
+    },
+    {
+      "constraint_id": "constraint:act:C1:window",
+      "observed": {
+        "unit": null,
+        "value": "2026-09-26T18:50:00+05:30",
+        "value_kind": "timestamp"
+      },
+      "passed": true,
+      "provenance_ids": [
+        "prov:fixture:mumbai-goa-v2"
+      ],
+      "reason_code": "HARD_CONSTRAINTS_PASS",
+      "required": {
+        "unit": null,
+        "value": "2026-09-26T22:00:00+05:30",
+        "value_kind": "timestamp"
+      }
+    },
+    {
+      "constraint_id": "constraint:act:H1:latest_start",
+      "observed": {
+        "unit": null,
+        "value": "2026-09-26T20:00:00+05:30",
+        "value_kind": "timestamp"
+      },
+      "passed": true,
+      "provenance_ids": [],
+      "reason_code": "HARD_CONSTRAINTS_PASS",
+      "required": {
+        "unit": null,
+        "value": "2026-09-26T21:00:00+05:30",
+        "value_kind": "timestamp"
+      }
+    },
+    {
+      "constraint_id": "constraint:act:C2:window",
+      "observed": {
+        "unit": null,
+        "value": "2026-09-26T20:20:00+05:30",
+        "value_kind": "timestamp"
+      },
+      "passed": true,
+      "provenance_ids": [
+        "prov:fixture:mumbai-goa-v2"
+      ],
+      "reason_code": "HARD_CONSTRAINTS_PASS",
+      "required": {
+        "unit": null,
+        "value": "2026-09-26T23:00:00+05:30",
+        "value_kind": "timestamp"
+      }
+    },
+    {
+      "constraint_id": "constraint:act:E1:arrival_deadline",
+      "observed": {
+        "unit": "seconds",
+        "value": -5700,
+        "value_kind": "duration_sec"
+      },
+      "passed": false,
+      "provenance_ids": [],
+      "reason_code": "HARD_DEADLINE_MISSED",
+      "required": {
+        "unit": "seconds",
+        "value": 0,
+        "value_kind": "duration_sec"
+      }
+    }
+  ],
+  "evaluated_itinerary": [
+    {
+      "activity_id": "act:T1",
+      "cutoff_at": "2026-09-26T08:30:00+05:30",
+      "destination_id": "rail:MAO",
+      "end_at": "2026-09-26T18:30:00+05:30",
+      "kind": "fixed_transport",
+      "origin_id": "rail:CSMT",
+      "provenance_ids": [
+        "prov:fixture:mumbai-goa-v2"
+      ],
+      "ready_at": "2026-09-26T18:30:00+05:30",
+      "reason_codes": [],
+      "service_id": "svc:T1:2026-09-26",
+      "slack_sec": 11700,
+      "start_at": "2026-09-26T09:00:00+05:30",
+      "status": "feasible",
+      "transfer_template_id": null
+    },
+    {
+      "activity_id": "act:T1-exit",
+      "cutoff_at": null,
+      "destination_id": "rail:MAO",
+      "end_at": "2026-09-26T18:50:00+05:30",
+      "kind": "processing",
+      "origin_id": "rail:MAO",
+      "provenance_ids": [
+        "prov:fixture:mumbai-goa-v2"
+      ],
+      "ready_at": "2026-09-26T18:50:00+05:30",
+      "reason_codes": [],
+      "service_id": null,
+      "slack_sec": null,
+      "start_at": "2026-09-26T18:30:00+05:30",
+      "status": "feasible",
+      "transfer_template_id": null
+    },
+    {
+      "activity_id": "act:C1",
+      "cutoff_at": null,
+      "destination_id": "place:PANAJI_HOTEL",
+      "end_at": "2026-09-26T20:00:00+05:30",
+      "kind": "flexible_transfer",
+      "origin_id": "rail:MAO",
+      "provenance_ids": [
+        "prov:fixture:mumbai-goa-v2"
+      ],
+      "ready_at": "2026-09-26T20:00:00+05:30",
+      "reason_codes": [],
+      "service_id": null,
+      "slack_sec": null,
+      "start_at": "2026-09-26T18:50:00+05:30",
+      "status": "feasible",
+      "transfer_template_id": "xfer:C1"
+    },
+    {
+      "activity_id": "act:H1",
+      "cutoff_at": "2026-09-26T21:00:00+05:30",
+      "destination_id": "place:PANAJI_HOTEL",
+      "end_at": "2026-09-26T20:20:00+05:30",
+      "kind": "hotel_checkin",
+      "origin_id": "place:PANAJI_HOTEL",
+      "provenance_ids": [
+        "prov:fixture:mumbai-goa-v2"
+      ],
+      "ready_at": "2026-09-26T20:20:00+05:30",
+      "reason_codes": [],
+      "service_id": null,
+      "slack_sec": 3600,
+      "start_at": "2026-09-26T20:00:00+05:30",
+      "status": "feasible",
+      "transfer_template_id": null
+    },
+    {
+      "activity_id": "act:C2",
+      "cutoff_at": null,
+      "destination_id": "place:WEDDING_VENUE",
+      "end_at": "2026-09-26T20:50:00+05:30",
+      "kind": "flexible_transfer",
+      "origin_id": "place:PANAJI_HOTEL",
+      "provenance_ids": [
+        "prov:fixture:mumbai-goa-v2"
+      ],
+      "ready_at": "2026-09-26T20:50:00+05:30",
+      "reason_codes": [],
+      "service_id": null,
+      "slack_sec": null,
+      "start_at": "2026-09-26T20:20:00+05:30",
+      "status": "feasible",
+      "transfer_template_id": "xfer:C2"
+    },
+    {
+      "activity_id": "act:E1",
+      "cutoff_at": "2026-09-26T19:15:00+05:30",
+      "destination_id": "place:WEDDING_VENUE",
+      "end_at": "2026-09-26T19:30:00+05:30",
+      "kind": "commitment",
+      "origin_id": "place:WEDDING_VENUE",
+      "provenance_ids": [
+        "prov:fixture:mumbai-goa-v2"
+      ],
+      "ready_at": "2026-09-26T20:50:00+05:30",
+      "reason_codes": [
+        "HARD_DEADLINE_MISSED"
+      ],
+      "service_id": null,
+      "slack_sec": -5700,
+      "start_at": "2026-09-26T19:30:00+05:30",
+      "status": "infeasible",
+      "transfer_template_id": null
+    }
+  ],
+  "event_id": "event:D1",
+  "impacts": [
+    {
+      "activity_id": "act:T1",
+      "after_ready_at": "2026-09-26T18:30:00+05:30",
+      "after_slack_sec": 11700,
+      "after_status": "feasible",
+      "before_ready_at": "2026-09-26T15:30:00+05:30",
+      "before_slack_sec": 900,
+      "before_status": "feasible",
+      "causal_activity_path": [
+        "act:T1"
+      ],
+      "constraint_checks": [
+        {
+          "constraint_id": "constraint:act:T1:readiness",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T05:15:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:replay:D1"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T08:30:00+05:30",
+            "value_kind": "timestamp"
+          }
+        }
+      ],
+      "cutoff_at": "2026-09-26T08:30:00+05:30",
+      "reason_codes": [
+        "HARD_CONSTRAINTS_PASS"
+      ],
+      "root_event_ids": [
+        "event:D1"
+      ]
+    },
+    {
+      "activity_id": "act:T1-exit",
+      "after_ready_at": "2026-09-26T18:50:00+05:30",
+      "after_slack_sec": null,
+      "after_status": "feasible",
+      "before_ready_at": "2026-09-26T15:50:00+05:30",
+      "before_slack_sec": null,
+      "before_status": "feasible",
+      "causal_activity_path": [
+        "act:T1",
+        "act:T1-exit"
+      ],
+      "constraint_checks": [],
+      "cutoff_at": null,
+      "reason_codes": [
+        "HARD_CONSTRAINTS_PASS"
+      ],
+      "root_event_ids": [
+        "event:D1"
+      ]
+    },
+    {
+      "activity_id": "act:C1",
+      "after_ready_at": "2026-09-26T20:00:00+05:30",
+      "after_slack_sec": null,
+      "after_status": "feasible",
+      "before_ready_at": "2026-09-26T17:00:00+05:30",
+      "before_slack_sec": null,
+      "before_status": "feasible",
+      "causal_activity_path": [
+        "act:T1",
+        "act:T1-exit",
+        "act:C1"
+      ],
+      "constraint_checks": [
+        {
+          "constraint_id": "constraint:act:C1:window",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T18:50:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T22:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        }
+      ],
+      "cutoff_at": null,
+      "reason_codes": [
+        "HARD_CONSTRAINTS_PASS"
+      ],
+      "root_event_ids": [
+        "event:D1"
+      ]
+    },
+    {
+      "activity_id": "act:H1",
+      "after_ready_at": "2026-09-26T20:20:00+05:30",
+      "after_slack_sec": 3600,
+      "after_status": "feasible",
+      "before_ready_at": "2026-09-26T17:20:00+05:30",
+      "before_slack_sec": 14400,
+      "before_status": "feasible",
+      "causal_activity_path": [
+        "act:T1",
+        "act:T1-exit",
+        "act:C1",
+        "act:H1"
+      ],
+      "constraint_checks": [
+        {
+          "constraint_id": "constraint:act:H1:latest_start",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T20:00:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T21:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        }
+      ],
+      "cutoff_at": "2026-09-26T21:00:00+05:30",
+      "reason_codes": [
+        "HARD_CONSTRAINTS_PASS"
+      ],
+      "root_event_ids": [
+        "event:D1"
+      ]
+    },
+    {
+      "activity_id": "act:C2",
+      "after_ready_at": "2026-09-26T20:50:00+05:30",
+      "after_slack_sec": null,
+      "after_status": "feasible",
+      "before_ready_at": "2026-09-26T17:50:00+05:30",
+      "before_slack_sec": null,
+      "before_status": "feasible",
+      "causal_activity_path": [
+        "act:T1",
+        "act:T1-exit",
+        "act:C1",
+        "act:H1",
+        "act:C2"
+      ],
+      "constraint_checks": [
+        {
+          "constraint_id": "constraint:act:C2:window",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T20:20:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T23:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        }
+      ],
+      "cutoff_at": null,
+      "reason_codes": [
+        "HARD_CONSTRAINTS_PASS"
+      ],
+      "root_event_ids": [
+        "event:D1"
+      ]
+    },
+    {
+      "activity_id": "act:E1",
+      "after_ready_at": "2026-09-26T20:50:00+05:30",
+      "after_slack_sec": -5700,
+      "after_status": "infeasible",
+      "before_ready_at": "2026-09-26T17:50:00+05:30",
+      "before_slack_sec": 5100,
+      "before_status": "feasible",
+      "causal_activity_path": [
+        "act:T1",
+        "act:T1-exit",
+        "act:C1",
+        "act:H1",
+        "act:C2",
+        "act:E1"
+      ],
+      "constraint_checks": [
+        {
+          "constraint_id": "constraint:act:E1:arrival_deadline",
+          "observed": {
+            "unit": "seconds",
+            "value": -5700,
+            "value_kind": "duration_sec"
+          },
+          "passed": false,
+          "provenance_ids": [],
+          "reason_code": "HARD_DEADLINE_MISSED",
+          "required": {
+            "unit": "seconds",
+            "value": 0,
+            "value_kind": "duration_sec"
+          }
+        }
+      ],
+      "cutoff_at": "2026-09-26T19:15:00+05:30",
+      "reason_codes": [
+        "HARD_DEADLINE_MISSED"
+      ],
+      "root_event_ids": [
+        "event:D1"
+      ]
+    }
+  ],
+  "overall_status": "infeasible",
+  "trip_version": 2
+}

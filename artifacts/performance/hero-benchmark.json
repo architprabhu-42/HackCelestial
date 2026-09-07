@@ -1,0 +1,37 @@
+{
+  "all_output_hashes_identical": true,
+  "canonical_output_hash": "e93535ca0b8301279d3698e59b16ed19cc9a2c765add239c79e98b276871cb4c",
+  "catalog": {
+    "horizon_end": "2026-09-27T05:00:00+05:30",
+    "max_new_fixed_legs": 2,
+    "max_transfer_legs": 8,
+    "services": 4,
+    "transfer_templates": 5
+  },
+  "duration_ms": {
+    "max": 14.8831,
+    "p50": 3.5673500000000002,
+    "p95": 4.8156
+  },
+  "measured_runs": 100,
+  "method": "real fixture \u2192 D1 timing event \u2192 shared impact evaluator \u2192 bounded recovery planner \u2192 canonical serialization",
+  "recorded_at": "2026-09-07T20:14:20.391627+00:00",
+  "result_status_counts": {
+    "complete": 100,
+    "partial_search": 0
+  },
+  "runtime": {
+    "cpu_count": 12,
+    "implementation": "CPython",
+    "machine": "AMD64",
+    "os": "Windows-11-10.0.26200-SP0",
+    "physical_memory_bytes": 16357158912,
+    "processor": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD",
+    "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]"
+  },
+  "scenario_id": "mumbai-goa-v2",
+  "schema_version": "resilitrip-performance-1.0",
+  "target_p95_ms": 1000.0,
+  "target_passed": true,
+  "warmup_runs": 5
+}

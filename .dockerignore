@@ -1,0 +1,12 @@
+.git
+.tools
+.uv-cache
+apps/api/.venv
+apps/api/.pytest_cache
+apps/api/**/__pycache__
+apps/web/node_modules
+apps/web/dist
+data/local
+.pytest-tmp
+artifacts
+

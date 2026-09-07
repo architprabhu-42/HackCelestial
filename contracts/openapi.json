@@ -1,0 +1,5453 @@
+{
+  "components": {
+    "schemas": {
+      "AccessibilityState": {
+        "enum": [
+          "suitable",
+          "unsuitable",
+          "unknown"
+        ],
+        "title": "AccessibilityState",
+        "type": "string"
+      },
+      "ActivityDefinition": {
+        "additionalProperties": false,
+        "properties": {
+          "booking_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Booking Id"
+          },
+          "derived_from_service_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Derived From Service Id"
+          },
+          "duration_sec": {
+            "anyOf": [
+              {
+                "maximum": 86400.0,
+                "minimum": 1.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Duration Sec"
+          },
+          "earliest_start": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Earliest Start"
+          },
+          "hard": {
+            "title": "Hard",
+            "type": "boolean"
+          },
+          "id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/ActivityKind"
+          },
+          "latest_start": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latest Start"
+          },
+          "location_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Location Id"
+          },
+          "provenance_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Provenance Id"
+          },
+          "readiness_allowance_sec": {
+            "anyOf": [
+              {
+                "maximum": 86400.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Readiness Allowance Sec"
+          },
+          "service_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Service Id"
+          },
+          "start_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start At"
+          },
+          "transfer_template_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Transfer Template Id"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "hard",
+          "booking_id",
+          "provenance_id"
+        ],
+        "title": "ActivityDefinition",
+        "type": "object"
+      },
+      "ActivityKind": {
+        "enum": [
+          "fixed_transport",
+          "flexible_transfer",
+          "processing",
+          "hotel_checkin",
+          "commitment"
+        ],
+        "title": "ActivityKind",
+        "type": "string"
+      },
+      "AdoptionCommand": {
+        "additionalProperties": false,
+        "properties": {
+          "acknowledge_simulation": {
+            "const": true,
+            "title": "Acknowledge Simulation",
+            "type": "boolean"
+          },
+          "expected_trip_version": {
+            "minimum": 1.0,
+            "title": "Expected Trip Version",
+            "type": "integer"
+          },
+          "plan_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Plan Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "expected_trip_version",
+          "plan_id",
+          "acknowledge_simulation"
+        ],
+        "title": "AdoptionCommand",
+        "type": "object"
+      },
+      "AdoptionRecord": {
+        "additionalProperties": false,
+        "properties": {
+          "acknowledge_simulation": {
+            "const": true,
+            "title": "Acknowledge Simulation",
+            "type": "boolean"
+          },
+          "adopted_at": {
+            "format": "date-time",
+            "title": "Adopted At",
+            "type": "string"
+          },
+          "catalog_version": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Catalog Version",
+            "type": "string"
+          },
+          "external_booking_executed": {
+            "const": false,
+            "title": "External Booking Executed",
+            "type": "boolean"
+          },
+          "id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Id",
+            "type": "string"
+          },
+          "plan_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Plan Id",
+            "type": "string"
+          },
+          "prior_trip_version": {
+            "minimum": 1.0,
+            "title": "Prior Trip Version",
+            "type": "integer"
+          },
+          "resulting_trip_version": {
+            "minimum": 2.0,
+            "title": "Resulting Trip Version",
+            "type": "integer"
+          },
+          "trip_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Trip Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "trip_id",
+          "plan_id",
+          "prior_trip_version",
+          "resulting_trip_version",
+          "catalog_version",
+          "adopted_at",
+          "acknowledge_simulation",
+          "external_booking_executed"
+        ],
+        "title": "AdoptionRecord",
+        "type": "object"
+      },
+      "AdoptionResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "adoption": {
+            "$ref": "#/components/schemas/AdoptionRecord"
+          },
+          "provider_actions": {
+            "items": {
+              "$ref": "#/components/schemas/ProviderAction"
+            },
+            "title": "Provider Actions",
+            "type": "array"
+          },
+          "snapshot": {
+            "$ref": "#/components/schemas/TripViewSnapshot"
+          }
+        },
+        "required": [
+          "adoption",
+          "provider_actions",
+          "snapshot"
+        ],
+        "title": "AdoptionResponse",
+        "type": "object"
+      },
+      "ApiErrorCode": {
+        "enum": [
+          "INVALID_JSON",
+          "INVALID_REQUEST",
+          "VALIDATION_ERROR",
+          "UNKNOWN_FIELD",
+          "MISSING_FIELD",
+          "INVALID_DISCRIMINATOR",
+          "INVALID_TIMEZONE",
+          "INVALID_MONEY",
+          "DUPLICATE_ID",
+          "REFERENCE_NOT_FOUND",
+          "INVALID_DEPENDENCY_GRAPH",
+          "INVALID_CURRENT_STATE",
+          "BASELINE_RECONCILIATION_FAILED",
+          "TRIP_NOT_FOUND",
+          "SCENARIO_NOT_FOUND",
+          "PLAN_NOT_FOUND",
+          "CATALOG_VERSION_CONFLICT",
+          "PROVENANCE_ID_CONFLICT",
+          "PLAN_EXPIRED",
+          "PLAN_NOT_ADOPTABLE",
+          "RESET_NOT_SUPPORTED",
+          "SIMULATION_ACKNOWLEDGEMENT_REQUIRED",
+          "REQUEST_TOO_LARGE",
+          "UNSUPPORTED_MEDIA_TYPE",
+          "INTERNAL_DATA_INTEGRITY_ERROR",
+          "INTERNAL_ERROR",
+          "SERVICE_UNAVAILABLE",
+          "EVENT_ID_CONFLICT",
+          "EVENT_SEQUENCE_STALE",
+          "VERSION_CONFLICT",
+          "STALE_PLAN",
+          "COMPLETED_ACTIVITY_IMMUTABLE",
+          "ACTIVE_ACTIVITY_IMMUTABLE",
+          "HARD_CHANGE_ACKNOWLEDGEMENT_REQUIRED",
+          "ITINERARY_EDIT_INVALID"
+        ],
+        "title": "ApiErrorCode",
+        "type": "string"
+      },
+      "AvailableActions": {
+        "additionalProperties": false,
+        "properties": {
+          "can_adopt_plan": {
+            "title": "Can Adopt Plan",
+            "type": "boolean"
+          },
+          "can_apply_event": {
+            "title": "Can Apply Event",
+            "type": "boolean"
+          },
+          "can_edit_constraints": {
+            "title": "Can Edit Constraints",
+            "type": "boolean"
+          },
+          "can_edit_current_state": {
+            "title": "Can Edit Current State",
+            "type": "boolean"
+          },
+          "can_edit_itinerary": {
+            "title": "Can Edit Itinerary",
+            "type": "boolean"
+          },
+          "can_generate_plans": {
+            "title": "Can Generate Plans",
+            "type": "boolean"
+          },
+          "can_reset": {
+            "title": "Can Reset",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "can_apply_event",
+          "can_edit_constraints",
+          "can_edit_current_state",
+          "can_edit_itinerary",
+          "can_generate_plans",
+          "can_adopt_plan",
+          "can_reset"
+        ],
+        "title": "AvailableActions",
+        "type": "object"
+      },
+      "Booking": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Id",
+            "type": "string"
+          },
+          "paid_paise": {
+            "maximum": 100000000.0,
+            "minimum": 0.0,
+            "title": "Paid Paise",
+            "type": "integer"
+          },
+          "policy_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Policy Id",
+            "type": "string"
+          },
+          "provenance_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Provenance Id",
+            "type": "string"
+          },
+          "remaining_paise": {
+            "maximum": 100000000.0,
+            "minimum": 0.0,
+            "title": "Remaining Paise",
+            "type": "integer"
+          },
+          "service_or_activity_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+              "type": "string"
+            },
+            "title": "Service Or Activity Ids",
+            "type": "array"
+          },
+          "state": {
+            "$ref": "#/components/schemas/BookingState"
+          }
+        },
+        "required": [
+          "id",
+          "state",
+          "service_or_activity_ids",
+          "paid_paise",
+          "remaining_paise",
+          "policy_id",
+          "provenance_id"
+        ],
+        "title": "Booking",
+        "type": "object"
+      },
+      "BookingState": {
+        "enum": [
+          "fictional",
+          "user_reported",
+          "provider_confirmed",
+          "cancelled"
+        ],
+        "title": "BookingState",
+        "type": "string"
+      },
+      "BooleanEvidenceValue": {
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unit"
+          },
+          "value": {
+            "title": "Value",
+            "type": "boolean"
+          },
+          "value_kind": {
+            "const": "boolean",
+            "title": "Value Kind",
+            "type": "string"
+          }
+        },
+        "required": [
+          "unit",
+          "value_kind",
+          "value"
+        ],
+        "title": "BooleanEvidenceValue",
+        "type": "object"
+      },
+      "ConstraintCheck": {
+        "additionalProperties": false,
+        "properties": {
+          "constraint_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Constraint Id",
+            "type": "string"
+          },
+          "observed": {
+            "$ref": "#/components/schemas/EvidenceValue"
+          },
+          "passed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Passed"
+          },
+          "provenance_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+              "type": "string"
+            },
+            "title": "Provenance Ids",
+            "type": "array"
+          },
+          "reason_code": {
+            "$ref": "#/components/schemas/DomainReasonCode"
+          },
+          "required": {
+            "$ref": "#/components/schemas/EvidenceValue"
+          }
+        },
+        "required": [
+          "constraint_id",
+          "passed",
+          "reason_code",
+          "observed",
+          "required",
+          "provenance_ids"
+        ],
+        "title": "ConstraintCheck",
+        "type": "object"
+      },
+      "Constraints": {
+        "additionalProperties": false,
+        "properties": {
+          "accessibility_required": {
+            "title": "Accessibility Required",
+            "type": "boolean"
+          },
+          "allowed_modes": {
+            "items": {
+              "$ref": "#/components/schemas/TransportMode"
+            },
+            "title": "Allowed Modes",
+            "type": "array"
+          },
+          "horizon_end": {
+            "format": "date-time",
+            "title": "Horizon End",
+            "type": "string"
+          },
+          "max_cash_required_paise": {
+            "maximum": 100000000.0,
+            "minimum": 0.0,
+            "title": "Max Cash Required Paise",
+            "type": "integer"
+          },
+          "max_incremental_cost_paise": {
+            "maximum": 100000000.0,
+            "minimum": 0.0,
+            "title": "Max Incremental Cost Paise",
+            "type": "integer"
+          },
+          "max_new_fixed_legs": {
+            "maximum": 2.0,
+            "minimum": 0.0,
+            "title": "Max New Fixed Legs",
+            "type": "integer"
+          },
+          "max_transfer_legs": {
+            "maximum": 8.0,
+            "minimum": 0.0,
+            "title": "Max Transfer Legs",
+            "type": "integer"
+          },
+          "party_size": {
+            "const": 1,
+            "title": "Party Size",
+            "type": "integer"
+          },
+          "ranking_preset": {
+            "$ref": "#/components/schemas/RankingPreset"
+          },
+          "required_commitment_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+              "type": "string"
+            },
+            "title": "Required Commitment Ids",
+            "type": "array"
+          },
+          "risk_threshold_sec": {
+            "maximum": 86400.0,
+            "minimum": 0.0,
+            "title": "Risk Threshold Sec",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "party_size",
+          "max_cash_required_paise",
+          "max_incremental_cost_paise",
+          "allowed_modes",
+          "required_commitment_ids",
+          "accessibility_required",
+          "ranking_preset",
+          "max_new_fixed_legs",
+          "max_transfer_legs",
+          "horizon_end",
+          "risk_threshold_sec"
+        ],
+        "title": "Constraints",
+        "type": "object"
+      },
+      "ConstraintsReplaceCommand": {
+        "additionalProperties": false,
+        "properties": {
+          "constraints": {
+            "$ref": "#/components/schemas/Constraints"
+          },
+          "expected_trip_version": {
+            "minimum": 1.0,
+            "title": "Expected Trip Version",
+            "type": "integer"
+          },
+          "provenance": {
+            "$ref": "#/components/schemas/ProvenanceRecord"
+          }
+        },
+        "required": [
+          "expected_trip_version",
+          "constraints",
+          "provenance"
+        ],
+        "title": "ConstraintsReplaceCommand",
+        "type": "object"
+      },
+      "CurrentState": {
+        "additionalProperties": false,
+        "properties": {
+          "active_service_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Service Id"
+          },
+          "as_of": {
+            "format": "date-time",
+            "title": "As Of",
+            "type": "string"
+          },
+          "completed_activity_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+              "type": "string"
+            },
+            "title": "Completed Activity Ids",
+            "type": "array"
+          },
+          "location_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Location Id"
+          },
+          "next_recovery_point_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Recovery Point Id"
+          },
+          "phase": {
+            "$ref": "#/components/schemas/TravelerPhase"
+          },
+          "provenance_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Provenance Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "as_of",
+          "location_id",
+          "phase",
+          "active_service_id",
+          "completed_activity_ids",
+          "next_recovery_point_id",
+          "provenance_id"
+        ],
+        "title": "CurrentState",
+        "type": "object"
+      },
+      "CurrentStateReplaceCommand": {
+        "additionalProperties": false,
+        "properties": {
+          "current_state": {
+            "$ref": "#/components/schemas/CurrentState"
+          },
+          "expected_trip_version": {
+            "minimum": 1.0,
+            "title": "Expected Trip Version",
+            "type": "integer"
+          },
+          "provenance": {
+            "$ref": "#/components/schemas/ProvenanceRecord"
+          }
+        },
+        "required": [
+          "expected_trip_version",
+          "current_state",
+          "provenance"
+        ],
+        "title": "CurrentStateReplaceCommand",
+        "type": "object"
+      },
+      "Dependency": {
+        "additionalProperties": false,
+        "properties": {
+          "buffer_sec": {
+            "maximum": 86400.0,
+            "minimum": 0.0,
+            "title": "Buffer Sec",
+            "type": "integer"
+          },
+          "from_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "From Id",
+            "type": "string"
+          },
+          "id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Id",
+            "type": "string"
+          },
+          "reason": {
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Reason",
+            "type": "string"
+          },
+          "to_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "To Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "from_id",
+          "to_id",
+          "buffer_sec",
+          "reason"
+        ],
+        "title": "Dependency",
+        "type": "object"
+      },
+      "DomainReasonCode": {
+        "enum": [
+          "HARD_DEADLINE_MISSED",
+          "LOW_POSITIVE_SLACK",
+          "SERVICE_CANCELLED",
+          "SERVICE_CUTOFF_MISSED",
+          "LOCATION_UNREACHABLE",
+          "CAPACITY_INSUFFICIENT",
+          "CAPACITY_UNKNOWN",
+          "ACTIVITY_WINDOW_MISSED",
+          "ACCESSIBILITY_UNSUITABLE",
+          "ACCESSIBILITY_UNKNOWN",
+          "CASH_LIMIT_EXCEEDED",
+          "EXTRA_COST_LIMIT_EXCEEDED",
+          "MODE_NOT_ALLOWED",
+          "SEARCH_HORIZON_EXCEEDED",
+          "MAX_FIXED_LEGS_EXCEEDED",
+          "MAX_TRANSFER_LEGS_EXCEEDED",
+          "REQUIRED_FACT_MISSING",
+          "UNSUPPORTED_CURRENT_STATE",
+          "STALE_PLAN",
+          "SEARCH_INCOMPLETE",
+          "INVALID_DEPENDENCY_GRAPH",
+          "DUPLICATE_EVENT",
+          "EVENT_ID_CONFLICT",
+          "EVENT_SEQUENCE_STALE",
+          "VERSION_CONFLICT",
+          "POLICY_CONFIRMATION_REQUIRED",
+          "HARD_CONSTRAINTS_PASS"
+        ],
+        "title": "DomainReasonCode",
+        "type": "string"
+      },
+      "DurationEvidenceValue": {
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unit"
+          },
+          "value": {
+            "maximum": 172800.0,
+            "minimum": -172800.0,
+            "title": "Value",
+            "type": "integer"
+          },
+          "value_kind": {
+            "const": "duration_sec",
+            "title": "Value Kind",
+            "type": "string"
+          }
+        },
+        "required": [
+          "unit",
+          "value_kind",
+          "value"
+        ],
+        "title": "DurationEvidenceValue",
+        "type": "object"
+      },
+      "EffectiveServiceState": {
+        "additionalProperties": false,
+        "properties": {
+          "effective_arrival": {
+            "format": "date-time",
+            "title": "Effective Arrival",
+            "type": "string"
+          },
+          "effective_departure": {
+            "format": "date-time",
+            "title": "Effective Departure",
+            "type": "string"
+          },
+          "last_event_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Event Id"
+          },
+          "provenance_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Provenance Id",
+            "type": "string"
+          },
+          "service_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Service Id",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ServiceStatus"
+          }
+        },
+        "required": [
+          "service_id",
+          "effective_departure",
+          "effective_arrival",
+          "status",
+          "last_event_id",
+          "provenance_id"
+        ],
+        "title": "EffectiveServiceState",
+        "type": "object"
+      },
+      "EntityIdEvidenceValue": {
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unit"
+          },
+          "value": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Value",
+            "type": "string"
+          },
+          "value_kind": {
+            "const": "entity_id",
+            "title": "Value Kind",
+            "type": "string"
+          }
+        },
+        "required": [
+          "unit",
+          "value_kind",
+          "value"
+        ],
+        "title": "EntityIdEvidenceValue",
+        "type": "object"
+      },
+      "EvaluatedActivity": {
+        "additionalProperties": false,
+        "properties": {
+          "activity_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Activity Id",
+            "type": "string"
+          },
+          "cutoff_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cutoff At"
+          },
+          "destination_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Destination Id"
+          },
+          "end_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End At"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/ActivityKind"
+          },
+          "origin_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Origin Id"
+          },
+          "provenance_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+              "type": "string"
+            },
+            "title": "Provenance Ids",
+            "type": "array"
+          },
+          "ready_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ready At"
+          },
+          "reason_codes": {
+            "items": {
+              "$ref": "#/components/schemas/DomainReasonCode"
+            },
+            "title": "Reason Codes",
+            "type": "array"
+          },
+          "service_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Service Id"
+          },
+          "slack_sec": {
+            "anyOf": [
+              {
+                "maximum": 172800.0,
+                "minimum": -172800.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Slack Sec"
+          },
+          "start_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start At"
+          },
+          "status": {
+            "$ref": "#/components/schemas/FeasibilityStatus"
+          },
+          "transfer_template_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Transfer Template Id"
+          }
+        },
+        "required": [
+          "activity_id",
+          "kind",
+          "service_id",
+          "transfer_template_id",
+          "origin_id",
+          "destination_id",
+          "start_at",
+          "end_at",
+          "ready_at",
+          "cutoff_at",
+          "slack_sec",
+          "status",
+          "reason_codes",
+          "provenance_ids"
+        ],
+        "title": "EvaluatedActivity",
+        "type": "object"
+      },
+      "EventResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "event_result": {
+            "$ref": "#/components/schemas/EventResult"
+          }
+        },
+        "required": [
+          "event_result"
+        ],
+        "title": "EventResponse",
+        "type": "object"
+      },
+      "EventResult": {
+        "additionalProperties": false,
+        "properties": {
+          "applied": {
+            "title": "Applied",
+            "type": "boolean"
+          },
+          "current_trip_version": {
+            "minimum": 1.0,
+            "title": "Current Trip Version",
+            "type": "integer"
+          },
+          "disposition": {
+            "enum": [
+              "applied",
+              "duplicate"
+            ],
+            "title": "Disposition",
+            "type": "string"
+          },
+          "event_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Event Id",
+            "type": "string"
+          },
+          "prior_trip_version": {
+            "minimum": 1.0,
+            "title": "Prior Trip Version",
+            "type": "integer"
+          },
+          "snapshot": {
+            "$ref": "#/components/schemas/TripViewSnapshot"
+          }
+        },
+        "required": [
+          "disposition",
+          "applied",
+          "event_id",
+          "prior_trip_version",
+          "current_trip_version",
+          "snapshot"
+        ],
+        "title": "EventResult",
+        "type": "object"
+      },
+      "EvidenceValue": {
+        "discriminator": {
+          "mapping": {
+            "boolean": "#/components/schemas/BooleanEvidenceValue",
+            "duration_sec": "#/components/schemas/DurationEvidenceValue",
+            "entity_id": "#/components/schemas/EntityIdEvidenceValue",
+            "integer": "#/components/schemas/IntegerEvidenceValue",
+            "money_paise": "#/components/schemas/MoneyEvidenceValue",
+            "string_list": "#/components/schemas/StringListEvidenceValue",
+            "text": "#/components/schemas/TextEvidenceValue",
+            "timestamp": "#/components/schemas/TimestampEvidenceValue",
+            "unknown": "#/components/schemas/UnknownEvidenceValue"
+          },
+          "propertyName": "value_kind"
+        },
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/UnknownEvidenceValue"
+          },
+          {
+            "$ref": "#/components/schemas/TimestampEvidenceValue"
+          },
+          {
+            "$ref": "#/components/schemas/DurationEvidenceValue"
+          },
+          {
+            "$ref": "#/components/schemas/MoneyEvidenceValue"
+          },
+          {
+            "$ref": "#/components/schemas/IntegerEvidenceValue"
+          },
+          {
+            "$ref": "#/components/schemas/BooleanEvidenceValue"
+          },
+          {
+            "$ref": "#/components/schemas/TextEvidenceValue"
+          },
+          {
+            "$ref": "#/components/schemas/EntityIdEvidenceValue"
+          },
+          {
+            "$ref": "#/components/schemas/StringListEvidenceValue"
+          }
+        ]
+      },
+      "FeasibilityStatus": {
+        "enum": [
+          "feasible",
+          "at_risk",
+          "infeasible",
+          "blocked",
+          "unknown"
+        ],
+        "title": "FeasibilityStatus",
+        "type": "string"
+      },
+      "FixedServiceMode": {
+        "enum": [
+          "rail",
+          "air",
+          "bus"
+        ],
+        "title": "FixedServiceMode",
+        "type": "string"
+      },
+      "FixtureTripCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "display_name": {
+            "anyOf": [
+              {
+                "maxLength": 120,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Display Name"
+          },
+          "scenario_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "source_type": {
+            "const": "fixture",
+            "title": "Source Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_type",
+          "scenario_id",
+          "display_name"
+        ],
+        "title": "FixtureTripCreate",
+        "type": "object"
+      },
+      "ImpactRecord": {
+        "additionalProperties": false,
+        "properties": {
+          "activity_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Activity Id",
+            "type": "string"
+          },
+          "after_ready_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "After Ready At"
+          },
+          "after_slack_sec": {
+            "anyOf": [
+              {
+                "maximum": 172800.0,
+                "minimum": -172800.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "After Slack Sec"
+          },
+          "after_status": {
+            "$ref": "#/components/schemas/FeasibilityStatus"
+          },
+          "before_ready_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Before Ready At"
+          },
+          "before_slack_sec": {
+            "anyOf": [
+              {
+                "maximum": 172800.0,
+                "minimum": -172800.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Before Slack Sec"
+          },
+          "before_status": {
+            "$ref": "#/components/schemas/FeasibilityStatus"
+          },
+          "causal_activity_path": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+              "type": "string"
+            },
+            "title": "Causal Activity Path",
+            "type": "array"
+          },
+          "constraint_checks": {
+            "items": {
+              "$ref": "#/components/schemas/ConstraintCheck"
+            },
+            "title": "Constraint Checks",
+            "type": "array"
+          },
+          "cutoff_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cutoff At"
+          },
+          "reason_codes": {
+            "items": {
+              "$ref": "#/components/schemas/DomainReasonCode"
+            },
+            "title": "Reason Codes",
+            "type": "array"
+          },
+          "root_event_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+              "type": "string"
+            },
+            "title": "Root Event Ids",
+            "type": "array"
+          }
+        },
+        "required": [
+          "activity_id",
+          "root_event_ids",
+          "causal_activity_path",
+          "before_status",
+          "after_status",
+          "before_ready_at",
+          "after_ready_at",
+          "cutoff_at",
+          "before_slack_sec",
+          "after_slack_sec",
+          "reason_codes",
+          "constraint_checks"
+        ],
+        "title": "ImpactRecord",
+        "type": "object"
+      },
+      "IntegerEvidenceValue": {
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unit"
+          },
+          "value": {
+            "title": "Value",
+            "type": "integer"
+          },
+          "value_kind": {
+            "const": "integer",
+            "title": "Value Kind",
+            "type": "string"
+          }
+        },
+        "required": [
+          "unit",
+          "value_kind",
+          "value"
+        ],
+        "title": "IntegerEvidenceValue",
+        "type": "object"
+      },
+      "ItineraryDefinition-Input": {
+        "additionalProperties": false,
+        "properties": {
+          "activities": {
+            "items": {
+              "$ref": "#/components/schemas/ActivityDefinition"
+            },
+            "title": "Activities",
+            "type": "array"
+          },
+          "dependencies": {
+            "items": {
+              "$ref": "#/components/schemas/Dependency"
+            },
+            "title": "Dependencies",
+            "type": "array"
+          }
+        },
+        "required": [
+          "activities",
+          "dependencies"
+        ],
+        "title": "ItineraryDefinition",
+        "type": "object"
+      },
+      "ItineraryDefinition-Output": {
+        "additionalProperties": false,
+        "properties": {
+          "activities": {
+            "items": {
+              "$ref": "#/components/schemas/ActivityDefinition"
+            },
+            "title": "Activities",
+            "type": "array"
+          },
+          "dependencies": {
+            "items": {
+              "$ref": "#/components/schemas/Dependency"
+            },
+            "title": "Dependencies",
+            "type": "array"
+          }
+        },
+        "required": [
+          "activities",
+          "dependencies"
+        ],
+        "title": "ItineraryDefinition",
+        "type": "object"
+      },
+      "ItineraryEditCommand": {
+        "additionalProperties": false,
+        "properties": {
+          "acknowledge_hard_changes": {
+            "title": "Acknowledge Hard Changes",
+            "type": "boolean"
+          },
+          "active_itinerary": {
+            "$ref": "#/components/schemas/ItineraryDefinition-Input"
+          },
+          "constraints": {
+            "$ref": "#/components/schemas/Constraints"
+          },
+          "expected_trip_version": {
+            "minimum": 1.0,
+            "title": "Expected Trip Version",
+            "type": "integer"
+          },
+          "provenance": {
+            "$ref": "#/components/schemas/ProvenanceRecord"
+          }
+        },
+        "required": [
+          "expected_trip_version",
+          "active_itinerary",
+          "constraints",
+          "acknowledge_hard_changes",
+          "provenance"
+        ],
+        "title": "ItineraryEditCommand",
+        "type": "object"
+      },
+      "LiveHealthResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "contract_version": {
+            "const": "resilitrip-api-1.0",
+            "default": "resilitrip-api-1.0",
+            "title": "Contract Version",
+            "type": "string"
+          },
+          "service": {
+            "const": "resilitrip",
+            "default": "resilitrip",
+            "title": "Service",
+            "type": "string"
+          },
+          "status": {
+            "const": "ok",
+            "default": "ok",
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "title": "LiveHealthResponse",
+        "type": "object"
+      },
+      "Location": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Code"
+          },
+          "field_provenance": {
+            "default": [],
+            "items": {},
+            "title": "Field Provenance",
+            "type": "array"
+          },
+          "id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/LocationKind"
+          },
+          "latitude": {
+            "maximum": 90.0,
+            "minimum": -90.0,
+            "title": "Latitude",
+            "type": "number"
+          },
+          "longitude": {
+            "maximum": 180.0,
+            "minimum": -180.0,
+            "title": "Longitude",
+            "type": "number"
+          },
+          "name": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "provenance_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Provenance Id",
+            "type": "string"
+          },
+          "terminal": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Terminal"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "name",
+          "code",
+          "terminal",
+          "latitude",
+          "longitude",
+          "provenance_id"
+        ],
+        "title": "Location",
+        "type": "object"
+      },
+      "LocationKind": {
+        "enum": [
+          "rail_station",
+          "airport_terminal",
+          "hotel",
+          "venue",
+          "generic_point"
+        ],
+        "title": "LocationKind",
+        "type": "string"
+      },
+      "ManualTripCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "baseline_money_items": {
+            "items": {
+              "$ref": "#/components/schemas/MoneyItem"
+            },
+            "title": "Baseline Money Items",
+            "type": "array"
+          },
+          "bookings": {
+            "items": {
+              "$ref": "#/components/schemas/Booking"
+            },
+            "title": "Bookings",
+            "type": "array"
+          },
+          "catalog": {
+            "$ref": "#/components/schemas/ServiceCatalog-Input"
+          },
+          "constraints": {
+            "$ref": "#/components/schemas/Constraints"
+          },
+          "constraints_provenance_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Constraints Provenance Id",
+            "type": "string"
+          },
+          "current_state": {
+            "$ref": "#/components/schemas/CurrentState"
+          },
+          "decision_allowance_sec": {
+            "title": "Decision Allowance Sec",
+            "type": "integer"
+          },
+          "display_timezone": {
+            "const": "Asia/Kolkata",
+            "title": "Display Timezone",
+            "type": "string"
+          },
+          "original_itinerary": {
+            "$ref": "#/components/schemas/ItineraryDefinition-Input"
+          },
+          "source_type": {
+            "const": "manual",
+            "title": "Source Type",
+            "type": "string"
+          },
+          "traveler": {
+            "$ref": "#/components/schemas/TravelerProfile"
+          },
+          "trip_provenance": {
+            "items": {
+              "$ref": "#/components/schemas/ProvenanceRecord"
+            },
+            "title": "Trip Provenance",
+            "type": "array"
+          }
+        },
+        "required": [
+          "source_type",
+          "display_timezone",
+          "decision_allowance_sec",
+          "traveler",
+          "catalog",
+          "current_state",
+          "constraints",
+          "original_itinerary",
+          "bookings",
+          "baseline_money_items",
+          "trip_provenance",
+          "constraints_provenance_id"
+        ],
+        "title": "ManualTripCreate",
+        "type": "object"
+      },
+      "MoneyCategory": {
+        "enum": [
+          "retained_charge",
+          "new_purchase",
+          "mandatory_fee",
+          "potential_refund",
+          "received_refund",
+          "sunk_cost"
+        ],
+        "title": "MoneyCategory",
+        "type": "string"
+      },
+      "MoneyEvidenceValue": {
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unit"
+          },
+          "value": {
+            "maximum": 100000000.0,
+            "minimum": -100000000.0,
+            "title": "Value",
+            "type": "integer"
+          },
+          "value_kind": {
+            "const": "money_paise",
+            "title": "Value Kind",
+            "type": "string"
+          }
+        },
+        "required": [
+          "unit",
+          "value_kind",
+          "value"
+        ],
+        "title": "MoneyEvidenceValue",
+        "type": "object"
+      },
+      "MoneyItem": {
+        "additionalProperties": false,
+        "properties": {
+          "amount_paise": {
+            "anyOf": [
+              {
+                "maximum": 100000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Amount Paise"
+          },
+          "booking_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Booking Id"
+          },
+          "category": {
+            "$ref": "#/components/schemas/MoneyCategory"
+          },
+          "id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Id",
+            "type": "string"
+          },
+          "payment_state": {
+            "$ref": "#/components/schemas/PaymentState"
+          },
+          "provenance_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Provenance Id",
+            "type": "string"
+          },
+          "service_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Service Id"
+          },
+          "transfer_template_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Transfer Template Id"
+          }
+        },
+        "required": [
+          "id",
+          "booking_id",
+          "service_id",
+          "transfer_template_id",
+          "category",
+          "payment_state",
+          "amount_paise",
+          "provenance_id"
+        ],
+        "title": "MoneyItem",
+        "type": "object"
+      },
+      "MutationResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "changed": {
+            "title": "Changed",
+            "type": "boolean"
+          },
+          "current_trip_version": {
+            "minimum": 1.0,
+            "title": "Current Trip Version",
+            "type": "integer"
+          },
+          "mutation_kind": {
+            "enum": [
+              "created",
+              "event",
+              "constraints",
+              "current_state",
+              "itinerary_edit",
+              "adoption",
+              "reset"
+            ],
+            "title": "Mutation Kind",
+            "type": "string"
+          },
+          "prior_trip_version": {
+            "minimum": 1.0,
+            "title": "Prior Trip Version",
+            "type": "integer"
+          },
+          "snapshot": {
+            "$ref": "#/components/schemas/TripViewSnapshot"
+          },
+          "staled_plan_count": {
+            "minimum": 0.0,
+            "title": "Staled Plan Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "mutation_kind",
+          "changed",
+          "prior_trip_version",
+          "current_trip_version",
+          "staled_plan_count",
+          "snapshot"
+        ],
+        "title": "MutationResponse",
+        "type": "object"
+      },
+      "PaymentState": {
+        "enum": [
+          "paid",
+          "due",
+          "potential"
+        ],
+        "title": "PaymentState",
+        "type": "string"
+      },
+      "PlanEvaluation": {
+        "additionalProperties": false,
+        "properties": {
+          "activity_sequence": {
+            "items": {
+              "$ref": "#/components/schemas/EvaluatedActivity"
+            },
+            "title": "Activity Sequence",
+            "type": "array"
+          },
+          "bookable": {
+            "const": false,
+            "title": "Bookable",
+            "type": "boolean"
+          },
+          "cash_required_paise": {
+            "maximum": 100000000.0,
+            "minimum": 0.0,
+            "title": "Cash Required Paise",
+            "type": "integer"
+          },
+          "catalog_version": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Catalog Version",
+            "type": "string"
+          },
+          "changed_original_booking_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+              "type": "string"
+            },
+            "title": "Changed Original Booking Ids",
+            "type": "array"
+          },
+          "constraint_checks": {
+            "items": {
+              "$ref": "#/components/schemas/ConstraintCheck"
+            },
+            "title": "Constraint Checks",
+            "type": "array"
+          },
+          "display_rank": {
+            "anyOf": [
+              {
+                "minimum": 1.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Display Rank"
+          },
+          "evaluation_status": {
+            "$ref": "#/components/schemas/FeasibilityStatus"
+          },
+          "event_slack_sec": {
+            "maximum": 172800.0,
+            "minimum": -172800.0,
+            "title": "Event Slack Sec",
+            "type": "integer"
+          },
+          "final_required_arrival_at": {
+            "format": "date-time",
+            "title": "Final Required Arrival At",
+            "type": "string"
+          },
+          "frontier_member": {
+            "title": "Frontier Member",
+            "type": "boolean"
+          },
+          "id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Id",
+            "type": "string"
+          },
+          "incremental_cost_paise": {
+            "maximum": 100000000.0,
+            "minimum": -100000000.0,
+            "title": "Incremental Cost Paise",
+            "type": "integer"
+          },
+          "lifecycle_status": {
+            "$ref": "#/components/schemas/PlanLifecycleStatus"
+          },
+          "money_items": {
+            "items": {
+              "$ref": "#/components/schemas/MoneyItem"
+            },
+            "title": "Money Items",
+            "type": "array"
+          },
+          "objective_values": {
+            "$ref": "#/components/schemas/PlanObjectiveValues"
+          },
+          "potential_refund_paise": {
+            "anyOf": [
+              {
+                "maximum": 100000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Potential Refund Paise"
+          },
+          "proposed_itinerary": {
+            "$ref": "#/components/schemas/ItineraryDefinition-Output"
+          },
+          "provenance_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+              "type": "string"
+            },
+            "title": "Provenance Ids",
+            "type": "array"
+          },
+          "ranking_reason_code": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RankingReasonCode"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reason_codes": {
+            "items": {
+              "$ref": "#/components/schemas/DomainReasonCode"
+            },
+            "title": "Reason Codes",
+            "type": "array"
+          },
+          "run_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Run Id"
+          },
+          "sequence_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+              "type": "string"
+            },
+            "title": "Sequence Ids",
+            "type": "array"
+          },
+          "sequence_signature": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Sequence Signature",
+            "type": "string"
+          },
+          "service_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+              "type": "string"
+            },
+            "title": "Service Ids",
+            "type": "array"
+          },
+          "simulated": {
+            "const": true,
+            "title": "Simulated",
+            "type": "boolean"
+          },
+          "transfer_template_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+              "type": "string"
+            },
+            "title": "Transfer Template Ids",
+            "type": "array"
+          },
+          "trip_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Trip Id",
+            "type": "string"
+          },
+          "trip_version": {
+            "minimum": 1.0,
+            "title": "Trip Version",
+            "type": "integer"
+          },
+          "valid_until": {
+            "format": "date-time",
+            "title": "Valid Until",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "trip_id",
+          "trip_version",
+          "catalog_version",
+          "run_id",
+          "lifecycle_status",
+          "evaluation_status",
+          "valid_until",
+          "sequence_ids",
+          "sequence_signature",
+          "proposed_itinerary",
+          "activity_sequence",
+          "service_ids",
+          "transfer_template_ids",
+          "money_items",
+          "cash_required_paise",
+          "incremental_cost_paise",
+          "potential_refund_paise",
+          "final_required_arrival_at",
+          "event_slack_sec",
+          "changed_original_booking_ids",
+          "constraint_checks",
+          "provenance_ids",
+          "objective_values",
+          "frontier_member",
+          "display_rank",
+          "ranking_reason_code",
+          "simulated",
+          "bookable",
+          "reason_codes"
+        ],
+        "title": "PlanEvaluation",
+        "type": "object"
+      },
+      "PlanLifecycleStatus": {
+        "enum": [
+          "preview",
+          "adopted",
+          "stale"
+        ],
+        "title": "PlanLifecycleStatus",
+        "type": "string"
+      },
+      "PlanObjectiveValues": {
+        "additionalProperties": false,
+        "properties": {
+          "cash_required_paise": {
+            "maximum": 100000000.0,
+            "minimum": 0.0,
+            "title": "Cash Required Paise",
+            "type": "integer"
+          },
+          "changed_original_booking_count": {
+            "maximum": 50.0,
+            "minimum": 0.0,
+            "title": "Changed Original Booking Count",
+            "type": "integer"
+          },
+          "final_required_arrival_at": {
+            "format": "date-time",
+            "title": "Final Required Arrival At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "cash_required_paise",
+          "final_required_arrival_at",
+          "changed_original_booking_count"
+        ],
+        "title": "PlanObjectiveValues",
+        "type": "object"
+      },
+      "PlannerCommand": {
+        "additionalProperties": false,
+        "properties": {
+          "expected_catalog_version": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Expected Catalog Version",
+            "type": "string"
+          },
+          "expected_trip_version": {
+            "minimum": 1.0,
+            "title": "Expected Trip Version",
+            "type": "integer"
+          },
+          "ranking_preset": {
+            "$ref": "#/components/schemas/RankingPreset"
+          }
+        },
+        "required": [
+          "expected_trip_version",
+          "expected_catalog_version",
+          "ranking_preset"
+        ],
+        "title": "PlannerCommand",
+        "type": "object"
+      },
+      "PlannerCounts": {
+        "additionalProperties": false,
+        "properties": {
+          "complete_paths": {
+            "minimum": 0.0,
+            "title": "Complete Paths",
+            "type": "integer"
+          },
+          "displayed_total": {
+            "minimum": 0.0,
+            "title": "Displayed Total",
+            "type": "integer"
+          },
+          "duplicate_paths": {
+            "minimum": 0.0,
+            "title": "Duplicate Paths",
+            "type": "integer"
+          },
+          "feasible_total": {
+            "minimum": 0.0,
+            "title": "Feasible Total",
+            "type": "integer"
+          },
+          "frontier_total": {
+            "minimum": 0.0,
+            "title": "Frontier Total",
+            "type": "integer"
+          },
+          "pruned_by_reason": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "propertyNames": {
+              "$ref": "#/components/schemas/DomainReasonCode"
+            },
+            "title": "Pruned By Reason",
+            "type": "object"
+          },
+          "rejected_total": {
+            "minimum": 0.0,
+            "title": "Rejected Total",
+            "type": "integer"
+          },
+          "states_expanded": {
+            "minimum": 0.0,
+            "title": "States Expanded",
+            "type": "integer"
+          },
+          "uncertain_total": {
+            "minimum": 0.0,
+            "title": "Uncertain Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "states_expanded",
+          "complete_paths",
+          "duplicate_paths",
+          "feasible_total",
+          "uncertain_total",
+          "rejected_total",
+          "frontier_total",
+          "displayed_total",
+          "pruned_by_reason"
+        ],
+        "title": "PlannerCounts",
+        "type": "object"
+      },
+      "PlannerResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "catalog_version": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Catalog Version",
+            "type": "string"
+          },
+          "planner_result": {
+            "$ref": "#/components/schemas/PlannerResult"
+          },
+          "snapshot_version": {
+            "minimum": 1.0,
+            "title": "Snapshot Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "planner_result",
+          "snapshot_version",
+          "catalog_version"
+        ],
+        "title": "PlannerResponse",
+        "type": "object"
+      },
+      "PlannerResult": {
+        "additionalProperties": false,
+        "properties": {
+          "catalog_version": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Catalog Version",
+            "type": "string"
+          },
+          "counts": {
+            "$ref": "#/components/schemas/PlannerCounts"
+          },
+          "feasible_plans": {
+            "items": {
+              "$ref": "#/components/schemas/PlanEvaluation"
+            },
+            "title": "Feasible Plans",
+            "type": "array"
+          },
+          "interruption_reason": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DomainReasonCode"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "ranking_preset": {
+            "$ref": "#/components/schemas/RankingPreset"
+          },
+          "rejected_plans": {
+            "items": {
+              "$ref": "#/components/schemas/PlanEvaluation"
+            },
+            "title": "Rejected Plans",
+            "type": "array"
+          },
+          "result_status": {
+            "$ref": "#/components/schemas/PlannerResultStatus"
+          },
+          "run_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Run Id",
+            "type": "string"
+          },
+          "runtime_ms": {
+            "minimum": 0.0,
+            "title": "Runtime Ms",
+            "type": "number"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/SearchScope"
+          },
+          "search_complete": {
+            "title": "Search Complete",
+            "type": "boolean"
+          },
+          "trip_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Trip Id",
+            "type": "string"
+          },
+          "trip_version": {
+            "minimum": 1.0,
+            "title": "Trip Version",
+            "type": "integer"
+          },
+          "uncertain_plans": {
+            "items": {
+              "$ref": "#/components/schemas/PlanEvaluation"
+            },
+            "title": "Uncertain Plans",
+            "type": "array"
+          }
+        },
+        "required": [
+          "run_id",
+          "trip_id",
+          "trip_version",
+          "catalog_version",
+          "ranking_preset",
+          "result_status",
+          "search_complete",
+          "interruption_reason",
+          "scope",
+          "counts",
+          "runtime_ms",
+          "feasible_plans",
+          "uncertain_plans",
+          "rejected_plans"
+        ],
+        "title": "PlannerResult",
+        "type": "object"
+      },
+      "PlannerResultStatus": {
+        "enum": [
+          "complete",
+          "no_feasible_catalog_plan",
+          "needs_input",
+          "partial_search",
+          "error"
+        ],
+        "title": "PlannerResultStatus",
+        "type": "string"
+      },
+      "PolicyRecord": {
+        "additionalProperties": false,
+        "properties": {
+          "abandon_before_pickup_fee_paise": {
+            "anyOf": [
+              {
+                "maximum": 100000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Abandon Before Pickup Fee Paise"
+          },
+          "additional_checkin_fee_paise": {
+            "anyOf": [
+              {
+                "maximum": 100000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Additional Checkin Fee Paise"
+          },
+          "additional_fee_paise": {
+            "anyOf": [
+              {
+                "maximum": 100000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Additional Fee Paise"
+          },
+          "calculation_allowed": {
+            "title": "Calculation Allowed",
+            "type": "boolean"
+          },
+          "conflict": {
+            "title": "Conflict",
+            "type": "boolean"
+          },
+          "exclusions": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Exclusions",
+            "type": "array"
+          },
+          "id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Id",
+            "type": "string"
+          },
+          "listed_fare_due_if_selected": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Listed Fare Due If Selected"
+          },
+          "paid_paise": {
+            "anyOf": [
+              {
+                "maximum": 100000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paid Paise"
+          },
+          "policy_kind": {
+            "enum": [
+              "flexible_transfer_fictional",
+              "hotel_retained_fictional",
+              "new_fixed_service_fictional",
+              "provider_guidance"
+            ],
+            "title": "Policy Kind",
+            "type": "string"
+          },
+          "provenance_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Provenance Id",
+            "type": "string"
+          },
+          "required_inputs": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Required Inputs",
+            "type": "array"
+          },
+          "result": {
+            "anyOf": [
+              {
+                "const": "needs_provider_confirmation",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Result"
+          },
+          "scope": {
+            "maxLength": 160,
+            "minLength": 1,
+            "title": "Scope",
+            "type": "string"
+          },
+          "selected_price_due": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Selected Price Due"
+          },
+          "source_class": {
+            "enum": [
+              "synthetic",
+              "official_guidance",
+              "user_reported"
+            ],
+            "title": "Source Class",
+            "type": "string"
+          },
+          "verification": {
+            "$ref": "#/components/schemas/VerificationState"
+          }
+        },
+        "required": [
+          "id",
+          "policy_kind",
+          "source_class",
+          "scope",
+          "verification",
+          "conflict",
+          "calculation_allowed",
+          "provenance_id"
+        ],
+        "title": "PolicyRecord",
+        "type": "object"
+      },
+      "ProblemDetail": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/ApiErrorCode"
+          },
+          "current_catalog_version": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Current Catalog Version"
+          },
+          "current_trip_version": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Current Trip Version"
+          },
+          "field_errors": {
+            "default": [],
+            "items": {
+              "$ref": "#/components/schemas/ProblemFieldError"
+            },
+            "title": "Field Errors",
+            "type": "array"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          },
+          "request_id": {
+            "title": "Request Id",
+            "type": "string"
+          },
+          "retryable": {
+            "title": "Retryable",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "request_id",
+          "retryable"
+        ],
+        "title": "ProblemDetail",
+        "type": "object"
+      },
+      "ProblemFieldError": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "title": "Code",
+            "type": "string"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          },
+          "path": {
+            "title": "Path",
+            "type": "string"
+          },
+          "rejected_value": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EvidenceValue"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "path",
+          "code",
+          "message"
+        ],
+        "title": "ProblemFieldError",
+        "type": "object"
+      },
+      "ProblemResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ProblemDetail"
+          }
+        },
+        "required": [
+          "error"
+        ],
+        "title": "ProblemResponse",
+        "type": "object"
+      },
+      "ProvenanceKind": {
+        "enum": [
+          "synthetic",
+          "user_reported",
+          "official_replay",
+          "authorized_live",
+          "estimate"
+        ],
+        "title": "ProvenanceKind",
+        "type": "string"
+      },
+      "ProvenanceRecord": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/ProvenanceKind"
+          },
+          "observed_at": {
+            "format": "date-time",
+            "title": "Observed At",
+            "type": "string"
+          },
+          "retrieved_at": {
+            "format": "date-time",
+            "title": "Retrieved At",
+            "type": "string"
+          },
+          "source_ref": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Source Ref",
+            "type": "string"
+          },
+          "valid_until": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Valid Until"
+          },
+          "verification": {
+            "$ref": "#/components/schemas/VerificationState"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "verification",
+          "observed_at",
+          "retrieved_at",
+          "valid_until",
+          "source_ref"
+        ],
+        "title": "ProvenanceRecord",
+        "type": "object"
+      },
+      "ProviderAction": {
+        "additionalProperties": false,
+        "properties": {
+          "handoff_available": {
+            "title": "Handoff Available",
+            "type": "boolean"
+          },
+          "id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Id",
+            "type": "string"
+          },
+          "provider_key": {
+            "enum": [
+              "indian_rail_enquiry",
+              "airline_or_ota",
+              "hotel",
+              "local_transfer"
+            ],
+            "title": "Provider Key",
+            "type": "string"
+          },
+          "reason": {
+            "maxLength": 240,
+            "minLength": 1,
+            "title": "Reason",
+            "type": "string"
+          },
+          "required_before_external_change": {
+            "title": "Required Before External Change",
+            "type": "boolean"
+          },
+          "status": {
+            "const": "not_started",
+            "title": "Status",
+            "type": "string"
+          },
+          "title": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "provider_key",
+          "status",
+          "required_before_external_change",
+          "reason",
+          "handoff_available"
+        ],
+        "title": "ProviderAction",
+        "type": "object"
+      },
+      "RankingPreset": {
+        "enum": [
+          "cheapest",
+          "fastest",
+          "fewest_changes"
+        ],
+        "title": "RankingPreset",
+        "type": "string"
+      },
+      "RankingReasonCode": {
+        "enum": [
+          "LOWEST_CASH_ON_FRONTIER",
+          "EARLIEST_ARRIVAL_ON_FRONTIER",
+          "FEWEST_CHANGES_ON_FRONTIER",
+          "TIE_BROKEN_BY_CASH",
+          "TIE_BROKEN_BY_ARRIVAL",
+          "TIE_BROKEN_BY_CHANGES",
+          "TIE_BROKEN_BY_PLAN_ID"
+        ],
+        "title": "RankingReasonCode",
+        "type": "string"
+      },
+      "ReadyHealthResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "contract_version": {
+            "const": "resilitrip-api-1.0",
+            "default": "resilitrip-api-1.0",
+            "title": "Contract Version",
+            "type": "string"
+          },
+          "database": {
+            "const": "ok",
+            "default": "ok",
+            "title": "Database",
+            "type": "string"
+          },
+          "installed_scenario_count": {
+            "minimum": 0.0,
+            "title": "Installed Scenario Count",
+            "type": "integer"
+          },
+          "schema_revision": {
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Schema Revision",
+            "type": "string"
+          },
+          "service": {
+            "const": "resilitrip",
+            "default": "resilitrip",
+            "title": "Service",
+            "type": "string"
+          },
+          "status": {
+            "const": "ok",
+            "default": "ok",
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "schema_revision",
+          "installed_scenario_count"
+        ],
+        "title": "ReadyHealthResponse",
+        "type": "object"
+      },
+      "ResetCommand": {
+        "additionalProperties": false,
+        "properties": {
+          "expected_trip_version": {
+            "minimum": 1.0,
+            "title": "Expected Trip Version",
+            "type": "integer"
+          },
+          "scenario_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Scenario Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "expected_trip_version",
+          "scenario_id"
+        ],
+        "title": "ResetCommand",
+        "type": "object"
+      },
+      "ScenarioSummary": {
+        "additionalProperties": false,
+        "properties": {
+          "available": {
+            "title": "Available",
+            "type": "boolean"
+          },
+          "catalog_version": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Catalog Version",
+            "type": "string"
+          },
+          "currency": {
+            "const": "INR",
+            "title": "Currency",
+            "type": "string"
+          },
+          "display_timezone": {
+            "const": "Asia/Kolkata",
+            "title": "Display Timezone",
+            "type": "string"
+          },
+          "id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "truth_label": {
+            "title": "Truth Label",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "catalog_version",
+          "display_timezone",
+          "currency",
+          "truth_label",
+          "available"
+        ],
+        "title": "ScenarioSummary",
+        "type": "object"
+      },
+      "SearchScope": {
+        "additionalProperties": false,
+        "properties": {
+          "catalog_version": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Catalog Version",
+            "type": "string"
+          },
+          "horizon_end": {
+            "format": "date-time",
+            "title": "Horizon End",
+            "type": "string"
+          },
+          "max_activities": {
+            "const": 20,
+            "title": "Max Activities",
+            "type": "integer"
+          },
+          "max_catalog_services": {
+            "maximum": 50.0,
+            "minimum": 0.0,
+            "title": "Max Catalog Services",
+            "type": "integer"
+          },
+          "max_new_fixed_legs": {
+            "maximum": 2.0,
+            "minimum": 0.0,
+            "title": "Max New Fixed Legs",
+            "type": "integer"
+          },
+          "max_transfer_legs": {
+            "maximum": 8.0,
+            "minimum": 0.0,
+            "title": "Max Transfer Legs",
+            "type": "integer"
+          },
+          "replay_as_of": {
+            "format": "date-time",
+            "title": "Replay As Of",
+            "type": "string"
+          }
+        },
+        "required": [
+          "catalog_version",
+          "replay_as_of",
+          "horizon_end",
+          "max_catalog_services",
+          "max_new_fixed_legs",
+          "max_transfer_legs",
+          "max_activities"
+        ],
+        "title": "SearchScope",
+        "type": "object"
+      },
+      "ServiceCancelledEvent": {
+        "additionalProperties": false,
+        "properties": {
+          "effective_at": {
+            "format": "date-time",
+            "title": "Effective At",
+            "type": "string"
+          },
+          "event_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Event Id",
+            "type": "string"
+          },
+          "expected_trip_version": {
+            "minimum": 1.0,
+            "title": "Expected Trip Version",
+            "type": "integer"
+          },
+          "observed_at": {
+            "format": "date-time",
+            "title": "Observed At",
+            "type": "string"
+          },
+          "provenance": {
+            "$ref": "#/components/schemas/ProvenanceRecord"
+          },
+          "service_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Service Id",
+            "type": "string"
+          },
+          "source_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Source Id",
+            "type": "string"
+          },
+          "source_sequence": {
+            "minimum": 1.0,
+            "title": "Source Sequence",
+            "type": "integer"
+          },
+          "type": {
+            "const": "SERVICE_CANCELLED",
+            "title": "Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "event_id",
+          "source_id",
+          "source_sequence",
+          "expected_trip_version",
+          "type",
+          "service_id",
+          "observed_at",
+          "effective_at",
+          "provenance"
+        ],
+        "title": "ServiceCancelledEvent",
+        "type": "object"
+      },
+      "ServiceCatalog-Input": {
+        "additionalProperties": false,
+        "properties": {
+          "catalog_version": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Catalog Version",
+            "type": "string"
+          },
+          "currency": {
+            "const": "INR",
+            "title": "Currency",
+            "type": "string"
+          },
+          "display_timezone": {
+            "const": "Asia/Kolkata",
+            "title": "Display Timezone",
+            "type": "string"
+          },
+          "locations": {
+            "items": {
+              "$ref": "#/components/schemas/Location"
+            },
+            "title": "Locations",
+            "type": "array"
+          },
+          "policies": {
+            "items": {
+              "$ref": "#/components/schemas/PolicyRecord"
+            },
+            "title": "Policies",
+            "type": "array"
+          },
+          "provenance": {
+            "items": {
+              "$ref": "#/components/schemas/ProvenanceRecord"
+            },
+            "title": "Provenance",
+            "type": "array"
+          },
+          "scenario_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scenario Id"
+          },
+          "schema_version": {
+            "const": "resilitrip-api-1.0",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "services": {
+            "items": {
+              "$ref": "#/components/schemas/ServiceDefinition"
+            },
+            "title": "Services",
+            "type": "array"
+          },
+          "transfer_templates": {
+            "items": {
+              "$ref": "#/components/schemas/TransferTemplate"
+            },
+            "title": "Transfer Templates",
+            "type": "array"
+          }
+        },
+        "required": [
+          "schema_version",
+          "catalog_version",
+          "scenario_id",
+          "currency",
+          "display_timezone",
+          "locations",
+          "services",
+          "transfer_templates",
+          "policies",
+          "provenance"
+        ],
+        "title": "ServiceCatalog",
+        "type": "object"
+      },
+      "ServiceCatalog-Output": {
+        "additionalProperties": false,
+        "properties": {
+          "catalog_version": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Catalog Version",
+            "type": "string"
+          },
+          "currency": {
+            "const": "INR",
+            "title": "Currency",
+            "type": "string"
+          },
+          "display_timezone": {
+            "const": "Asia/Kolkata",
+            "title": "Display Timezone",
+            "type": "string"
+          },
+          "locations": {
+            "items": {
+              "$ref": "#/components/schemas/Location"
+            },
+            "title": "Locations",
+            "type": "array"
+          },
+          "policies": {
+            "items": {
+              "$ref": "#/components/schemas/PolicyRecord"
+            },
+            "title": "Policies",
+            "type": "array"
+          },
+          "provenance": {
+            "items": {
+              "$ref": "#/components/schemas/ProvenanceRecord"
+            },
+            "title": "Provenance",
+            "type": "array"
+          },
+          "scenario_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scenario Id"
+          },
+          "schema_version": {
+            "const": "resilitrip-api-1.0",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "services": {
+            "items": {
+              "$ref": "#/components/schemas/ServiceDefinition"
+            },
+            "title": "Services",
+            "type": "array"
+          },
+          "transfer_templates": {
+            "items": {
+              "$ref": "#/components/schemas/TransferTemplate"
+            },
+            "title": "Transfer Templates",
+            "type": "array"
+          }
+        },
+        "required": [
+          "schema_version",
+          "catalog_version",
+          "scenario_id",
+          "currency",
+          "display_timezone",
+          "locations",
+          "services",
+          "transfer_templates",
+          "policies",
+          "provenance"
+        ],
+        "title": "ServiceCatalog",
+        "type": "object"
+      },
+      "ServiceDefinition": {
+        "additionalProperties": false,
+        "properties": {
+          "capacity": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Capacity"
+          },
+          "destination_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Destination Id",
+            "type": "string"
+          },
+          "display_code": {
+            "maxLength": 24,
+            "minLength": 1,
+            "title": "Display Code",
+            "type": "string"
+          },
+          "exit_allowance_sec": {
+            "maximum": 86400.0,
+            "minimum": 0.0,
+            "title": "Exit Allowance Sec",
+            "type": "integer"
+          },
+          "field_provenance": {
+            "default": [],
+            "items": {},
+            "title": "Field Provenance",
+            "type": "array"
+          },
+          "id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Id",
+            "type": "string"
+          },
+          "mode": {
+            "$ref": "#/components/schemas/FixedServiceMode"
+          },
+          "origin_allowance_sec": {
+            "maximum": 86400.0,
+            "minimum": 0.0,
+            "title": "Origin Allowance Sec",
+            "type": "integer"
+          },
+          "origin_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Origin Id",
+            "type": "string"
+          },
+          "policy_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Policy Id",
+            "type": "string"
+          },
+          "price_paise": {
+            "anyOf": [
+              {
+                "maximum": 100000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Price Paise"
+          },
+          "price_state": {
+            "$ref": "#/components/schemas/ServicePriceState"
+          },
+          "provenance_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Provenance Id",
+            "type": "string"
+          },
+          "scheduled_arrival": {
+            "format": "date-time",
+            "title": "Scheduled Arrival",
+            "type": "string"
+          },
+          "scheduled_departure": {
+            "format": "date-time",
+            "title": "Scheduled Departure",
+            "type": "string"
+          },
+          "service_date": {
+            "title": "Service Date",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "display_code",
+          "mode",
+          "service_date",
+          "origin_id",
+          "destination_id",
+          "scheduled_departure",
+          "scheduled_arrival",
+          "origin_allowance_sec",
+          "exit_allowance_sec",
+          "capacity",
+          "price_paise",
+          "price_state",
+          "policy_id",
+          "provenance_id"
+        ],
+        "title": "ServiceDefinition",
+        "type": "object"
+      },
+      "ServicePriceState": {
+        "enum": [
+          "paid",
+          "due_if_selected"
+        ],
+        "title": "ServicePriceState",
+        "type": "string"
+      },
+      "ServiceStatus": {
+        "enum": [
+          "scheduled",
+          "delayed",
+          "cancelled"
+        ],
+        "title": "ServiceStatus",
+        "type": "string"
+      },
+      "StringListEvidenceValue": {
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unit"
+          },
+          "value": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 20,
+            "title": "Value",
+            "type": "array"
+          },
+          "value_kind": {
+            "const": "string_list",
+            "title": "Value Kind",
+            "type": "string"
+          }
+        },
+        "required": [
+          "unit",
+          "value_kind",
+          "value"
+        ],
+        "title": "StringListEvidenceValue",
+        "type": "object"
+      },
+      "TextEvidenceValue": {
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unit"
+          },
+          "value": {
+            "maxLength": 200,
+            "title": "Value",
+            "type": "string"
+          },
+          "value_kind": {
+            "const": "text",
+            "title": "Value Kind",
+            "type": "string"
+          }
+        },
+        "required": [
+          "unit",
+          "value_kind",
+          "value"
+        ],
+        "title": "TextEvidenceValue",
+        "type": "object"
+      },
+      "TimestampEvidenceValue": {
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unit"
+          },
+          "value": {
+            "format": "date-time",
+            "title": "Value",
+            "type": "string"
+          },
+          "value_kind": {
+            "const": "timestamp",
+            "title": "Value Kind",
+            "type": "string"
+          }
+        },
+        "required": [
+          "unit",
+          "value_kind",
+          "value"
+        ],
+        "title": "TimestampEvidenceValue",
+        "type": "object"
+      },
+      "TimingReplayEvent": {
+        "additionalProperties": false,
+        "properties": {
+          "effective_at": {
+            "format": "date-time",
+            "title": "Effective At",
+            "type": "string"
+          },
+          "event_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Event Id",
+            "type": "string"
+          },
+          "expected_trip_version": {
+            "minimum": 1.0,
+            "title": "Expected Trip Version",
+            "type": "integer"
+          },
+          "new_arrival_at": {
+            "format": "date-time",
+            "title": "New Arrival At",
+            "type": "string"
+          },
+          "new_departure_at": {
+            "format": "date-time",
+            "title": "New Departure At",
+            "type": "string"
+          },
+          "observed_at": {
+            "format": "date-time",
+            "title": "Observed At",
+            "type": "string"
+          },
+          "provenance": {
+            "$ref": "#/components/schemas/ProvenanceRecord"
+          },
+          "service_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Service Id",
+            "type": "string"
+          },
+          "source_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Source Id",
+            "type": "string"
+          },
+          "source_sequence": {
+            "minimum": 1.0,
+            "title": "Source Sequence",
+            "type": "integer"
+          },
+          "type": {
+            "const": "SERVICE_TIMING_UPDATED",
+            "title": "Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "event_id",
+          "source_id",
+          "source_sequence",
+          "expected_trip_version",
+          "type",
+          "service_id",
+          "observed_at",
+          "effective_at",
+          "new_departure_at",
+          "new_arrival_at",
+          "provenance"
+        ],
+        "title": "TimingReplayEvent",
+        "type": "object"
+      },
+      "TransferTemplate": {
+        "additionalProperties": false,
+        "properties": {
+          "accessibility": {
+            "$ref": "#/components/schemas/AccessibilityState"
+          },
+          "capacity": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Capacity"
+          },
+          "destination_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Destination Id",
+            "type": "string"
+          },
+          "display_code": {
+            "maxLength": 32,
+            "minLength": 1,
+            "title": "Display Code",
+            "type": "string"
+          },
+          "duration_sec": {
+            "maximum": 86400.0,
+            "minimum": 1.0,
+            "title": "Duration Sec",
+            "type": "integer"
+          },
+          "field_provenance": {
+            "default": [],
+            "items": {},
+            "title": "Field Provenance",
+            "type": "array"
+          },
+          "id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Id",
+            "type": "string"
+          },
+          "latest_start": {
+            "format": "date-time",
+            "title": "Latest Start",
+            "type": "string"
+          },
+          "origin_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Origin Id",
+            "type": "string"
+          },
+          "policy_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Policy Id",
+            "type": "string"
+          },
+          "price_paise": {
+            "anyOf": [
+              {
+                "maximum": 100000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Price Paise"
+          },
+          "provenance_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Provenance Id",
+            "type": "string"
+          },
+          "window_start": {
+            "format": "date-time",
+            "title": "Window Start",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "display_code",
+          "origin_id",
+          "destination_id",
+          "window_start",
+          "latest_start",
+          "duration_sec",
+          "capacity",
+          "price_paise",
+          "accessibility",
+          "policy_id",
+          "provenance_id"
+        ],
+        "title": "TransferTemplate",
+        "type": "object"
+      },
+      "TransportMode": {
+        "enum": [
+          "rail",
+          "air",
+          "bus",
+          "road_transfer"
+        ],
+        "title": "TransportMode",
+        "type": "string"
+      },
+      "TravelerPhase": {
+        "enum": [
+          "not_started",
+          "at_location",
+          "onboard",
+          "completed"
+        ],
+        "title": "TravelerPhase",
+        "type": "string"
+      },
+      "TravelerProfile": {
+        "additionalProperties": false,
+        "properties": {
+          "accessibility_required": {
+            "title": "Accessibility Required",
+            "type": "boolean"
+          },
+          "display_name": {
+            "anyOf": [
+              {
+                "maxLength": 120,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Display Name"
+          },
+          "party_size": {
+            "const": 1,
+            "title": "Party Size",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "party_size",
+          "display_name",
+          "accessibility_required"
+        ],
+        "title": "TravelerProfile",
+        "type": "object"
+      },
+      "TripAggregate": {
+        "additionalProperties": false,
+        "properties": {
+          "active_itinerary": {
+            "$ref": "#/components/schemas/ItineraryDefinition-Output"
+          },
+          "adopted_plan_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Adopted Plan Id"
+          },
+          "baseline_money_items": {
+            "items": {
+              "$ref": "#/components/schemas/MoneyItem"
+            },
+            "title": "Baseline Money Items",
+            "type": "array"
+          },
+          "baseline_remaining_spend_paise": {
+            "maximum": 100000000.0,
+            "minimum": 0.0,
+            "title": "Baseline Remaining Spend Paise",
+            "type": "integer"
+          },
+          "bookings": {
+            "items": {
+              "$ref": "#/components/schemas/Booking"
+            },
+            "title": "Bookings",
+            "type": "array"
+          },
+          "catalog_version": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Catalog Version",
+            "type": "string"
+          },
+          "constraints": {
+            "$ref": "#/components/schemas/Constraints"
+          },
+          "constraints_provenance_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Constraints Provenance Id",
+            "type": "string"
+          },
+          "currency": {
+            "const": "INR",
+            "title": "Currency",
+            "type": "string"
+          },
+          "current_state": {
+            "$ref": "#/components/schemas/CurrentState"
+          },
+          "decision_allowance_sec": {
+            "maximum": 86400.0,
+            "minimum": 0.0,
+            "title": "Decision Allowance Sec",
+            "type": "integer"
+          },
+          "display_timezone": {
+            "const": "Asia/Kolkata",
+            "title": "Display Timezone",
+            "type": "string"
+          },
+          "effective_services": {
+            "items": {
+              "$ref": "#/components/schemas/EffectiveServiceState"
+            },
+            "title": "Effective Services",
+            "type": "array"
+          },
+          "id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Id",
+            "type": "string"
+          },
+          "last_mutation_kind": {
+            "default": "created",
+            "enum": [
+              "created",
+              "event",
+              "constraints",
+              "current_state",
+              "itinerary_edit",
+              "adoption",
+              "reset"
+            ],
+            "title": "Last Mutation Kind",
+            "type": "string"
+          },
+          "mode": {
+            "const": "demo",
+            "title": "Mode",
+            "type": "string"
+          },
+          "original_itinerary": {
+            "$ref": "#/components/schemas/ItineraryDefinition-Output"
+          },
+          "provenance": {
+            "items": {
+              "$ref": "#/components/schemas/ProvenanceRecord"
+            },
+            "title": "Provenance",
+            "type": "array"
+          },
+          "scenario_id": {
+            "anyOf": [
+              {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scenario Id"
+          },
+          "schema_version": {
+            "const": "resilitrip-api-1.0",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "traveler": {
+            "$ref": "#/components/schemas/TravelerProfile"
+          },
+          "truth_label": {
+            "title": "Truth Label",
+            "type": "string"
+          },
+          "version": {
+            "minimum": 1.0,
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "schema_version",
+          "id",
+          "version",
+          "scenario_id",
+          "mode",
+          "display_timezone",
+          "currency",
+          "truth_label",
+          "traveler",
+          "catalog_version",
+          "decision_allowance_sec",
+          "current_state",
+          "constraints",
+          "original_itinerary",
+          "active_itinerary",
+          "bookings",
+          "baseline_money_items",
+          "baseline_remaining_spend_paise",
+          "effective_services",
+          "provenance",
+          "constraints_provenance_id"
+        ],
+        "title": "TripAggregate",
+        "type": "object"
+      },
+      "TripCreatedResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "catalog_version": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Catalog Version",
+            "type": "string"
+          },
+          "snapshot": {
+            "$ref": "#/components/schemas/TripViewSnapshot"
+          },
+          "trip_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,127}$",
+            "title": "Trip Id",
+            "type": "string"
+          },
+          "trip_version": {
+            "minimum": 1.0,
+            "title": "Trip Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "trip_id",
+          "trip_version",
+          "catalog_version",
+          "snapshot"
+        ],
+        "title": "TripCreatedResponse",
+        "type": "object"
+      },
+      "TripSnapshotResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "snapshot": {
+            "$ref": "#/components/schemas/TripViewSnapshot"
+          }
+        },
+        "required": [
+          "snapshot"
+        ],
+        "title": "TripSnapshotResponse",
+        "type": "object"
+      },
+      "TripViewSnapshot": {
+        "additionalProperties": false,
+        "properties": {
+          "available_actions": {
+            "$ref": "#/components/schemas/AvailableActions"
+          },
+          "catalog": {
+            "$ref": "#/components/schemas/ServiceCatalog-Output"
+          },
+          "evaluated_itinerary": {
+            "items": {
+              "$ref": "#/components/schemas/EvaluatedActivity"
+            },
+            "title": "Evaluated Itinerary",
+            "type": "array"
+          },
+          "impacts": {
+            "default": [],
+            "items": {
+              "$ref": "#/components/schemas/ImpactRecord"
+            },
+            "title": "Impacts",
+            "type": "array"
+          },
+          "overall_status": {
+            "$ref": "#/components/schemas/FeasibilityStatus"
+          },
+          "provenance": {
+            "items": {
+              "$ref": "#/components/schemas/ProvenanceRecord"
+            },
+            "title": "Provenance",
+            "type": "array"
+          },
+          "trip": {
+            "$ref": "#/components/schemas/TripAggregate"
+          }
+        },
+        "required": [
+          "trip",
+          "catalog",
+          "evaluated_itinerary",
+          "overall_status",
+          "provenance",
+          "available_actions"
+        ],
+        "title": "TripViewSnapshot",
+        "type": "object"
+      },
+      "UnknownEvidenceValue": {
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unit"
+          },
+          "value": {
+            "title": "Value",
+            "type": "null"
+          },
+          "value_kind": {
+            "const": "unknown",
+            "title": "Value Kind",
+            "type": "string"
+          }
+        },
+        "required": [
+          "unit",
+          "value_kind",
+          "value"
+        ],
+        "title": "UnknownEvidenceValue",
+        "type": "object"
+      },
+      "VerificationState": {
+        "enum": [
+          "unverified",
+          "fixture",
+          "provider_confirmed"
+        ],
+        "title": "VerificationState",
+        "type": "string"
+      }
+    }
+  },
+  "info": {
+    "title": "ResiliTrip API",
+    "version": "resilitrip-api-1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/health/live": {
+      "get": {
+        "operationId": "health_live",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LiveHealthResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Liveness",
+        "tags": [
+          "health"
+        ]
+      }
+    },
+    "/api/health/ready": {
+      "get": {
+        "operationId": "health_ready",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadyHealthResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Readiness",
+        "tags": [
+          "health"
+        ]
+      }
+    },
+    "/api/v1/scenarios": {
+      "get": {
+        "operationId": "list_scenarios",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ScenarioSummary"
+                  },
+                  "title": "Response List Scenarios",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "summary": "List Scenarios",
+        "tags": [
+          "trips"
+        ]
+      }
+    },
+    "/api/v1/trips": {
+      "post": {
+        "operationId": "create_trip",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "examples": {
+                "fixture_creation": {
+                  "value": {
+                    "display_name": "Asha",
+                    "scenario_id": "mumbai-goa-v2",
+                    "source_type": "fixture"
+                  }
+                }
+              },
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/FixtureTripCreate"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ManualTripCreate"
+                  }
+                ],
+                "title": "Body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TripCreatedResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "summary": "Create Trip",
+        "tags": [
+          "trips"
+        ]
+      }
+    },
+    "/api/v1/trips/{trip_id}": {
+      "get": {
+        "operationId": "get_trip",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "trip_id",
+            "required": true,
+            "schema": {
+              "title": "Trip Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TripSnapshotResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "summary": "Get Trip",
+        "tags": [
+          "trips"
+        ]
+      }
+    },
+    "/api/v1/trips/{trip_id}/adoptions": {
+      "post": {
+        "operationId": "adopt_plan",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "trip_id",
+            "required": true,
+            "schema": {
+              "title": "Trip Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "examples": {
+                "f3_adoption": {
+                  "value": {
+                    "acknowledge_simulation": true,
+                    "expected_trip_version": 2,
+                    "plan_id": "plan:F3:v2"
+                  }
+                }
+              },
+              "schema": {
+                "$ref": "#/components/schemas/AdoptionCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdoptionResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "summary": "Adopt Plan",
+        "tags": [
+          "trips"
+        ]
+      }
+    },
+    "/api/v1/trips/{trip_id}/constraints": {
+      "put": {
+        "operationId": "replace_constraints",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "trip_id",
+            "required": true,
+            "schema": {
+              "title": "Trip Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "examples": {
+                "budget_7000": {
+                  "value": {
+                    "constraints": {
+                      "accessibility_required": false,
+                      "allowed_modes": [
+                        "rail",
+                        "air",
+                        "road_transfer"
+                      ],
+                      "horizon_end": "2026-09-27T05:00:00+05:30",
+                      "max_cash_required_paise": 700000,
+                      "max_incremental_cost_paise": 900000,
+                      "max_new_fixed_legs": 2,
+                      "max_transfer_legs": 8,
+                      "party_size": 1,
+                      "ranking_preset": "cheapest",
+                      "required_commitment_ids": [
+                        "act:H1",
+                        "act:E1"
+                      ],
+                      "risk_threshold_sec": 1800
+                    },
+                    "expected_trip_version": 2,
+                    "provenance": {
+                      "id": "prov:user:budget-7000",
+                      "kind": "user_reported",
+                      "observed_at": "2026-09-26T05:00:00+05:30",
+                      "retrieved_at": "2026-09-26T05:00:00+05:30",
+                      "source_ref": "user-budget-update",
+                      "valid_until": null,
+                      "verification": "fixture"
+                    }
+                  }
+                }
+              },
+              "schema": {
+                "$ref": "#/components/schemas/ConstraintsReplaceCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MutationResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "version_conflict": {
+                    "value": {
+                      "error": {
+                        "code": "VERSION_CONFLICT",
+                        "current_catalog_version": "catalog:mumbai-goa-v2",
+                        "current_trip_version": 3,
+                        "field_errors": [],
+                        "message": "The trip changed. Refresh and try again.",
+                        "request_id": "req_example",
+                        "retryable": true
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "field_validation": {
+                    "value": {
+                      "error": {
+                        "code": "VALIDATION_ERROR",
+                        "current_catalog_version": null,
+                        "current_trip_version": null,
+                        "field_errors": [
+                          {
+                            "code": "INVALID_MONEY",
+                            "message": "Invalid request field.",
+                            "path": "/constraints/max_cash_required_paise",
+                            "rejected_value": null
+                          }
+                        ],
+                        "message": "The request did not satisfy the API contract.",
+                        "request_id": "req_example",
+                        "retryable": false
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "summary": "Replace Constraints Route",
+        "tags": [
+          "trips"
+        ]
+      }
+    },
+    "/api/v1/trips/{trip_id}/current-state": {
+      "put": {
+        "operationId": "replace_current_state",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "trip_id",
+            "required": true,
+            "schema": {
+              "title": "Trip Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CurrentStateReplaceCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MutationResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "summary": "Replace Current State Route",
+        "tags": [
+          "trips"
+        ]
+      }
+    },
+    "/api/v1/trips/{trip_id}/events": {
+      "post": {
+        "operationId": "apply_event",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "trip_id",
+            "required": true,
+            "schema": {
+              "title": "Trip Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "examples": {
+                "d1_timing": {
+                  "value": {
+                    "effective_at": "2026-09-26T05:00:00+05:30",
+                    "event_id": "event:D1",
+                    "expected_trip_version": 1,
+                    "new_arrival_at": "2026-09-26T18:30:00+05:30",
+                    "new_departure_at": "2026-09-26T09:00:00+05:30",
+                    "observed_at": "2026-09-26T05:00:00+05:30",
+                    "provenance": {
+                      "id": "prov:replay:D1",
+                      "kind": "synthetic",
+                      "observed_at": "2026-09-26T05:00:00+05:30",
+                      "retrieved_at": "2026-09-26T05:00:00+05:30",
+                      "source_ref": "replay:mumbai-goa-v2",
+                      "valid_until": null,
+                      "verification": "fixture"
+                    },
+                    "service_id": "svc:T1:2026-09-26",
+                    "source_id": "replay:mumbai-goa-v2",
+                    "source_sequence": 1,
+                    "type": "SERVICE_TIMING_UPDATED"
+                  }
+                },
+                "service_cancellation": {
+                  "value": {
+                    "effective_at": "2026-09-26T05:00:00+05:30",
+                    "event_id": "event:T1-cancelled",
+                    "expected_trip_version": 1,
+                    "observed_at": "2026-09-26T05:00:00+05:30",
+                    "provenance": {
+                      "id": "prov:replay:D1",
+                      "kind": "synthetic",
+                      "observed_at": "2026-09-26T05:00:00+05:30",
+                      "retrieved_at": "2026-09-26T05:00:00+05:30",
+                      "source_ref": "replay:mumbai-goa-v2",
+                      "valid_until": null,
+                      "verification": "fixture"
+                    },
+                    "service_id": "svc:T1:2026-09-26",
+                    "source_id": "replay:mumbai-goa-v2",
+                    "source_sequence": 1,
+                    "type": "SERVICE_CANCELLED"
+                  }
+                }
+              },
+              "schema": {
+                "discriminator": {
+                  "mapping": {
+                    "SERVICE_CANCELLED": "#/components/schemas/ServiceCancelledEvent",
+                    "SERVICE_TIMING_UPDATED": "#/components/schemas/TimingReplayEvent"
+                  },
+                  "propertyName": "type"
+                },
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/TimingReplayEvent"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ServiceCancelledEvent"
+                  }
+                ],
+                "title": "Body"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "summary": "Apply Event Route",
+        "tags": [
+          "trips"
+        ]
+      }
+    },
+    "/api/v1/trips/{trip_id}/itinerary": {
+      "put": {
+        "operationId": "replace_active_itinerary",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "trip_id",
+            "required": true,
+            "schema": {
+              "title": "Trip Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ItineraryEditCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MutationResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "summary": "Replace Itinerary",
+        "tags": [
+          "trips"
+        ]
+      }
+    },
+    "/api/v1/trips/{trip_id}/plans": {
+      "post": {
+        "operationId": "generate_plans",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "trip_id",
+            "required": true,
+            "schema": {
+              "title": "Trip Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "examples": {
+                "hero_planner": {
+                  "value": {
+                    "expected_catalog_version": "catalog:mumbai-goa-v2",
+                    "expected_trip_version": 2,
+                    "ranking_preset": "cheapest"
+                  }
+                }
+              },
+              "schema": {
+                "$ref": "#/components/schemas/PlannerCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlannerResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "summary": "Generate Plans",
+        "tags": [
+          "trips"
+        ]
+      }
+    },
+    "/api/v1/trips/{trip_id}/plans/{plan_id}": {
+      "get": {
+        "operationId": "get_plan",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "trip_id",
+            "required": true,
+            "schema": {
+              "title": "Trip Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "plan_id",
+            "required": true,
+            "schema": {
+              "title": "Plan Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanEvaluation"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "summary": "Get Plan",
+        "tags": [
+          "trips"
+        ]
+      }
+    },
+    "/api/v1/trips/{trip_id}/reset": {
+      "post": {
+        "operationId": "reset_trip",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "trip_id",
+            "required": true,
+            "schema": {
+              "title": "Trip Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MutationResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "summary": "Reset Trip",
+        "tags": [
+          "trips"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.venv/
+apps/api/.venv/
+apps/web/node_modules/
+apps/web/dist/
+.tools/
+.uv-cache/
+.pytest-tmp/
+data/local/
+artifacts/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage

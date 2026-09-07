@@ -1,0 +1,33 @@
+{
+  "schema_version": "resilitrip-demo-rehearsal-1.0",
+  "runs": [
+    {
+      "run": 1,
+      "result": "passed",
+      "reset_heading": "Your journey is on track"
+    },
+    {
+      "run": 2,
+      "result": "passed",
+      "reset_heading": "Your journey is on track"
+    },
+    {
+      "run": 3,
+      "result": "passed",
+      "reset_heading": "Your journey is on track"
+    },
+    {
+      "run": 4,
+      "result": "passed",
+      "reset_heading": "Your journey is on track"
+    },
+    {
+      "run": 5,
+      "result": "passed",
+      "reset_heading": "Your journey is on track"
+    }
+  ],
+  "passed": true,
+  "manual_database_repair_required": false,
+  "mixed_version_state_observed": false
+}

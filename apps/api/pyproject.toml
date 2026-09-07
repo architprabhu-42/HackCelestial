@@ -1,0 +1,31 @@
+[project]
+name = "resilitrip-api"
+version = "0.1.0"
+description = "ResiliTrip local FastAPI application"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "alembic==1.16.4",
+  "fastapi==0.115.12",
+  "networkx==3.5",
+  "pydantic==2.11.7",
+  "sqlalchemy==2.0.41",
+  "uvicorn[standard]==0.35.0",
+]
+
+[dependency-groups]
+dev = [
+  "httpx==0.28.1",
+  "hypothesis==6.137.0",
+  "pytest==8.4.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["resilitrip"]

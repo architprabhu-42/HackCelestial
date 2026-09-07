@@ -1,0 +1,2646 @@
+{
+  "catalog_version": "catalog:mumbai-goa-v2",
+  "counts": {
+    "complete_paths": 4,
+    "displayed_total": 0,
+    "duplicate_paths": 0,
+    "feasible_total": 0,
+    "frontier_total": 0,
+    "pruned_by_reason": {},
+    "rejected_total": 4,
+    "states_expanded": 4,
+    "uncertain_total": 0
+  },
+  "feasible_plans": [],
+  "interruption_reason": null,
+  "ranking_preset": "cheapest",
+  "rejected_plans": [
+    {
+      "activity_sequence": [
+        {
+          "activity_id": "xfer:X1",
+          "cutoff_at": null,
+          "destination_id": "airport:BOM:T2",
+          "end_at": "2026-09-26T06:45:00+05:30",
+          "kind": "flexible_transfer",
+          "origin_id": "rail:CSMT",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T06:45:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": null,
+          "start_at": "2026-09-26T05:15:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": "xfer:X1"
+        },
+        {
+          "activity_id": "svc:F2:2026-09-26",
+          "cutoff_at": "2026-09-26T08:00:00+05:30",
+          "destination_id": "airport:GOX:ARR",
+          "end_at": "2026-09-26T11:15:00+05:30",
+          "kind": "fixed_transport",
+          "origin_id": "airport:BOM:T2",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T11:15:00+05:30",
+          "reason_codes": [],
+          "service_id": "svc:F2:2026-09-26",
+          "slack_sec": 4500,
+          "start_at": "2026-09-26T10:00:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": null
+        },
+        {
+          "activity_id": "process:F2-exit",
+          "cutoff_at": null,
+          "destination_id": "airport:GOX:ARR",
+          "end_at": "2026-09-26T11:45:00+05:30",
+          "kind": "processing",
+          "origin_id": "airport:GOX:ARR",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T11:45:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": null,
+          "start_at": "2026-09-26T11:15:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": null
+        },
+        {
+          "activity_id": "xfer:X-GOX-HOTEL",
+          "cutoff_at": null,
+          "destination_id": "place:PANAJI_HOTEL",
+          "end_at": "2026-09-26T12:45:00+05:30",
+          "kind": "flexible_transfer",
+          "origin_id": "airport:GOX:ARR",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T12:45:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": null,
+          "start_at": "2026-09-26T11:45:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": "xfer:X-GOX-HOTEL"
+        },
+        {
+          "activity_id": "act:H1",
+          "cutoff_at": "2026-09-26T21:00:00+05:30",
+          "destination_id": "place:PANAJI_HOTEL",
+          "end_at": "2026-09-26T13:05:00+05:30",
+          "kind": "hotel_checkin",
+          "origin_id": "place:PANAJI_HOTEL",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T13:05:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": 29700,
+          "start_at": "2026-09-26T12:45:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": null
+        },
+        {
+          "activity_id": "xfer:C2",
+          "cutoff_at": null,
+          "destination_id": "place:WEDDING_VENUE",
+          "end_at": "2026-09-26T13:35:00+05:30",
+          "kind": "flexible_transfer",
+          "origin_id": "place:PANAJI_HOTEL",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T13:35:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": null,
+          "start_at": "2026-09-26T13:05:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": "xfer:C2"
+        },
+        {
+          "activity_id": "act:E1",
+          "cutoff_at": "2026-09-26T19:15:00+05:30",
+          "destination_id": "place:WEDDING_VENUE",
+          "end_at": "2026-09-26T19:30:00+05:30",
+          "kind": "commitment",
+          "origin_id": "place:WEDDING_VENUE",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T13:35:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": 20400,
+          "start_at": "2026-09-26T19:30:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": null
+        }
+      ],
+      "bookable": false,
+      "cash_required_paise": 970000,
+      "catalog_version": "catalog:mumbai-goa-v2",
+      "changed_original_booking_ids": [
+        "booking:train-original",
+        "booking:cab-C1"
+      ],
+      "constraint_checks": [
+        {
+          "constraint_id": "constraint:xfer:X1:window",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T05:15:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T05:15:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:svc:F2:2026-09-26:readiness",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T06:45:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T08:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:X-GOX-HOTEL:window",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T11:45:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T23:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:act:H1:latest_start",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T12:45:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T21:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:C2:window",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T13:05:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T23:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:act:E1:arrival_deadline",
+          "observed": {
+            "unit": "seconds",
+            "value": 20400,
+            "value_kind": "duration_sec"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": "seconds",
+            "value": 0,
+            "value_kind": "duration_sec"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:X1:capacity",
+          "observed": {
+            "unit": null,
+            "value": 4,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:svc:F2:2026-09-26:capacity",
+          "observed": {
+            "unit": null,
+            "value": 2,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:svc:F2:2026-09-26:status",
+          "observed": {
+            "unit": null,
+            "value": "scheduled",
+            "value_kind": "text"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "not_cancelled",
+            "value_kind": "text"
+          }
+        },
+        {
+          "constraint_id": "constraint:svc:F2:2026-09-26:mode",
+          "observed": {
+            "unit": null,
+            "value": "air",
+            "value_kind": "text"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "allowed_modes",
+            "value_kind": "text"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:X-GOX-HOTEL:capacity",
+          "observed": {
+            "unit": null,
+            "value": 4,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:C2:capacity",
+          "observed": {
+            "unit": null,
+            "value": 4,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:budget:cash_required",
+          "observed": {
+            "unit": "INR_paise",
+            "value": 970000,
+            "value_kind": "money_paise"
+          },
+          "passed": false,
+          "provenance_ids": [],
+          "reason_code": "CASH_LIMIT_EXCEEDED",
+          "required": {
+            "unit": "INR_paise",
+            "value": 500000,
+            "value_kind": "money_paise"
+          }
+        },
+        {
+          "constraint_id": "constraint:budget:incremental_cost",
+          "observed": {
+            "unit": "INR_paise",
+            "value": 840000,
+            "value_kind": "money_paise"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": "INR_paise",
+            "value": 900000,
+            "value_kind": "money_paise"
+          }
+        },
+        {
+          "constraint_id": "constraint:bounds:horizon",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T13:35:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-27T05:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:bounds:fixed_legs",
+          "observed": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 2,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:bounds:transfer_legs",
+          "observed": {
+            "unit": null,
+            "value": 3,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 8,
+            "value_kind": "integer"
+          }
+        }
+      ],
+      "display_rank": null,
+      "evaluation_status": "infeasible",
+      "event_slack_sec": 20400,
+      "final_required_arrival_at": "2026-09-26T13:35:00+05:30",
+      "frontier_member": false,
+      "id": "plan:F2:v3",
+      "incremental_cost_paise": 840000,
+      "lifecycle_status": "preview",
+      "money_items": [
+        {
+          "amount_paise": 120000,
+          "booking_id": null,
+          "category": "new_purchase",
+          "id": "money:F2:X1",
+          "payment_state": "due",
+          "provenance_id": "prov:fixture:mumbai-goa-v2",
+          "service_id": null,
+          "transfer_template_id": "xfer:X1"
+        },
+        {
+          "amount_paise": 650000,
+          "booking_id": null,
+          "category": "new_purchase",
+          "id": "money:F2:fare",
+          "payment_state": "due",
+          "provenance_id": "prov:fixture:mumbai-goa-v2",
+          "service_id": "svc:F2:2026-09-26",
+          "transfer_template_id": null
+        },
+        {
+          "amount_paise": 150000,
+          "booking_id": null,
+          "category": "new_purchase",
+          "id": "money:F2:GOX-hotel",
+          "payment_state": "due",
+          "provenance_id": "prov:fixture:mumbai-goa-v2",
+          "service_id": null,
+          "transfer_template_id": "xfer:X-GOX-HOTEL"
+        },
+        {
+          "amount_paise": 50000,
+          "booking_id": "booking:cab-C2",
+          "category": "retained_charge",
+          "id": "money:F2:C2",
+          "payment_state": "due",
+          "provenance_id": "prov:fixture:mumbai-goa-v2",
+          "service_id": null,
+          "transfer_template_id": "xfer:C2"
+        }
+      ],
+      "objective_values": {
+        "cash_required_paise": 970000,
+        "changed_original_booking_count": 2,
+        "final_required_arrival_at": "2026-09-26T13:35:00+05:30"
+      },
+      "potential_refund_paise": null,
+      "proposed_itinerary": {
+        "activities": [
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "xfer:X1",
+            "kind": "flexible_transfer",
+            "latest_start": null,
+            "location_id": null,
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": "xfer:X1"
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "svc:F2:2026-09-26",
+            "kind": "fixed_transport",
+            "latest_start": null,
+            "location_id": null,
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": "svc:F2:2026-09-26",
+            "start_at": null,
+            "transfer_template_id": null
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": "svc:F2:2026-09-26",
+            "duration_sec": 1800,
+            "earliest_start": null,
+            "hard": true,
+            "id": "process:F2-exit",
+            "kind": "processing",
+            "latest_start": null,
+            "location_id": "airport:GOX:ARR",
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": null
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "xfer:X-GOX-HOTEL",
+            "kind": "flexible_transfer",
+            "latest_start": null,
+            "location_id": null,
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": "xfer:X-GOX-HOTEL"
+          },
+          {
+            "booking_id": "booking:hotel-original",
+            "derived_from_service_id": null,
+            "duration_sec": 1200,
+            "earliest_start": "2026-09-26T12:00:00+05:30",
+            "hard": true,
+            "id": "act:H1",
+            "kind": "hotel_checkin",
+            "latest_start": "2026-09-26T21:00:00+05:30",
+            "location_id": "place:PANAJI_HOTEL",
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": null
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "xfer:C2",
+            "kind": "flexible_transfer",
+            "latest_start": null,
+            "location_id": null,
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": "xfer:C2"
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "act:E1",
+            "kind": "commitment",
+            "latest_start": null,
+            "location_id": "place:WEDDING_VENUE",
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": 900,
+            "service_id": null,
+            "start_at": "2026-09-26T19:30:00+05:30",
+            "transfer_template_id": null
+          }
+        ],
+        "dependencies": [
+          {
+            "buffer_sec": 0,
+            "from_id": "xfer:X1",
+            "id": "dep:candidate:0",
+            "reason": "candidate_sequence",
+            "to_id": "svc:F2:2026-09-26"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "svc:F2:2026-09-26",
+            "id": "dep:candidate:1",
+            "reason": "candidate_sequence",
+            "to_id": "process:F2-exit"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "process:F2-exit",
+            "id": "dep:candidate:2",
+            "reason": "candidate_sequence",
+            "to_id": "xfer:X-GOX-HOTEL"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "xfer:X-GOX-HOTEL",
+            "id": "dep:candidate:3",
+            "reason": "candidate_sequence",
+            "to_id": "act:H1"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "act:H1",
+            "id": "dep:candidate:4",
+            "reason": "candidate_sequence",
+            "to_id": "xfer:C2"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "xfer:C2",
+            "id": "dep:candidate:5",
+            "reason": "candidate_sequence",
+            "to_id": "act:E1"
+          }
+        ]
+      },
+      "provenance_ids": [
+        "prov:fixture:mumbai-goa-v2"
+      ],
+      "ranking_reason_code": null,
+      "reason_codes": [
+        "CASH_LIMIT_EXCEEDED"
+      ],
+      "run_id": null,
+      "sequence_ids": [
+        "xfer:X1",
+        "svc:F2:2026-09-26",
+        "process:F2-exit",
+        "xfer:X-GOX-HOTEL",
+        "act:H1",
+        "xfer:C2",
+        "act:E1"
+      ],
+      "sequence_signature": "db646cb353c7d611bdd86bf25b75966f5e3795e1e29c60a3f4a0ddfa6c76b18e",
+      "service_ids": [
+        "svc:F2:2026-09-26"
+      ],
+      "simulated": true,
+      "transfer_template_ids": [
+        "xfer:X1",
+        "xfer:X-GOX-HOTEL",
+        "xfer:C2"
+      ],
+      "trip_id": "trip:mumbai-goa-v2",
+      "trip_version": 3,
+      "valid_until": "2026-09-26T05:15:00+05:30"
+    },
+    {
+      "activity_sequence": [
+        {
+          "activity_id": "xfer:X1",
+          "cutoff_at": null,
+          "destination_id": "airport:BOM:T2",
+          "end_at": "2026-09-26T06:45:00+05:30",
+          "kind": "flexible_transfer",
+          "origin_id": "rail:CSMT",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T06:45:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": null,
+          "start_at": "2026-09-26T05:15:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": "xfer:X1"
+        },
+        {
+          "activity_id": "svc:F3:2026-09-26",
+          "cutoff_at": "2026-09-26T12:00:00+05:30",
+          "destination_id": "airport:GOI:ARR",
+          "end_at": "2026-09-26T15:15:00+05:30",
+          "kind": "fixed_transport",
+          "origin_id": "airport:BOM:T2",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T15:15:00+05:30",
+          "reason_codes": [],
+          "service_id": "svc:F3:2026-09-26",
+          "slack_sec": 18900,
+          "start_at": "2026-09-26T14:00:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": null
+        },
+        {
+          "activity_id": "process:F3-exit",
+          "cutoff_at": null,
+          "destination_id": "airport:GOI:ARR",
+          "end_at": "2026-09-26T15:45:00+05:30",
+          "kind": "processing",
+          "origin_id": "airport:GOI:ARR",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T15:45:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": null,
+          "start_at": "2026-09-26T15:15:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": null
+        },
+        {
+          "activity_id": "xfer:X-GOI-HOTEL",
+          "cutoff_at": null,
+          "destination_id": "place:PANAJI_HOTEL",
+          "end_at": "2026-09-26T16:30:00+05:30",
+          "kind": "flexible_transfer",
+          "origin_id": "airport:GOI:ARR",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T16:30:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": null,
+          "start_at": "2026-09-26T15:45:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": "xfer:X-GOI-HOTEL"
+        },
+        {
+          "activity_id": "act:H1",
+          "cutoff_at": "2026-09-26T21:00:00+05:30",
+          "destination_id": "place:PANAJI_HOTEL",
+          "end_at": "2026-09-26T16:50:00+05:30",
+          "kind": "hotel_checkin",
+          "origin_id": "place:PANAJI_HOTEL",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T16:50:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": 16200,
+          "start_at": "2026-09-26T16:30:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": null
+        },
+        {
+          "activity_id": "xfer:C2",
+          "cutoff_at": null,
+          "destination_id": "place:WEDDING_VENUE",
+          "end_at": "2026-09-26T17:20:00+05:30",
+          "kind": "flexible_transfer",
+          "origin_id": "place:PANAJI_HOTEL",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T17:20:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": null,
+          "start_at": "2026-09-26T16:50:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": "xfer:C2"
+        },
+        {
+          "activity_id": "act:E1",
+          "cutoff_at": "2026-09-26T19:15:00+05:30",
+          "destination_id": "place:WEDDING_VENUE",
+          "end_at": "2026-09-26T19:30:00+05:30",
+          "kind": "commitment",
+          "origin_id": "place:WEDDING_VENUE",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T17:20:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": 6900,
+          "start_at": "2026-09-26T19:30:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": null
+        }
+      ],
+      "bookable": false,
+      "cash_required_paise": 650000,
+      "catalog_version": "catalog:mumbai-goa-v2",
+      "changed_original_booking_ids": [
+        "booking:train-original",
+        "booking:cab-C1"
+      ],
+      "constraint_checks": [
+        {
+          "constraint_id": "constraint:xfer:X1:window",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T05:15:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T05:15:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:svc:F3:2026-09-26:readiness",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T06:45:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T12:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:X-GOI-HOTEL:window",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T15:45:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T23:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:act:H1:latest_start",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T16:30:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T21:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:C2:window",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T16:50:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T23:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:act:E1:arrival_deadline",
+          "observed": {
+            "unit": "seconds",
+            "value": 6900,
+            "value_kind": "duration_sec"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": "seconds",
+            "value": 0,
+            "value_kind": "duration_sec"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:X1:capacity",
+          "observed": {
+            "unit": null,
+            "value": 4,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:svc:F3:2026-09-26:capacity",
+          "observed": {
+            "unit": null,
+            "value": 2,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:svc:F3:2026-09-26:status",
+          "observed": {
+            "unit": null,
+            "value": "scheduled",
+            "value_kind": "text"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "not_cancelled",
+            "value_kind": "text"
+          }
+        },
+        {
+          "constraint_id": "constraint:svc:F3:2026-09-26:mode",
+          "observed": {
+            "unit": null,
+            "value": "air",
+            "value_kind": "text"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "allowed_modes",
+            "value_kind": "text"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:X-GOI-HOTEL:capacity",
+          "observed": {
+            "unit": null,
+            "value": 4,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:C2:capacity",
+          "observed": {
+            "unit": null,
+            "value": 4,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:budget:cash_required",
+          "observed": {
+            "unit": "INR_paise",
+            "value": 650000,
+            "value_kind": "money_paise"
+          },
+          "passed": false,
+          "provenance_ids": [],
+          "reason_code": "CASH_LIMIT_EXCEEDED",
+          "required": {
+            "unit": "INR_paise",
+            "value": 500000,
+            "value_kind": "money_paise"
+          }
+        },
+        {
+          "constraint_id": "constraint:budget:incremental_cost",
+          "observed": {
+            "unit": "INR_paise",
+            "value": 520000,
+            "value_kind": "money_paise"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": "INR_paise",
+            "value": 900000,
+            "value_kind": "money_paise"
+          }
+        },
+        {
+          "constraint_id": "constraint:bounds:horizon",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T17:20:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-27T05:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:bounds:fixed_legs",
+          "observed": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 2,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:bounds:transfer_legs",
+          "observed": {
+            "unit": null,
+            "value": 3,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 8,
+            "value_kind": "integer"
+          }
+        }
+      ],
+      "display_rank": null,
+      "evaluation_status": "infeasible",
+      "event_slack_sec": 6900,
+      "final_required_arrival_at": "2026-09-26T17:20:00+05:30",
+      "frontier_member": false,
+      "id": "plan:F3:v3",
+      "incremental_cost_paise": 520000,
+      "lifecycle_status": "preview",
+      "money_items": [
+        {
+          "amount_paise": 120000,
+          "booking_id": null,
+          "category": "new_purchase",
+          "id": "money:F3:X1",
+          "payment_state": "due",
+          "provenance_id": "prov:fixture:mumbai-goa-v2",
+          "service_id": null,
+          "transfer_template_id": "xfer:X1"
+        },
+        {
+          "amount_paise": 380000,
+          "booking_id": null,
+          "category": "new_purchase",
+          "id": "money:F3:fare",
+          "payment_state": "due",
+          "provenance_id": "prov:fixture:mumbai-goa-v2",
+          "service_id": "svc:F3:2026-09-26",
+          "transfer_template_id": null
+        },
+        {
+          "amount_paise": 100000,
+          "booking_id": null,
+          "category": "new_purchase",
+          "id": "money:F3:GOI-hotel",
+          "payment_state": "due",
+          "provenance_id": "prov:fixture:mumbai-goa-v2",
+          "service_id": null,
+          "transfer_template_id": "xfer:X-GOI-HOTEL"
+        },
+        {
+          "amount_paise": 50000,
+          "booking_id": "booking:cab-C2",
+          "category": "retained_charge",
+          "id": "money:F3:C2",
+          "payment_state": "due",
+          "provenance_id": "prov:fixture:mumbai-goa-v2",
+          "service_id": null,
+          "transfer_template_id": "xfer:C2"
+        }
+      ],
+      "objective_values": {
+        "cash_required_paise": 650000,
+        "changed_original_booking_count": 2,
+        "final_required_arrival_at": "2026-09-26T17:20:00+05:30"
+      },
+      "potential_refund_paise": null,
+      "proposed_itinerary": {
+        "activities": [
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "xfer:X1",
+            "kind": "flexible_transfer",
+            "latest_start": null,
+            "location_id": null,
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": "xfer:X1"
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "svc:F3:2026-09-26",
+            "kind": "fixed_transport",
+            "latest_start": null,
+            "location_id": null,
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": "svc:F3:2026-09-26",
+            "start_at": null,
+            "transfer_template_id": null
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": "svc:F3:2026-09-26",
+            "duration_sec": 1800,
+            "earliest_start": null,
+            "hard": true,
+            "id": "process:F3-exit",
+            "kind": "processing",
+            "latest_start": null,
+            "location_id": "airport:GOI:ARR",
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": null
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "xfer:X-GOI-HOTEL",
+            "kind": "flexible_transfer",
+            "latest_start": null,
+            "location_id": null,
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": "xfer:X-GOI-HOTEL"
+          },
+          {
+            "booking_id": "booking:hotel-original",
+            "derived_from_service_id": null,
+            "duration_sec": 1200,
+            "earliest_start": "2026-09-26T12:00:00+05:30",
+            "hard": true,
+            "id": "act:H1",
+            "kind": "hotel_checkin",
+            "latest_start": "2026-09-26T21:00:00+05:30",
+            "location_id": "place:PANAJI_HOTEL",
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": null
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "xfer:C2",
+            "kind": "flexible_transfer",
+            "latest_start": null,
+            "location_id": null,
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": "xfer:C2"
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "act:E1",
+            "kind": "commitment",
+            "latest_start": null,
+            "location_id": "place:WEDDING_VENUE",
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": 900,
+            "service_id": null,
+            "start_at": "2026-09-26T19:30:00+05:30",
+            "transfer_template_id": null
+          }
+        ],
+        "dependencies": [
+          {
+            "buffer_sec": 0,
+            "from_id": "xfer:X1",
+            "id": "dep:candidate:0",
+            "reason": "candidate_sequence",
+            "to_id": "svc:F3:2026-09-26"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "svc:F3:2026-09-26",
+            "id": "dep:candidate:1",
+            "reason": "candidate_sequence",
+            "to_id": "process:F3-exit"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "process:F3-exit",
+            "id": "dep:candidate:2",
+            "reason": "candidate_sequence",
+            "to_id": "xfer:X-GOI-HOTEL"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "xfer:X-GOI-HOTEL",
+            "id": "dep:candidate:3",
+            "reason": "candidate_sequence",
+            "to_id": "act:H1"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "act:H1",
+            "id": "dep:candidate:4",
+            "reason": "candidate_sequence",
+            "to_id": "xfer:C2"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "xfer:C2",
+            "id": "dep:candidate:5",
+            "reason": "candidate_sequence",
+            "to_id": "act:E1"
+          }
+        ]
+      },
+      "provenance_ids": [
+        "prov:fixture:mumbai-goa-v2"
+      ],
+      "ranking_reason_code": null,
+      "reason_codes": [
+        "CASH_LIMIT_EXCEEDED"
+      ],
+      "run_id": null,
+      "sequence_ids": [
+        "xfer:X1",
+        "svc:F3:2026-09-26",
+        "process:F3-exit",
+        "xfer:X-GOI-HOTEL",
+        "act:H1",
+        "xfer:C2",
+        "act:E1"
+      ],
+      "sequence_signature": "f6384d7fb2ec959fd9b20edafb00ff904c0f5a36087cc9d414bd8141f1b45392",
+      "service_ids": [
+        "svc:F3:2026-09-26"
+      ],
+      "simulated": true,
+      "transfer_template_ids": [
+        "xfer:X1",
+        "xfer:X-GOI-HOTEL",
+        "xfer:C2"
+      ],
+      "trip_id": "trip:mumbai-goa-v2",
+      "trip_version": 3,
+      "valid_until": "2026-09-26T05:15:00+05:30"
+    },
+    {
+      "activity_sequence": [
+        {
+          "activity_id": "xfer:X1",
+          "cutoff_at": null,
+          "destination_id": "airport:BOM:T2",
+          "end_at": "2026-09-26T06:45:00+05:30",
+          "kind": "flexible_transfer",
+          "origin_id": "rail:CSMT",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T06:45:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": null,
+          "start_at": "2026-09-26T05:15:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": "xfer:X1"
+        },
+        {
+          "activity_id": "svc:F4:2026-09-26",
+          "cutoff_at": "2026-09-26T14:30:00+05:30",
+          "destination_id": "airport:GOX:ARR",
+          "end_at": "2026-09-26T17:45:00+05:30",
+          "kind": "fixed_transport",
+          "origin_id": "airport:BOM:T2",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T17:45:00+05:30",
+          "reason_codes": [],
+          "service_id": "svc:F4:2026-09-26",
+          "slack_sec": 27900,
+          "start_at": "2026-09-26T16:30:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": null
+        },
+        {
+          "activity_id": "process:F4-exit",
+          "cutoff_at": null,
+          "destination_id": "airport:GOX:ARR",
+          "end_at": "2026-09-26T18:15:00+05:30",
+          "kind": "processing",
+          "origin_id": "airport:GOX:ARR",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T18:15:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": null,
+          "start_at": "2026-09-26T17:45:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": null
+        },
+        {
+          "activity_id": "xfer:X-GOX-HOTEL",
+          "cutoff_at": null,
+          "destination_id": "place:PANAJI_HOTEL",
+          "end_at": "2026-09-26T19:15:00+05:30",
+          "kind": "flexible_transfer",
+          "origin_id": "airport:GOX:ARR",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T19:15:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": null,
+          "start_at": "2026-09-26T18:15:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": "xfer:X-GOX-HOTEL"
+        },
+        {
+          "activity_id": "act:H1",
+          "cutoff_at": "2026-09-26T21:00:00+05:30",
+          "destination_id": "place:PANAJI_HOTEL",
+          "end_at": "2026-09-26T19:35:00+05:30",
+          "kind": "hotel_checkin",
+          "origin_id": "place:PANAJI_HOTEL",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T19:35:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": 6300,
+          "start_at": "2026-09-26T19:15:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": null
+        },
+        {
+          "activity_id": "xfer:C2",
+          "cutoff_at": null,
+          "destination_id": "place:WEDDING_VENUE",
+          "end_at": "2026-09-26T20:05:00+05:30",
+          "kind": "flexible_transfer",
+          "origin_id": "place:PANAJI_HOTEL",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T20:05:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": null,
+          "start_at": "2026-09-26T19:35:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": "xfer:C2"
+        },
+        {
+          "activity_id": "act:E1",
+          "cutoff_at": "2026-09-26T19:15:00+05:30",
+          "destination_id": "place:WEDDING_VENUE",
+          "end_at": "2026-09-26T19:30:00+05:30",
+          "kind": "commitment",
+          "origin_id": "place:WEDDING_VENUE",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T20:05:00+05:30",
+          "reason_codes": [
+            "HARD_DEADLINE_MISSED"
+          ],
+          "service_id": null,
+          "slack_sec": -3000,
+          "start_at": "2026-09-26T19:30:00+05:30",
+          "status": "infeasible",
+          "transfer_template_id": null
+        }
+      ],
+      "bookable": false,
+      "cash_required_paise": 570000,
+      "catalog_version": "catalog:mumbai-goa-v2",
+      "changed_original_booking_ids": [
+        "booking:train-original",
+        "booking:cab-C1"
+      ],
+      "constraint_checks": [
+        {
+          "constraint_id": "constraint:xfer:X1:window",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T05:15:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T05:15:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:svc:F4:2026-09-26:readiness",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T06:45:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T14:30:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:X-GOX-HOTEL:window",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T18:15:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T23:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:act:H1:latest_start",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T19:15:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T21:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:C2:window",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T19:35:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T23:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:act:E1:arrival_deadline",
+          "observed": {
+            "unit": "seconds",
+            "value": -3000,
+            "value_kind": "duration_sec"
+          },
+          "passed": false,
+          "provenance_ids": [],
+          "reason_code": "HARD_DEADLINE_MISSED",
+          "required": {
+            "unit": "seconds",
+            "value": 0,
+            "value_kind": "duration_sec"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:X1:capacity",
+          "observed": {
+            "unit": null,
+            "value": 4,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:svc:F4:2026-09-26:capacity",
+          "observed": {
+            "unit": null,
+            "value": 2,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:svc:F4:2026-09-26:status",
+          "observed": {
+            "unit": null,
+            "value": "scheduled",
+            "value_kind": "text"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "not_cancelled",
+            "value_kind": "text"
+          }
+        },
+        {
+          "constraint_id": "constraint:svc:F4:2026-09-26:mode",
+          "observed": {
+            "unit": null,
+            "value": "air",
+            "value_kind": "text"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "allowed_modes",
+            "value_kind": "text"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:X-GOX-HOTEL:capacity",
+          "observed": {
+            "unit": null,
+            "value": 4,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:C2:capacity",
+          "observed": {
+            "unit": null,
+            "value": 4,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:budget:cash_required",
+          "observed": {
+            "unit": "INR_paise",
+            "value": 570000,
+            "value_kind": "money_paise"
+          },
+          "passed": false,
+          "provenance_ids": [],
+          "reason_code": "CASH_LIMIT_EXCEEDED",
+          "required": {
+            "unit": "INR_paise",
+            "value": 500000,
+            "value_kind": "money_paise"
+          }
+        },
+        {
+          "constraint_id": "constraint:budget:incremental_cost",
+          "observed": {
+            "unit": "INR_paise",
+            "value": 440000,
+            "value_kind": "money_paise"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": "INR_paise",
+            "value": 900000,
+            "value_kind": "money_paise"
+          }
+        },
+        {
+          "constraint_id": "constraint:bounds:horizon",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T20:05:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-27T05:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:bounds:fixed_legs",
+          "observed": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 2,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:bounds:transfer_legs",
+          "observed": {
+            "unit": null,
+            "value": 3,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 8,
+            "value_kind": "integer"
+          }
+        }
+      ],
+      "display_rank": null,
+      "evaluation_status": "infeasible",
+      "event_slack_sec": -3000,
+      "final_required_arrival_at": "2026-09-26T20:05:00+05:30",
+      "frontier_member": false,
+      "id": "plan:F4:v3",
+      "incremental_cost_paise": 440000,
+      "lifecycle_status": "preview",
+      "money_items": [
+        {
+          "amount_paise": 120000,
+          "booking_id": null,
+          "category": "new_purchase",
+          "id": "money:F4:X1",
+          "payment_state": "due",
+          "provenance_id": "prov:fixture:mumbai-goa-v2",
+          "service_id": null,
+          "transfer_template_id": "xfer:X1"
+        },
+        {
+          "amount_paise": 250000,
+          "booking_id": null,
+          "category": "new_purchase",
+          "id": "money:F4:fare",
+          "payment_state": "due",
+          "provenance_id": "prov:fixture:mumbai-goa-v2",
+          "service_id": "svc:F4:2026-09-26",
+          "transfer_template_id": null
+        },
+        {
+          "amount_paise": 150000,
+          "booking_id": null,
+          "category": "new_purchase",
+          "id": "money:F4:GOX-hotel",
+          "payment_state": "due",
+          "provenance_id": "prov:fixture:mumbai-goa-v2",
+          "service_id": null,
+          "transfer_template_id": "xfer:X-GOX-HOTEL"
+        },
+        {
+          "amount_paise": 50000,
+          "booking_id": "booking:cab-C2",
+          "category": "retained_charge",
+          "id": "money:F4:C2",
+          "payment_state": "due",
+          "provenance_id": "prov:fixture:mumbai-goa-v2",
+          "service_id": null,
+          "transfer_template_id": "xfer:C2"
+        }
+      ],
+      "objective_values": {
+        "cash_required_paise": 570000,
+        "changed_original_booking_count": 2,
+        "final_required_arrival_at": "2026-09-26T20:05:00+05:30"
+      },
+      "potential_refund_paise": null,
+      "proposed_itinerary": {
+        "activities": [
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "xfer:X1",
+            "kind": "flexible_transfer",
+            "latest_start": null,
+            "location_id": null,
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": "xfer:X1"
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "svc:F4:2026-09-26",
+            "kind": "fixed_transport",
+            "latest_start": null,
+            "location_id": null,
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": "svc:F4:2026-09-26",
+            "start_at": null,
+            "transfer_template_id": null
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": "svc:F4:2026-09-26",
+            "duration_sec": 1800,
+            "earliest_start": null,
+            "hard": true,
+            "id": "process:F4-exit",
+            "kind": "processing",
+            "latest_start": null,
+            "location_id": "airport:GOX:ARR",
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": null
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "xfer:X-GOX-HOTEL",
+            "kind": "flexible_transfer",
+            "latest_start": null,
+            "location_id": null,
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": "xfer:X-GOX-HOTEL"
+          },
+          {
+            "booking_id": "booking:hotel-original",
+            "derived_from_service_id": null,
+            "duration_sec": 1200,
+            "earliest_start": "2026-09-26T12:00:00+05:30",
+            "hard": true,
+            "id": "act:H1",
+            "kind": "hotel_checkin",
+            "latest_start": "2026-09-26T21:00:00+05:30",
+            "location_id": "place:PANAJI_HOTEL",
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": null
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "xfer:C2",
+            "kind": "flexible_transfer",
+            "latest_start": null,
+            "location_id": null,
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": "xfer:C2"
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "act:E1",
+            "kind": "commitment",
+            "latest_start": null,
+            "location_id": "place:WEDDING_VENUE",
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": 900,
+            "service_id": null,
+            "start_at": "2026-09-26T19:30:00+05:30",
+            "transfer_template_id": null
+          }
+        ],
+        "dependencies": [
+          {
+            "buffer_sec": 0,
+            "from_id": "xfer:X1",
+            "id": "dep:candidate:0",
+            "reason": "candidate_sequence",
+            "to_id": "svc:F4:2026-09-26"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "svc:F4:2026-09-26",
+            "id": "dep:candidate:1",
+            "reason": "candidate_sequence",
+            "to_id": "process:F4-exit"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "process:F4-exit",
+            "id": "dep:candidate:2",
+            "reason": "candidate_sequence",
+            "to_id": "xfer:X-GOX-HOTEL"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "xfer:X-GOX-HOTEL",
+            "id": "dep:candidate:3",
+            "reason": "candidate_sequence",
+            "to_id": "act:H1"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "act:H1",
+            "id": "dep:candidate:4",
+            "reason": "candidate_sequence",
+            "to_id": "xfer:C2"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "xfer:C2",
+            "id": "dep:candidate:5",
+            "reason": "candidate_sequence",
+            "to_id": "act:E1"
+          }
+        ]
+      },
+      "provenance_ids": [
+        "prov:fixture:mumbai-goa-v2"
+      ],
+      "ranking_reason_code": null,
+      "reason_codes": [
+        "HARD_DEADLINE_MISSED",
+        "CASH_LIMIT_EXCEEDED"
+      ],
+      "run_id": null,
+      "sequence_ids": [
+        "xfer:X1",
+        "svc:F4:2026-09-26",
+        "process:F4-exit",
+        "xfer:X-GOX-HOTEL",
+        "act:H1",
+        "xfer:C2",
+        "act:E1"
+      ],
+      "sequence_signature": "ae67803ad8f50944214762660875d1c467934637958fcf10f3a612037e19d24f",
+      "service_ids": [
+        "svc:F4:2026-09-26"
+      ],
+      "simulated": true,
+      "transfer_template_ids": [
+        "xfer:X1",
+        "xfer:X-GOX-HOTEL",
+        "xfer:C2"
+      ],
+      "trip_id": "trip:mumbai-goa-v2",
+      "trip_version": 3,
+      "valid_until": "2026-09-26T05:15:00+05:30"
+    },
+    {
+      "activity_sequence": [
+        {
+          "activity_id": "svc:T1:2026-09-26",
+          "cutoff_at": "2026-09-26T08:30:00+05:30",
+          "destination_id": "rail:MAO",
+          "end_at": "2026-09-26T18:30:00+05:30",
+          "kind": "fixed_transport",
+          "origin_id": "rail:CSMT",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T18:30:00+05:30",
+          "reason_codes": [],
+          "service_id": "svc:T1:2026-09-26",
+          "slack_sec": 11700,
+          "start_at": "2026-09-26T09:00:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": null
+        },
+        {
+          "activity_id": "process:T1-exit",
+          "cutoff_at": null,
+          "destination_id": "rail:MAO",
+          "end_at": "2026-09-26T18:50:00+05:30",
+          "kind": "processing",
+          "origin_id": "rail:MAO",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T18:50:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": null,
+          "start_at": "2026-09-26T18:30:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": null
+        },
+        {
+          "activity_id": "xfer:C1",
+          "cutoff_at": null,
+          "destination_id": "place:PANAJI_HOTEL",
+          "end_at": "2026-09-26T20:00:00+05:30",
+          "kind": "flexible_transfer",
+          "origin_id": "rail:MAO",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T20:00:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": null,
+          "start_at": "2026-09-26T18:50:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": "xfer:C1"
+        },
+        {
+          "activity_id": "act:H1",
+          "cutoff_at": "2026-09-26T21:00:00+05:30",
+          "destination_id": "place:PANAJI_HOTEL",
+          "end_at": "2026-09-26T20:20:00+05:30",
+          "kind": "hotel_checkin",
+          "origin_id": "place:PANAJI_HOTEL",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T20:20:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": 3600,
+          "start_at": "2026-09-26T20:00:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": null
+        },
+        {
+          "activity_id": "xfer:C2",
+          "cutoff_at": null,
+          "destination_id": "place:WEDDING_VENUE",
+          "end_at": "2026-09-26T20:50:00+05:30",
+          "kind": "flexible_transfer",
+          "origin_id": "place:PANAJI_HOTEL",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T20:50:00+05:30",
+          "reason_codes": [],
+          "service_id": null,
+          "slack_sec": null,
+          "start_at": "2026-09-26T20:20:00+05:30",
+          "status": "feasible",
+          "transfer_template_id": "xfer:C2"
+        },
+        {
+          "activity_id": "act:E1",
+          "cutoff_at": "2026-09-26T19:15:00+05:30",
+          "destination_id": "place:WEDDING_VENUE",
+          "end_at": "2026-09-26T19:30:00+05:30",
+          "kind": "commitment",
+          "origin_id": "place:WEDDING_VENUE",
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "ready_at": "2026-09-26T20:50:00+05:30",
+          "reason_codes": [
+            "HARD_DEADLINE_MISSED"
+          ],
+          "service_id": null,
+          "slack_sec": -5700,
+          "start_at": "2026-09-26T19:30:00+05:30",
+          "status": "infeasible",
+          "transfer_template_id": null
+        }
+      ],
+      "bookable": false,
+      "cash_required_paise": 130000,
+      "catalog_version": "catalog:mumbai-goa-v2",
+      "changed_original_booking_ids": [],
+      "constraint_checks": [
+        {
+          "constraint_id": "constraint:svc:T1:2026-09-26:readiness",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T05:15:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:replay:D1"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T08:30:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:C1:window",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T18:50:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T22:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:act:H1:latest_start",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T20:00:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T21:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:C2:window",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T20:20:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-26T23:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:act:E1:arrival_deadline",
+          "observed": {
+            "unit": "seconds",
+            "value": -5700,
+            "value_kind": "duration_sec"
+          },
+          "passed": false,
+          "provenance_ids": [],
+          "reason_code": "HARD_DEADLINE_MISSED",
+          "required": {
+            "unit": "seconds",
+            "value": 0,
+            "value_kind": "duration_sec"
+          }
+        },
+        {
+          "constraint_id": "constraint:svc:T1:2026-09-26:capacity",
+          "observed": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:svc:T1:2026-09-26:status",
+          "observed": {
+            "unit": null,
+            "value": "delayed",
+            "value_kind": "text"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:replay:D1"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "not_cancelled",
+            "value_kind": "text"
+          }
+        },
+        {
+          "constraint_id": "constraint:svc:T1:2026-09-26:mode",
+          "observed": {
+            "unit": null,
+            "value": "rail",
+            "value_kind": "text"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "allowed_modes",
+            "value_kind": "text"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:C1:capacity",
+          "observed": {
+            "unit": null,
+            "value": 4,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:xfer:C2:capacity",
+          "observed": {
+            "unit": null,
+            "value": 4,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [
+            "prov:fixture:mumbai-goa-v2"
+          ],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 1,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:budget:cash_required",
+          "observed": {
+            "unit": "INR_paise",
+            "value": 130000,
+            "value_kind": "money_paise"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": "INR_paise",
+            "value": 500000,
+            "value_kind": "money_paise"
+          }
+        },
+        {
+          "constraint_id": "constraint:budget:incremental_cost",
+          "observed": {
+            "unit": "INR_paise",
+            "value": 0,
+            "value_kind": "money_paise"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": "INR_paise",
+            "value": 900000,
+            "value_kind": "money_paise"
+          }
+        },
+        {
+          "constraint_id": "constraint:bounds:horizon",
+          "observed": {
+            "unit": null,
+            "value": "2026-09-26T20:50:00+05:30",
+            "value_kind": "timestamp"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": "2026-09-27T05:00:00+05:30",
+            "value_kind": "timestamp"
+          }
+        },
+        {
+          "constraint_id": "constraint:bounds:fixed_legs",
+          "observed": {
+            "unit": null,
+            "value": 0,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 2,
+            "value_kind": "integer"
+          }
+        },
+        {
+          "constraint_id": "constraint:bounds:transfer_legs",
+          "observed": {
+            "unit": null,
+            "value": 2,
+            "value_kind": "integer"
+          },
+          "passed": true,
+          "provenance_ids": [],
+          "reason_code": "HARD_CONSTRAINTS_PASS",
+          "required": {
+            "unit": null,
+            "value": 8,
+            "value_kind": "integer"
+          }
+        }
+      ],
+      "display_rank": null,
+      "evaluation_status": "infeasible",
+      "event_slack_sec": -5700,
+      "final_required_arrival_at": "2026-09-26T20:50:00+05:30",
+      "frontier_member": false,
+      "id": "plan:WAIT-T1:v3",
+      "incremental_cost_paise": 0,
+      "lifecycle_status": "preview",
+      "money_items": [
+        {
+          "amount_paise": 80000,
+          "booking_id": "booking:cab-C1",
+          "category": "retained_charge",
+          "id": "money:C1-due",
+          "payment_state": "due",
+          "provenance_id": "prov:fixture:mumbai-goa-v2",
+          "service_id": null,
+          "transfer_template_id": "xfer:C1"
+        },
+        {
+          "amount_paise": 50000,
+          "booking_id": "booking:cab-C2",
+          "category": "retained_charge",
+          "id": "money:C2-due",
+          "payment_state": "due",
+          "provenance_id": "prov:fixture:mumbai-goa-v2",
+          "service_id": null,
+          "transfer_template_id": "xfer:C2"
+        }
+      ],
+      "objective_values": {
+        "cash_required_paise": 130000,
+        "changed_original_booking_count": 0,
+        "final_required_arrival_at": "2026-09-26T20:50:00+05:30"
+      },
+      "potential_refund_paise": null,
+      "proposed_itinerary": {
+        "activities": [
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "svc:T1:2026-09-26",
+            "kind": "fixed_transport",
+            "latest_start": null,
+            "location_id": null,
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": "svc:T1:2026-09-26",
+            "start_at": null,
+            "transfer_template_id": null
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": "svc:T1:2026-09-26",
+            "duration_sec": 1200,
+            "earliest_start": null,
+            "hard": true,
+            "id": "process:T1-exit",
+            "kind": "processing",
+            "latest_start": null,
+            "location_id": "rail:MAO",
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": null
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "xfer:C1",
+            "kind": "flexible_transfer",
+            "latest_start": null,
+            "location_id": null,
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": "xfer:C1"
+          },
+          {
+            "booking_id": "booking:hotel-original",
+            "derived_from_service_id": null,
+            "duration_sec": 1200,
+            "earliest_start": "2026-09-26T12:00:00+05:30",
+            "hard": true,
+            "id": "act:H1",
+            "kind": "hotel_checkin",
+            "latest_start": "2026-09-26T21:00:00+05:30",
+            "location_id": "place:PANAJI_HOTEL",
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": null
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "xfer:C2",
+            "kind": "flexible_transfer",
+            "latest_start": null,
+            "location_id": null,
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": null,
+            "service_id": null,
+            "start_at": null,
+            "transfer_template_id": "xfer:C2"
+          },
+          {
+            "booking_id": null,
+            "derived_from_service_id": null,
+            "duration_sec": null,
+            "earliest_start": null,
+            "hard": true,
+            "id": "act:E1",
+            "kind": "commitment",
+            "latest_start": null,
+            "location_id": "place:WEDDING_VENUE",
+            "provenance_id": "prov:fixture:mumbai-goa-v2",
+            "readiness_allowance_sec": 900,
+            "service_id": null,
+            "start_at": "2026-09-26T19:30:00+05:30",
+            "transfer_template_id": null
+          }
+        ],
+        "dependencies": [
+          {
+            "buffer_sec": 0,
+            "from_id": "svc:T1:2026-09-26",
+            "id": "dep:candidate:0",
+            "reason": "candidate_sequence",
+            "to_id": "process:T1-exit"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "process:T1-exit",
+            "id": "dep:candidate:1",
+            "reason": "candidate_sequence",
+            "to_id": "xfer:C1"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "xfer:C1",
+            "id": "dep:candidate:2",
+            "reason": "candidate_sequence",
+            "to_id": "act:H1"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "act:H1",
+            "id": "dep:candidate:3",
+            "reason": "candidate_sequence",
+            "to_id": "xfer:C2"
+          },
+          {
+            "buffer_sec": 0,
+            "from_id": "xfer:C2",
+            "id": "dep:candidate:4",
+            "reason": "candidate_sequence",
+            "to_id": "act:E1"
+          }
+        ]
+      },
+      "provenance_ids": [
+        "prov:fixture:mumbai-goa-v2"
+      ],
+      "ranking_reason_code": null,
+      "reason_codes": [
+        "HARD_DEADLINE_MISSED"
+      ],
+      "run_id": null,
+      "sequence_ids": [
+        "svc:T1:2026-09-26",
+        "process:T1-exit",
+        "xfer:C1",
+        "act:H1",
+        "xfer:C2",
+        "act:E1"
+      ],
+      "sequence_signature": "4c508b96746f56e0d430c4966ad30998489380147f927a0ec948fe327a5f703c",
+      "service_ids": [
+        "svc:T1:2026-09-26"
+      ],
+      "simulated": true,
+      "transfer_template_ids": [
+        "xfer:C1",
+        "xfer:C2"
+      ],
+      "trip_id": "trip:mumbai-goa-v2",
+      "trip_version": 3,
+      "valid_until": "2026-09-26T08:30:00+05:30"
+    }
+  ],
+  "result_status": "no_feasible_catalog_plan",
+  "run_id": "run:mumbai-goa-v2:v3:cheapest",
+  "runtime_ms": 0.0,
+  "scope": {
+    "catalog_version": "catalog:mumbai-goa-v2",
+    "horizon_end": "2026-09-27T05:00:00+05:30",
+    "max_activities": 20,
+    "max_catalog_services": 4,
+    "max_new_fixed_legs": 2,
+    "max_transfer_legs": 8,
+    "replay_as_of": "2026-09-26T05:00:00+05:30"
+  },
+  "search_complete": true,
+  "trip_id": "trip:mumbai-goa-v2",
+  "trip_version": 3,
+  "uncertain_plans": []
+}

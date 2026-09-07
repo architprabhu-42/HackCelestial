@@ -1,0 +1,8 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {"type":"Feature","properties":{"mode":"rail"},"geometry":{"type":"LineString","coordinates":[[72.835,18.94],[73.2,17.8],[73.8,16.9],[74.02,15.28]]}},
+    {"type":"Feature","properties":{"mode":"air"},"geometry":{"type":"LineString","coordinates":[[72.875,19.10],[73.83,15.38]]}},
+    {"type":"Feature","properties":{"mode":"road"},"geometry":{"type":"LineString","coordinates":[[73.83,15.38],[73.82,15.49],[73.95,15.54]]}}
+  ]
+}

@@ -1,0 +1,11 @@
+services:
+  resilitrip:
+    build: .
+    environment:
+      RESILITRIP_BIND_HOST: 127.0.0.1
+      RESILITRIP_PORT: 8000
+      RESILITRIP_DB_PATH: /workspace/data/local/resilitrip.sqlite3
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - ./data/local:/workspace/data/local
