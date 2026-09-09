@@ -176,19 +176,6 @@
       "source_location": "L136"
     },
     {
-      "id": "apps_api_resilitrip_api_contracts_livehealthresponse",
-      "label": "LiveHealthResponse",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": "livehealthresponse",
-      "source_file": "apps/api/resilitrip/api/contracts.py",
-      "source_location": "L77"
-    },
-    {
       "id": "apps_api_resilitrip_api_contracts_manualtripcreate",
       "label": "ManualTripCreate",
       "_callable": true,
@@ -293,19 +280,6 @@
       "source_location": "L208"
     },
     {
-      "id": "apps_api_resilitrip_api_contracts_readyhealthresponse",
-      "label": "ReadyHealthResponse",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": "readyhealthresponse",
-      "source_file": "apps/api/resilitrip/api/contracts.py",
-      "source_location": "L83"
-    },
-    {
       "id": "apps_api_resilitrip_api_contracts_resetcommand",
       "label": "ResetCommand",
       "_callable": true,
@@ -356,6 +330,19 @@
       "norm_label": "tripsnapshotresponse",
       "source_file": "apps/api/resilitrip/api/contracts.py",
       "source_location": "L168"
+    },
+    {
+      "id": "apps_api_resilitrip_domain_models_availableactions",
+      "label": "AvailableActions",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "ContractModel",
+      "file_type": "code",
+      "norm_label": "availableactions",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L792"
     },
     {
       "id": "apps_api_resilitrip_domain_models_booking",
@@ -410,6 +397,19 @@
       "source_location": "L335"
     },
     {
+      "id": "apps_api_resilitrip_domain_models_executablescenariofixture",
+      "label": "ExecutableScenarioFixture",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "ContractModel",
+      "file_type": "code",
+      "norm_label": "executablescenariofixture",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L523"
+    },
+    {
       "id": "apps_api_resilitrip_domain_models_itinerarydefinition",
       "label": "ItineraryDefinition",
       "_callable": true,
@@ -421,32 +421,6 @@
       "norm_label": "itinerarydefinition",
       "source_file": "apps/api/resilitrip/domain/models.py",
       "source_location": "L413"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_models_location",
-      "label": "Location",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": "location",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L214"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_models_moneyitem",
-      "label": "MoneyItem",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": "moneyitem",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L428"
     },
     {
       "id": "apps_api_resilitrip_domain_models_plannerresult",
@@ -462,19 +436,6 @@
       "source_location": "L742"
     },
     {
-      "id": "apps_api_resilitrip_domain_models_policyrecord",
-      "label": "PolicyRecord",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": "policyrecord",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L234"
-    },
-    {
       "id": "apps_api_resilitrip_domain_models_provenancerecord",
       "label": "ProvenanceRecord",
       "_callable": true,
@@ -486,32 +447,6 @@
       "norm_label": "provenancerecord",
       "source_file": "apps/api/resilitrip/domain/models.py",
       "source_location": "L198"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_models_servicecatalog",
-      "label": "ServiceCatalog",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": "servicecatalog",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L316"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_models_servicedefinition",
-      "label": "ServiceDefinition",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": "servicedefinition",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L265"
     },
     {
       "id": "apps_api_resilitrip_domain_models_travelerphase",
@@ -553,6 +488,45 @@
       "source_location": "L802"
     },
     {
+      "id": "apps_api_resilitrip_domain_validation_domainvalidationerror",
+      "label": "DomainValidationError",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "ContractModel",
+      "file_type": "code",
+      "norm_label": "domainvalidationerror",
+      "source_file": "apps/api/resilitrip/domain/validation.py",
+      "source_location": "L13"
+    },
+    {
+      "id": "apps_api_resilitrip_api_contracts_livehealthresponse",
+      "label": "LiveHealthResponse",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "load_fixture",
+      "file_type": "code",
+      "norm_label": "livehealthresponse",
+      "source_file": "apps/api/resilitrip/api/contracts.py",
+      "source_location": "L77"
+    },
+    {
+      "id": "apps_api_resilitrip_api_contracts_readyhealthresponse",
+      "label": "ReadyHealthResponse",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "load_fixture",
+      "file_type": "code",
+      "norm_label": "readyhealthresponse",
+      "source_file": "apps/api/resilitrip/api/contracts.py",
+      "source_location": "L83"
+    },
+    {
       "id": "apps_api_resilitrip_config_settings",
       "label": "Settings",
       "_callable": true,
@@ -576,45 +550,6 @@
       "file_type": "code",
       "norm_label": "fixtureloaderror",
       "source_file": "apps/api/resilitrip/infrastructure/fixture_loader.py",
-      "source_location": "L13"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_models_evaluatedactivity",
-      "label": "EvaluatedActivity",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
-      "file_type": "code",
-      "norm_label": "evaluatedactivity",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L538"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_models_executablescenariofixture",
-      "label": "ExecutableScenarioFixture",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
-      "file_type": "code",
-      "norm_label": "executablescenariofixture",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L523"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_validation_domainvalidationerror",
-      "label": "DomainValidationError",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
-      "file_type": "code",
-      "norm_label": "domainvalidationerror",
-      "source_file": "apps/api/resilitrip/domain/validation.py",
       "source_location": "L13"
     },
     {
@@ -1099,19 +1034,6 @@
       "source_location": "L75"
     },
     {
-      "id": "apps_api_resilitrip_domain_models_availableactions",
-      "label": "AvailableActions",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "models.py",
-      "file_type": "code",
-      "norm_label": "availableactions",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L792"
-    },
-    {
       "id": "apps_api_resilitrip_domain_models_bookingstate",
       "label": "BookingState",
       "_callable": true,
@@ -1177,19 +1099,6 @@
       "source_location": "L569"
     },
     {
-      "id": "apps_api_resilitrip_domain_models_effectiveservicestate",
-      "label": "EffectiveServiceState",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "models.py",
-      "file_type": "code",
-      "norm_label": "effectiveservicestate",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L455"
-    },
-    {
       "id": "apps_api_resilitrip_domain_models_entityidevidencevalue",
       "label": "EntityIdEvidenceValue",
       "_callable": true,
@@ -1201,6 +1110,19 @@
       "norm_label": "entityidevidencevalue",
       "source_file": "apps/api/resilitrip/domain/models.py",
       "source_location": "L594"
+    },
+    {
+      "id": "apps_api_resilitrip_domain_models_evaluatedactivity",
+      "label": "EvaluatedActivity",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "models.py",
+      "file_type": "code",
+      "norm_label": "evaluatedactivity",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L538"
     },
     {
       "id": "apps_api_resilitrip_domain_models_evidencebase",
@@ -1307,6 +1229,19 @@
       "source_location": "L574"
     },
     {
+      "id": "apps_api_resilitrip_domain_models_moneyitem",
+      "label": "MoneyItem",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "models.py",
+      "file_type": "code",
+      "norm_label": "moneyitem",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L428"
+    },
+    {
       "id": "apps_api_resilitrip_domain_models_paymentstate",
       "label": "PaymentState",
       "_callable": true,
@@ -1383,6 +1318,19 @@
       "norm_label": "provenancekind",
       "source_file": "apps/api/resilitrip/domain/models.py",
       "source_location": "L169"
+    },
+    {
+      "id": "apps_api_resilitrip_domain_models_rankingpreset",
+      "label": "RankingPreset",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "models.py",
+      "file_type": "code",
+      "norm_label": "rankingpreset",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L88"
     },
     {
       "id": "apps_api_resilitrip_domain_models_rankingreasoncode",
@@ -1541,6 +1489,19 @@
       "source_location": "L670"
     },
     {
+      "id": "apps_api_resilitrip_domain_models_effectiveservicestate",
+      "label": "EffectiveServiceState",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "plan_recovery",
+      "file_type": "code",
+      "norm_label": "effectiveservicestate",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L455"
+    },
+    {
       "id": "apps_api_resilitrip_domain_models_impactrecord",
       "label": "ImpactRecord",
       "_callable": true,
@@ -1565,19 +1526,6 @@
       "norm_label": "plannerresultstatus",
       "source_file": "apps/api/resilitrip/domain/models.py",
       "source_location": "L110"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_models_rankingpreset",
-      "label": "RankingPreset",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "plan_recovery",
-      "file_type": "code",
-      "norm_label": "rankingpreset",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L88"
     },
     {
       "id": "apps_api_resilitrip_domain_models_servicecancelledevent",
@@ -1625,7 +1573,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "code",
       "norm_label": "activitydefinition",
       "source_file": "apps/api/resilitrip/domain/models.py",
@@ -1638,7 +1586,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "code",
       "norm_label": "activitykind",
       "source_file": "apps/api/resilitrip/domain/models.py",
@@ -1651,11 +1599,24 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "code",
       "norm_label": "dependency",
       "source_file": "apps/api/resilitrip/domain/models.py",
       "source_location": "L405"
+    },
+    {
+      "id": "apps_api_resilitrip_domain_models_servicecatalog",
+      "label": "ServiceCatalog",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "ServiceCatalog",
+      "file_type": "code",
+      "norm_label": "servicecatalog",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L316"
     },
     {
       "id": "apps_api_resilitrip_domain_recovery_catalogindexes",
@@ -1664,7 +1625,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "code",
       "norm_label": "catalogindexes",
       "source_file": "apps/api/resilitrip/domain/recovery.py",
@@ -1677,7 +1638,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "code",
       "norm_label": "recoveryfrontier",
       "source_file": "apps/api/resilitrip/domain/recovery.py",
@@ -1690,35 +1651,62 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "code",
       "norm_label": "searchlabel",
       "source_file": "apps/api/resilitrip/domain/recovery.py",
       "source_location": "L30"
     },
     {
-      "id": "apps_api_resilitrip_api_routers_health_liveness",
-      "label": "liveness()",
+      "id": "apps_api_resilitrip_domain_models_location",
+      "label": "Location",
       "_callable": true,
+      "_callable_class": true,
       "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
+      "community": 9,
+      "community_name": "model_validator",
       "file_type": "code",
-      "norm_label": "liveness()",
-      "source_file": "apps/api/resilitrip/api/routers/health.py",
-      "source_location": "L11"
+      "norm_label": "location",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L214"
     },
     {
-      "id": "apps_api_resilitrip_api_routers_health_readiness",
-      "label": "readiness()",
+      "id": "apps_api_resilitrip_domain_models_policyrecord",
+      "label": "PolicyRecord",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "model_validator",
+      "file_type": "code",
+      "norm_label": "policyrecord",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L234"
+    },
+    {
+      "id": "apps_api_resilitrip_domain_models_servicedefinition",
+      "label": "ServiceDefinition",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "model_validator",
+      "file_type": "code",
+      "norm_label": "servicedefinition",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L265"
+    },
+    {
+      "id": "apps_api_resilitrip_application_snapshots_baseline_snapshot",
+      "label": "baseline_snapshot()",
       "_callable": true,
       "_origin": "ast",
       "community": 0,
       "community_name": "ContractModel",
       "file_type": "code",
-      "norm_label": "readiness()",
-      "source_file": "apps/api/resilitrip/api/routers/health.py",
-      "source_location": "L16"
+      "norm_label": "baseline_snapshot()",
+      "source_file": "apps/api/resilitrip/application/snapshots.py",
+      "source_location": "L46"
     },
     {
       "id": "apps_api_resilitrip_domain_editing_validate_itinerary_replacement",
@@ -1733,124 +1721,16 @@
       "source_location": "L10"
     },
     {
-      "id": "apps_api_resilitrip_domain_models_activitydefinition_activity_shape",
-      "label": ".activity_shape()",
+      "id": "apps_api_resilitrip_domain_validation_domainvalidationerror_init",
+      "label": ".__init__()",
       "_callable": true,
       "_origin": "ast",
       "community": 0,
       "community_name": "ContractModel",
       "file_type": "code",
-      "norm_label": ".activity_shape()",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L388"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_models_currentstate_current_state_shape",
-      "label": ".current_state_shape()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": ".current_state_shape()",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L345"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_models_effectiveservicestate_effective_chronology",
-      "label": ".effective_chronology()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": ".effective_chronology()",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L464"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_models_location_location_kind_requirements",
-      "label": ".location_kind_requirements()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": ".location_kind_requirements()",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L226"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_models_moneyitem_money_invariant",
-      "label": ".money_invariant()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": ".money_invariant()",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L439"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_models_policyrecord_policy_shape",
-      "label": ".policy_shape()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": ".policy_shape()",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L256"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_models_provenancerecord_retrieved_after_observed",
-      "label": ".retrieved_after_observed()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": ".retrieved_after_observed()",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L208"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_models_servicedefinition_service_chronology",
-      "label": ".service_chronology()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": ".service_chronology()",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L284"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_models_timingreplayevent_timing_event_chronology",
-      "label": ".timing_event_chronology()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": ".timing_event_chronology()",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L505"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_models_transfertemplate_transfer_window",
-      "label": ".transfer_window()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": ".transfer_window()",
-      "source_file": "apps/api/resilitrip/domain/models.py",
-      "source_location": "L308"
+      "norm_label": ".__init__()",
+      "source_file": "apps/api/resilitrip/domain/validation.py",
+      "source_location": "L16"
     },
     {
       "id": "apps_api_resilitrip_domain_validation_unique",
@@ -1875,6 +1755,18 @@
       "norm_label": "validate_dependency_dag()",
       "source_file": "apps/api/resilitrip/domain/validation.py",
       "source_location": "L27"
+    },
+    {
+      "id": "apps_api_resilitrip_domain_validation_validate_fixture",
+      "label": "validate_fixture()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "ContractModel",
+      "file_type": "code",
+      "norm_label": "validate_fixture()",
+      "source_file": "apps/api/resilitrip/domain/validation.py",
+      "source_location": "L131"
     },
     {
       "id": "apps_api_resilitrip_domain_validation_validate_manual_trip",
@@ -1973,6 +1865,66 @@
       "source_location": "L49"
     },
     {
+      "id": "apps_api_tests_unit_test_fixture_and_baseline_test_t01_fixture_loads_with_resolved_references",
+      "label": "test_t01_fixture_loads_with_resolved_references()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "ContractModel",
+      "file_type": "code",
+      "norm_label": "test_t01_fixture_loads_with_resolved_references()",
+      "source_file": "apps/api/tests/unit/test_fixture_and_baseline.py",
+      "source_location": "L4"
+    },
+    {
+      "id": "apps_api_tests_unit_test_fixture_and_baseline_test_t02_connected_journey_projection_matches_dependency_chain",
+      "label": "test_t02_connected_journey_projection_matches_dependency_chain()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "ContractModel",
+      "file_type": "code",
+      "norm_label": "test_t02_connected_journey_projection_matches_dependency_chain()",
+      "source_file": "apps/api/tests/unit/test_fixture_and_baseline.py",
+      "source_location": "L12"
+    },
+    {
+      "id": "apps_api_tests_unit_test_fixture_and_baseline_test_t03_baseline_snapshot_matches_document_04",
+      "label": "test_t03_baseline_snapshot_matches_document_04()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "ContractModel",
+      "file_type": "code",
+      "norm_label": "test_t03_baseline_snapshot_matches_document_04()",
+      "source_file": "apps/api/tests/unit/test_fixture_and_baseline.py",
+      "source_location": "L22"
+    },
+    {
+      "id": "apps_api_tests_unit_test_negative_fixture_validation_load_mutated",
+      "label": "load_mutated()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "ContractModel",
+      "file_type": "code",
+      "norm_label": "load_mutated()",
+      "source_file": "apps/api/tests/unit/test_negative_fixture_validation.py",
+      "source_location": "L11"
+    },
+    {
+      "id": "apps_api_tests_unit_test_negative_fixture_validation_test_neg_01_through_neg_15",
+      "label": "test_neg_01_through_neg_15()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "ContractModel",
+      "file_type": "code",
+      "norm_label": "test_neg_01_through_neg_15()",
+      "source_file": "apps/api/tests/unit/test_negative_fixture_validation.py",
+      "source_location": "L37"
+    },
+    {
       "id": "apps_api_resilitrip_api_errors_api_problem_handler",
       "label": "api_problem_handler()",
       "_callable": true,
@@ -2019,6 +1971,30 @@
       "norm_label": "validation_handler()",
       "source_file": "apps/api/resilitrip/api/errors.py",
       "source_location": "L21"
+    },
+    {
+      "id": "apps_api_resilitrip_api_routers_health_liveness",
+      "label": "liveness()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "load_fixture",
+      "file_type": "code",
+      "norm_label": "liveness()",
+      "source_file": "apps/api/resilitrip/api/routers/health.py",
+      "source_location": "L11"
+    },
+    {
+      "id": "apps_api_resilitrip_api_routers_health_readiness",
+      "label": "readiness()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "load_fixture",
+      "file_type": "code",
+      "norm_label": "readiness()",
+      "source_file": "apps/api/resilitrip/api/routers/health.py",
+      "source_location": "L16"
     },
     {
       "id": "apps_api_resilitrip_config_default_settings",
@@ -2453,120 +2429,72 @@
       "source_location": "L22"
     },
     {
-      "id": "apps_api_resilitrip_application_snapshots_baseline_snapshot",
-      "label": "baseline_snapshot()",
+      "id": "apps_web_e2e_accessibility_spec_noseriousorcritical",
+      "label": "noSeriousOrCritical()",
       "_callable": true,
       "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
+      "community": 10,
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "baseline_snapshot()",
-      "source_file": "apps/api/resilitrip/application/snapshots.py",
-      "source_location": "L46"
+      "norm_label": "noseriousorcritical()",
+      "source_file": "apps/web/e2e/accessibility.spec.ts",
+      "source_location": "L5"
     },
     {
-      "id": "apps_api_resilitrip_domain_baseline_evaluate_baseline",
-      "label": "evaluate_baseline()",
+      "id": "apps_web_e2e_helpers_applyd1",
+      "label": "applyD1()",
       "_callable": true,
       "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
+      "community": 10,
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "evaluate_baseline()",
-      "source_file": "apps/api/resilitrip/domain/baseline.py",
-      "source_location": "L17"
+      "norm_label": "applyd1()",
+      "source_file": "apps/web/e2e/helpers.ts",
+      "source_location": "L9"
     },
     {
-      "id": "apps_api_resilitrip_domain_validation_domainvalidationerror_init",
-      "label": ".__init__()",
+      "id": "apps_web_e2e_helpers_generateplans",
+      "label": "generatePlans()",
       "_callable": true,
       "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
+      "community": 10,
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": ".__init__()",
-      "source_file": "apps/api/resilitrip/domain/validation.py",
+      "norm_label": "generateplans()",
+      "source_file": "apps/web/e2e/helpers.ts",
       "source_location": "L16"
     },
     {
-      "id": "apps_api_resilitrip_domain_validation_validate_fixture",
-      "label": "validate_fixture()",
+      "id": "apps_web_e2e_helpers_loaddemo",
+      "label": "loadDemo()",
       "_callable": true,
       "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
+      "community": 10,
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "validate_fixture()",
-      "source_file": "apps/api/resilitrip/domain/validation.py",
-      "source_location": "L131"
+      "norm_label": "loaddemo()",
+      "source_file": "apps/web/e2e/helpers.ts",
+      "source_location": "L3"
     },
     {
-      "id": "apps_api_tests_unit_test_fixture_and_baseline_test_t01_fixture_loads_with_resolved_references",
-      "label": "test_t01_fixture_loads_with_resolved_references()",
+      "id": "apps_web_e2e_helpers_previewf3",
+      "label": "previewF3()",
       "_callable": true,
       "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
+      "community": 10,
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "test_t01_fixture_loads_with_resolved_references()",
-      "source_file": "apps/api/tests/unit/test_fixture_and_baseline.py",
-      "source_location": "L4"
-    },
-    {
-      "id": "apps_api_tests_unit_test_fixture_and_baseline_test_t02_connected_journey_projection_matches_dependency_chain",
-      "label": "test_t02_connected_journey_projection_matches_dependency_chain()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
-      "file_type": "code",
-      "norm_label": "test_t02_connected_journey_projection_matches_dependency_chain()",
-      "source_file": "apps/api/tests/unit/test_fixture_and_baseline.py",
-      "source_location": "L12"
-    },
-    {
-      "id": "apps_api_tests_unit_test_fixture_and_baseline_test_t03_baseline_snapshot_matches_document_04",
-      "label": "test_t03_baseline_snapshot_matches_document_04()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
-      "file_type": "code",
-      "norm_label": "test_t03_baseline_snapshot_matches_document_04()",
-      "source_file": "apps/api/tests/unit/test_fixture_and_baseline.py",
-      "source_location": "L22"
-    },
-    {
-      "id": "apps_api_tests_unit_test_negative_fixture_validation_load_mutated",
-      "label": "load_mutated()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
-      "file_type": "code",
-      "norm_label": "load_mutated()",
-      "source_file": "apps/api/tests/unit/test_negative_fixture_validation.py",
-      "source_location": "L11"
-    },
-    {
-      "id": "apps_api_tests_unit_test_negative_fixture_validation_test_neg_01_through_neg_15",
-      "label": "test_neg_01_through_neg_15()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
-      "file_type": "code",
-      "norm_label": "test_neg_01_through_neg_15()",
-      "source_file": "apps/api/tests/unit/test_negative_fixture_validation.py",
-      "source_location": "L37"
+      "norm_label": "previewf3()",
+      "source_file": "apps/web/e2e/helpers.ts",
+      "source_location": "L21"
     },
     {
       "id": "apps_web_src_tests_setup_disconnect",
       "label": "disconnect()",
       "_callable": true,
       "_origin": "ast",
-      "community": 18,
-      "community_name": "setup.ts",
+      "community": 10,
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "disconnect()",
       "source_file": "apps/web/src/tests/setup.ts",
@@ -2577,8 +2505,8 @@
       "label": "observe()",
       "_callable": true,
       "_origin": "ast",
-      "community": 18,
-      "community_name": "setup.ts",
+      "community": 10,
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "observe()",
       "source_file": "apps/web/src/tests/setup.ts",
@@ -2589,8 +2517,8 @@
       "label": "unobserve()",
       "_callable": true,
       "_origin": "ast",
-      "community": 18,
-      "community_name": "setup.ts",
+      "community": 10,
+      "community_name": "package.json",
       "file_type": "code",
       "norm_label": "unobserve()",
       "source_file": "apps/web/src/tests/setup.ts",
@@ -3245,18 +3173,6 @@
       "source_location": "L39"
     },
     {
-      "id": "apps_api_resilitrip_application_snapshots_snapshot_for_trip",
-      "label": "snapshot_for_trip()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "routers/contracts.py",
-      "file_type": "code",
-      "norm_label": "snapshot_for_trip()",
-      "source_file": "apps/api/resilitrip/application/snapshots.py",
-      "source_location": "L59"
-    },
-    {
       "id": "apps_api_resilitrip_infrastructure_repositories_adoptionrepository_add",
       "label": ".add()",
       "_callable": true,
@@ -3545,6 +3461,18 @@
       "source_location": "L45"
     },
     {
+      "id": "apps_api_resilitrip_domain_baseline_evaluate_baseline",
+      "label": "evaluate_baseline()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "models.py",
+      "file_type": "code",
+      "norm_label": "evaluate_baseline()",
+      "source_file": "apps/api/resilitrip/domain/baseline.py",
+      "source_location": "L17"
+    },
+    {
       "id": "apps_api_resilitrip_domain_evaluation_check",
       "label": "_check()",
       "_callable": true,
@@ -3771,6 +3699,18 @@
       "norm_label": "create_initial_trip()",
       "source_file": "apps/api/resilitrip/application/snapshots.py",
       "source_location": "L18"
+    },
+    {
+      "id": "apps_api_resilitrip_application_snapshots_snapshot_for_trip",
+      "label": "snapshot_for_trip()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "plan_recovery",
+      "file_type": "code",
+      "norm_label": "snapshot_for_trip()",
+      "source_file": "apps/api/resilitrip/application/snapshots.py",
+      "source_location": "L59"
     },
     {
       "id": "apps_api_resilitrip_domain_events_apply_cancellation_event",
@@ -4342,7 +4282,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "code",
       "norm_label": "build_catalog_indexes()",
       "source_file": "apps/api/resilitrip/domain/recovery.py",
@@ -4354,7 +4294,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "code",
       "norm_label": "_candidate_id()",
       "source_file": "apps/api/resilitrip/domain/recovery.py",
@@ -4366,7 +4306,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "code",
       "norm_label": "derive_recovery_frontier()",
       "source_file": "apps/api/resilitrip/domain/recovery.py",
@@ -4378,7 +4318,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "code",
       "norm_label": "enumerate_atomic_candidates()",
       "source_file": "apps/api/resilitrip/domain/recovery.py",
@@ -4390,7 +4330,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "code",
       "norm_label": "_materialize()",
       "source_file": "apps/api/resilitrip/domain/recovery.py",
@@ -4402,7 +4342,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "code",
       "norm_label": "after_d1()",
       "source_file": "apps/api/tests/unit/test_atomic_candidates.py",
@@ -4414,7 +4354,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "code",
       "norm_label": "test_atomic_candidates_use_fixture_records_and_shared_evaluator()",
       "source_file": "apps/api/tests/unit/test_atomic_candidates.py",
@@ -4426,7 +4366,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "code",
       "norm_label": "test_recovery_frontier_is_hero_cstmt_at_0515()",
       "source_file": "apps/api/tests/unit/test_atomic_candidates.py",
@@ -4438,71 +4378,131 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "code",
       "norm_label": "test_shuffled_catalog_keeps_order_and_bounds()",
       "source_file": "apps/api/tests/unit/test_atomic_candidates.py",
       "source_location": "L33"
     },
     {
-      "id": "apps_web_e2e_accessibility_spec_noseriousorcritical",
-      "label": "noSeriousOrCritical()",
+      "id": "apps_api_resilitrip_domain_models_activitydefinition_activity_shape",
+      "label": ".activity_shape()",
       "_callable": true,
       "_origin": "ast",
       "community": 9,
-      "community_name": "helpers.ts",
+      "community_name": "model_validator",
       "file_type": "code",
-      "norm_label": "noseriousorcritical()",
-      "source_file": "apps/web/e2e/accessibility.spec.ts",
-      "source_location": "L5"
+      "norm_label": ".activity_shape()",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L388"
     },
     {
-      "id": "apps_web_e2e_helpers_applyd1",
-      "label": "applyD1()",
+      "id": "apps_api_resilitrip_domain_models_currentstate_current_state_shape",
+      "label": ".current_state_shape()",
       "_callable": true,
       "_origin": "ast",
       "community": 9,
-      "community_name": "helpers.ts",
+      "community_name": "model_validator",
       "file_type": "code",
-      "norm_label": "applyd1()",
-      "source_file": "apps/web/e2e/helpers.ts",
-      "source_location": "L9"
+      "norm_label": ".current_state_shape()",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L345"
     },
     {
-      "id": "apps_web_e2e_helpers_generateplans",
-      "label": "generatePlans()",
+      "id": "apps_api_resilitrip_domain_models_effectiveservicestate_effective_chronology",
+      "label": ".effective_chronology()",
       "_callable": true,
       "_origin": "ast",
       "community": 9,
-      "community_name": "helpers.ts",
+      "community_name": "model_validator",
       "file_type": "code",
-      "norm_label": "generateplans()",
-      "source_file": "apps/web/e2e/helpers.ts",
-      "source_location": "L16"
+      "norm_label": ".effective_chronology()",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L464"
     },
     {
-      "id": "apps_web_e2e_helpers_loaddemo",
-      "label": "loadDemo()",
+      "id": "apps_api_resilitrip_domain_models_location_location_kind_requirements",
+      "label": ".location_kind_requirements()",
       "_callable": true,
       "_origin": "ast",
       "community": 9,
-      "community_name": "helpers.ts",
+      "community_name": "model_validator",
       "file_type": "code",
-      "norm_label": "loaddemo()",
-      "source_file": "apps/web/e2e/helpers.ts",
-      "source_location": "L3"
+      "norm_label": ".location_kind_requirements()",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L226"
     },
     {
-      "id": "apps_web_e2e_helpers_previewf3",
-      "label": "previewF3()",
+      "id": "apps_api_resilitrip_domain_models_moneyitem_money_invariant",
+      "label": ".money_invariant()",
       "_callable": true,
       "_origin": "ast",
       "community": 9,
-      "community_name": "helpers.ts",
+      "community_name": "model_validator",
       "file_type": "code",
-      "norm_label": "previewf3()",
-      "source_file": "apps/web/e2e/helpers.ts",
-      "source_location": "L21"
+      "norm_label": ".money_invariant()",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L439"
+    },
+    {
+      "id": "apps_api_resilitrip_domain_models_policyrecord_policy_shape",
+      "label": ".policy_shape()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "model_validator",
+      "file_type": "code",
+      "norm_label": ".policy_shape()",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L256"
+    },
+    {
+      "id": "apps_api_resilitrip_domain_models_provenancerecord_retrieved_after_observed",
+      "label": ".retrieved_after_observed()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "model_validator",
+      "file_type": "code",
+      "norm_label": ".retrieved_after_observed()",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L208"
+    },
+    {
+      "id": "apps_api_resilitrip_domain_models_servicedefinition_service_chronology",
+      "label": ".service_chronology()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "model_validator",
+      "file_type": "code",
+      "norm_label": ".service_chronology()",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L284"
+    },
+    {
+      "id": "apps_api_resilitrip_domain_models_timingreplayevent_timing_event_chronology",
+      "label": ".timing_event_chronology()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "model_validator",
+      "file_type": "code",
+      "norm_label": ".timing_event_chronology()",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L505"
+    },
+    {
+      "id": "apps_api_resilitrip_domain_models_transfertemplate_transfer_window",
+      "label": ".transfer_window()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "model_validator",
+      "file_type": "code",
+      "norm_label": ".transfer_window()",
+      "source_file": "apps/api/resilitrip/domain/models.py",
+      "source_location": "L308"
     },
     {
       "id": "apps_api_resilitrip_api_contracts",
@@ -4523,39 +4523,6 @@
       "community_name": "ContractModel",
       "file_type": "code",
       "norm_label": "strenum",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "apps_api_resilitrip_api_routers_health",
-      "label": "health.py",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": "health.py",
-      "source_file": "apps/api/resilitrip/api/routers/health.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_api_resilitrip_api_routers_health_py_get",
-      "label": "get",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": "get",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "apps_api_resilitrip_api_routers_health_py_request",
-      "label": "Request",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": "request",
       "source_file": "",
       "source_location": ""
     },
@@ -4582,6 +4549,17 @@
       "source_location": "L1"
     },
     {
+      "id": "apps_api_resilitrip_domain_validation_py_valueerror",
+      "label": "ValueError",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "ContractModel",
+      "file_type": "code",
+      "norm_label": "valueerror",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "apps_api_tests_unit_test_a1_negative_edits",
       "label": "test_a1_negative_edits.py",
       "_origin": "ast",
@@ -4591,6 +4569,39 @@
       "norm_label": "test_a1_negative_edits.py",
       "source_file": "apps/api/tests/unit/test_a1_negative_edits.py",
       "source_location": "L1"
+    },
+    {
+      "id": "apps_api_tests_unit_test_fixture_and_baseline",
+      "label": "test_fixture_and_baseline.py",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "ContractModel",
+      "file_type": "code",
+      "norm_label": "test_fixture_and_baseline.py",
+      "source_file": "apps/api/tests/unit/test_fixture_and_baseline.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_api_tests_unit_test_negative_fixture_validation",
+      "label": "test_negative_fixture_validation.py",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "ContractModel",
+      "file_type": "code",
+      "norm_label": "test_negative_fixture_validation.py",
+      "source_file": "apps/api/tests/unit/test_negative_fixture_validation.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_api_tests_unit_test_negative_fixture_validation_py_parametrize",
+      "label": "parametrize",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "ContractModel",
+      "file_type": "code",
+      "norm_label": "parametrize",
+      "source_file": "",
+      "source_location": ""
     },
     {
       "id": "basemodel",
@@ -4604,17 +4615,6 @@
       "source_location": ""
     },
     {
-      "id": "model_validator",
-      "label": "model_validator",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "code",
-      "norm_label": "model_validator",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "apps_api_resilitrip_api_contracts_rationale_1",
       "label": "Exportable HTTP request/response contracts; routes may remain unavailable in A1.",
       "_origin": "ast",
@@ -4623,17 +4623,6 @@
       "file_type": "rationale",
       "norm_label": "exportable http request/response contracts; routes may remain unavailable in a1.",
       "source_file": "apps/api/resilitrip/api/contracts.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_api_resilitrip_api_routers_health_rationale_1",
-      "label": "Health contract endpoints.",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "ContractModel",
-      "file_type": "rationale",
-      "norm_label": "health contract endpoints.",
-      "source_file": "apps/api/resilitrip/api/routers/health.py",
       "source_location": "L1"
     },
     {
@@ -4657,6 +4646,28 @@
       "norm_label": "aggregate and graph validation for gate a1 fixtures.",
       "source_file": "apps/api/resilitrip/domain/validation.py",
       "source_location": "L1"
+    },
+    {
+      "id": "apps_api_resilitrip_domain_validation_rationale_132",
+      "label": "Validate cross references, collection uniqueness, and the itinerary DAG.",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "ContractModel",
+      "file_type": "rationale",
+      "norm_label": "validate cross references, collection uniqueness, and the itinerary dag.",
+      "source_file": "apps/api/resilitrip/domain/validation.py",
+      "source_location": "L132"
+    },
+    {
+      "id": "apps_api_resilitrip_domain_validation_rationale_14",
+      "label": "Normalized domain validation failure with a stable code and path.",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "ContractModel",
+      "file_type": "rationale",
+      "norm_label": "normalized domain validation failure with a stable code and path.",
+      "source_file": "apps/api/resilitrip/domain/validation.py",
+      "source_location": "L14"
     },
     {
       "id": "apps_api_resilitrip_domain_validation_rationale_28",
@@ -4693,6 +4704,39 @@
     },
     {
       "id": "apps_api_resilitrip_api_errors_py_request",
+      "label": "Request",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "load_fixture",
+      "file_type": "code",
+      "norm_label": "request",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "apps_api_resilitrip_api_routers_health",
+      "label": "health.py",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "load_fixture",
+      "file_type": "code",
+      "norm_label": "health.py",
+      "source_file": "apps/api/resilitrip/api/routers/health.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_api_resilitrip_api_routers_health_py_get",
+      "label": "get",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "load_fixture",
+      "file_type": "code",
+      "norm_label": "get",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "apps_api_resilitrip_api_routers_health_py_request",
       "label": "Request",
       "_origin": "ast",
       "community": 1,
@@ -4934,6 +4978,17 @@
       "source_location": ""
     },
     {
+      "id": "apps_api_resilitrip_api_routers_health_rationale_1",
+      "label": "Health contract endpoints.",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "load_fixture",
+      "file_type": "rationale",
+      "norm_label": "health contract endpoints.",
+      "source_file": "apps/api/resilitrip/api/routers/health.py",
+      "source_location": "L1"
+    },
+    {
       "id": "apps_api_resilitrip_config_rationale_1",
       "label": "Configuration for the local-only P0 application.",
       "_origin": "ast",
@@ -5033,6 +5088,83 @@
       "source_location": "L1"
     },
     {
+      "id": "apps_web_e2e_accessibility_spec",
+      "label": "accessibility.spec.ts",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "accessibility.spec.ts",
+      "source_file": "apps/web/e2e/accessibility.spec.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_web_e2e_demo_rehearsal_spec",
+      "label": "demo-rehearsal.spec.ts",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "demo-rehearsal.spec.ts",
+      "source_file": "apps/web/e2e/demo-rehearsal.spec.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_web_e2e_failure_states_spec",
+      "label": "failure-states.spec.ts",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "failure-states.spec.ts",
+      "source_file": "apps/web/e2e/failure-states.spec.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_web_e2e_helpers",
+      "label": "helpers.ts",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "helpers.ts",
+      "source_file": "apps/web/e2e/helpers.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_web_e2e_hero_spec",
+      "label": "hero.spec.ts",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "hero.spec.ts",
+      "source_file": "apps/web/e2e/hero.spec.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_web_e2e_itinerary_edit_spec",
+      "label": "itinerary-edit.spec.ts",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "itinerary-edit.spec.ts",
+      "source_file": "apps/web/e2e/itinerary-edit.spec.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_web_e2e_offline_spec",
+      "label": "offline.spec.ts",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "offline.spec.ts",
+      "source_file": "apps/web/e2e/offline.spec.ts",
+      "source_location": "L1"
+    },
+    {
       "id": "apps_web_package",
       "label": "package.json",
       "_origin": "ast",
@@ -5042,6 +5174,94 @@
       "norm_label": "package.json",
       "source_file": "apps/web/package.json",
       "source_location": "L1"
+    },
+    {
+      "id": "apps_web_package_dependencies",
+      "label": "dependencies",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "dependencies",
+      "source_file": "apps/web/package.json",
+      "source_location": "L17"
+    },
+    {
+      "id": "apps_web_package_dependencies_maplibre_gl",
+      "label": "maplibre-gl",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "maplibre-gl",
+      "source_file": "apps/web/package.json",
+      "source_location": "L19"
+    },
+    {
+      "id": "apps_web_package_dependencies_react",
+      "label": "react",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "react",
+      "source_file": "apps/web/package.json",
+      "source_location": "L20"
+    },
+    {
+      "id": "apps_web_package_dependencies_react_dom",
+      "label": "react-dom",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "react-dom",
+      "source_file": "apps/web/package.json",
+      "source_location": "L21"
+    },
+    {
+      "id": "apps_web_package_dependencies_xyflow_react",
+      "label": "@xyflow/react",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "@xyflow/react",
+      "source_file": "apps/web/package.json",
+      "source_location": "L18"
+    },
+    {
+      "id": "apps_web_package_engines",
+      "label": "engines",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "engines",
+      "source_file": "apps/web/package.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "apps_web_package_engines_node",
+      "label": "node",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "node",
+      "source_file": "apps/web/package.json",
+      "source_location": "L7"
+    },
+    {
+      "id": "apps_web_package_engines_npm",
+      "label": "npm",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "npm",
+      "source_file": "apps/web/package.json",
+      "source_location": "L8"
     },
     {
       "id": "apps_web_package_name",
@@ -5066,6 +5286,72 @@
       "source_location": "L4"
     },
     {
+      "id": "apps_web_package_scripts",
+      "label": "scripts",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "scripts",
+      "source_file": "apps/web/package.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "apps_web_package_scripts_build",
+      "label": "build",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "build",
+      "source_file": "apps/web/package.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "apps_web_package_scripts_dev",
+      "label": "dev",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "dev",
+      "source_file": "apps/web/package.json",
+      "source_location": "L11"
+    },
+    {
+      "id": "apps_web_package_scripts_test",
+      "label": "test",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "test",
+      "source_file": "apps/web/package.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "apps_web_package_scripts_test_e2e",
+      "label": "test:e2e",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "test:e2e",
+      "source_file": "apps/web/package.json",
+      "source_location": "L15"
+    },
+    {
+      "id": "apps_web_package_scripts_test_watch",
+      "label": "test:watch",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "test:watch",
+      "source_file": "apps/web/package.json",
+      "source_location": "L14"
+    },
+    {
       "id": "apps_web_package_type",
       "label": "type",
       "_origin": "ast",
@@ -5086,6 +5372,50 @@
       "norm_label": "version",
       "source_file": "apps/web/package.json",
       "source_location": "L3"
+    },
+    {
+      "id": "apps_web_playwright_config",
+      "label": "playwright.config.ts",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "playwright.config.ts",
+      "source_file": "apps/web/playwright.config.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_web_src_tests_setup",
+      "label": "setup.ts",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "setup.ts",
+      "source_file": "apps/web/src/tests/setup.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_web_vite_config",
+      "label": "vite.config.ts",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "vite.config.ts",
+      "source_file": "apps/web/vite.config.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_web_vitest_config",
+      "label": "vitest.config.ts",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "vitest.config.ts",
+      "source_file": "apps/web/vitest.config.ts",
+      "source_location": "L1"
     },
     {
       "id": "ref_axe_core_playwright",
@@ -5132,6 +5462,17 @@
       "source_location": "L32"
     },
     {
+      "id": "ref_playwright_test",
+      "label": "@playwright/test",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "@playwright/test",
+      "source_file": "apps/web/package.json",
+      "source_location": "L25"
+    },
+    {
       "id": "ref_react_dom",
       "label": "react-dom",
       "_origin": "ast",
@@ -5141,6 +5482,17 @@
       "norm_label": "react-dom",
       "source_file": "apps/web/package.json",
       "source_location": "L21"
+    },
+    {
+      "id": "ref_testing_library_react",
+      "label": "@testing-library/react",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "@testing-library/react",
+      "source_file": "apps/web/package.json",
+      "source_location": "L26"
     },
     {
       "id": "ref_types_node",
@@ -5185,6 +5537,39 @@
       "norm_label": "typescript",
       "source_file": "apps/web/package.json",
       "source_location": "L33"
+    },
+    {
+      "id": "ref_vite",
+      "label": "vite",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "vite",
+      "source_file": "apps/web/package.json",
+      "source_location": "L34"
+    },
+    {
+      "id": "ref_vitejs_plugin_react",
+      "label": "@vitejs/plugin-react",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "@vitejs/plugin-react",
+      "source_file": "apps/web/package.json",
+      "source_location": "L30"
+    },
+    {
+      "id": "ref_vitest",
+      "label": "vitest",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "vitest",
+      "source_file": "apps/web/package.json",
+      "source_location": "L35"
     },
     {
       "id": "ref_xyflow_react",
@@ -5495,182 +5880,6 @@
       "source_location": "L35"
     },
     {
-      "id": "apps_api_resilitrip_application_snapshots",
-      "label": "snapshots.py",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
-      "file_type": "code",
-      "norm_label": "snapshots.py",
-      "source_file": "apps/api/resilitrip/application/snapshots.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_baseline",
-      "label": "baseline.py",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
-      "file_type": "code",
-      "norm_label": "baseline.py",
-      "source_file": "apps/api/resilitrip/domain/baseline.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_validation_py_valueerror",
-      "label": "ValueError",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
-      "file_type": "code",
-      "norm_label": "valueerror",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "apps_api_tests_unit_test_fixture_and_baseline",
-      "label": "test_fixture_and_baseline.py",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
-      "file_type": "code",
-      "norm_label": "test_fixture_and_baseline.py",
-      "source_file": "apps/api/tests/unit/test_fixture_and_baseline.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_api_tests_unit_test_negative_fixture_validation",
-      "label": "test_negative_fixture_validation.py",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
-      "file_type": "code",
-      "norm_label": "test_negative_fixture_validation.py",
-      "source_file": "apps/api/tests/unit/test_negative_fixture_validation.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_api_tests_unit_test_negative_fixture_validation_py_parametrize",
-      "label": "parametrize",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
-      "file_type": "code",
-      "norm_label": "parametrize",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "apps_api_resilitrip_application_snapshots_rationale_1",
-      "label": "Gate A1 creation of a version-one trip and its baseline projection.",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
-      "file_type": "rationale",
-      "norm_label": "gate a1 creation of a version-one trip and its baseline projection.",
-      "source_file": "apps/api/resilitrip/application/snapshots.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_baseline_rationale_1",
-      "label": "Baseline itinerary projection only; recovery planning is intentionally absent.",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
-      "file_type": "rationale",
-      "norm_label": "baseline itinerary projection only; recovery planning is intentionally absent.",
-      "source_file": "apps/api/resilitrip/domain/baseline.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_validation_rationale_132",
-      "label": "Validate cross references, collection uniqueness, and the itinerary DAG.",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
-      "file_type": "rationale",
-      "norm_label": "validate cross references, collection uniqueness, and the itinerary dag.",
-      "source_file": "apps/api/resilitrip/domain/validation.py",
-      "source_location": "L132"
-    },
-    {
-      "id": "apps_api_resilitrip_domain_validation_rationale_14",
-      "label": "Normalized domain validation failure with a stable code and path.",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "DomainValidationError",
-      "file_type": "rationale",
-      "norm_label": "normalized domain validation failure with a stable code and path.",
-      "source_file": "apps/api/resilitrip/domain/validation.py",
-      "source_location": "L14"
-    },
-    {
-      "id": "apps_web_package_scripts",
-      "label": "scripts",
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "scripts",
-      "source_file": "apps/web/package.json",
-      "source_location": "L10"
-    },
-    {
-      "id": "apps_web_package_scripts_build",
-      "label": "build",
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "build",
-      "source_file": "apps/web/package.json",
-      "source_location": "L12"
-    },
-    {
-      "id": "apps_web_package_scripts_dev",
-      "label": "dev",
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "dev",
-      "source_file": "apps/web/package.json",
-      "source_location": "L11"
-    },
-    {
-      "id": "apps_web_package_scripts_test",
-      "label": "test",
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "test",
-      "source_file": "apps/web/package.json",
-      "source_location": "L13"
-    },
-    {
-      "id": "apps_web_package_scripts_test_e2e",
-      "label": "test:e2e",
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "test:e2e",
-      "source_file": "apps/web/package.json",
-      "source_location": "L15"
-    },
-    {
-      "id": "apps_web_package_scripts_test_watch",
-      "label": "test:watch",
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "test:watch",
-      "source_file": "apps/web/package.json",
-      "source_location": "L14"
-    },
-    {
       "id": "apps_web_src_api_schema_d",
       "label": "schema.d.ts",
       "_origin": "ast",
@@ -5680,94 +5889,6 @@
       "norm_label": "schema.d.ts",
       "source_file": "apps/web/src/api/schema.d.ts",
       "source_location": "L1"
-    },
-    {
-      "id": "apps_web_src_tests_setup",
-      "label": "setup.ts",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "setup.ts",
-      "file_type": "code",
-      "norm_label": "setup.ts",
-      "source_file": "apps/web/src/tests/setup.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "ref_testing_library_react",
-      "label": "@testing-library/react",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "setup.ts",
-      "file_type": "concept",
-      "norm_label": "@testing-library/react",
-      "source_file": "apps/web/package.json",
-      "source_location": "L26"
-    },
-    {
-      "id": "ref_vitest",
-      "label": "vitest",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "setup.ts",
-      "file_type": "concept",
-      "norm_label": "vitest",
-      "source_file": "apps/web/package.json",
-      "source_location": "L35"
-    },
-    {
-      "id": "apps_web_package_dependencies",
-      "label": "dependencies",
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "dependencies",
-      "file_type": "code",
-      "norm_label": "dependencies",
-      "source_file": "apps/web/package.json",
-      "source_location": "L17"
-    },
-    {
-      "id": "apps_web_package_dependencies_maplibre_gl",
-      "label": "maplibre-gl",
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "dependencies",
-      "file_type": "code",
-      "norm_label": "maplibre-gl",
-      "source_file": "apps/web/package.json",
-      "source_location": "L19"
-    },
-    {
-      "id": "apps_web_package_dependencies_react",
-      "label": "react",
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "dependencies",
-      "file_type": "code",
-      "norm_label": "react",
-      "source_file": "apps/web/package.json",
-      "source_location": "L20"
-    },
-    {
-      "id": "apps_web_package_dependencies_react_dom",
-      "label": "react-dom",
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "dependencies",
-      "file_type": "code",
-      "norm_label": "react-dom",
-      "source_file": "apps/web/package.json",
-      "source_location": "L21"
-    },
-    {
-      "id": "apps_web_package_dependencies_xyflow_react",
-      "label": "@xyflow/react",
-      "_origin": "ast",
-      "community": 19,
-      "community_name": "dependencies",
-      "file_type": "code",
-      "norm_label": "@xyflow/react",
-      "source_file": "apps/web/package.json",
-      "source_location": "L18"
     },
     {
       "id": "apps_web_src_api_client",
@@ -5999,83 +6120,6 @@
       "norm_label": "react",
       "source_file": "apps/web/package.json",
       "source_location": "L20"
-    },
-    {
-      "id": "apps_web_vite_config",
-      "label": "vite.config.ts",
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "@vitejs/plugin-react",
-      "file_type": "code",
-      "norm_label": "vite.config.ts",
-      "source_file": "apps/web/vite.config.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_web_vitest_config",
-      "label": "vitest.config.ts",
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "@vitejs/plugin-react",
-      "file_type": "code",
-      "norm_label": "vitest.config.ts",
-      "source_file": "apps/web/vitest.config.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "ref_vite",
-      "label": "vite",
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "@vitejs/plugin-react",
-      "file_type": "concept",
-      "norm_label": "vite",
-      "source_file": "apps/web/package.json",
-      "source_location": "L34"
-    },
-    {
-      "id": "ref_vitejs_plugin_react",
-      "label": "@vitejs/plugin-react",
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "@vitejs/plugin-react",
-      "file_type": "concept",
-      "norm_label": "@vitejs/plugin-react",
-      "source_file": "apps/web/package.json",
-      "source_location": "L30"
-    },
-    {
-      "id": "apps_web_package_engines",
-      "label": "engines",
-      "_origin": "ast",
-      "community": 22,
-      "community_name": "engines",
-      "file_type": "code",
-      "norm_label": "engines",
-      "source_file": "apps/web/package.json",
-      "source_location": "L6"
-    },
-    {
-      "id": "apps_web_package_engines_node",
-      "label": "node",
-      "_origin": "ast",
-      "community": 22,
-      "community_name": "engines",
-      "file_type": "code",
-      "norm_label": "node",
-      "source_file": "apps/web/package.json",
-      "source_location": "L7"
-    },
-    {
-      "id": "apps_web_package_engines_npm",
-      "label": "npm",
-      "_origin": "ast",
-      "community": 22,
-      "community_name": "engines",
-      "file_type": "code",
-      "norm_label": "npm",
-      "source_file": "apps/web/package.json",
-      "source_location": "L8"
     },
     {
       "id": "apps_web_tsconfig",
@@ -6488,6 +6532,17 @@
       "source_location": "L1"
     },
     {
+      "id": "apps_api_resilitrip_domain_baseline",
+      "label": "baseline.py",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "models.py",
+      "file_type": "code",
+      "norm_label": "baseline.py",
+      "source_file": "apps/api/resilitrip/domain/baseline.py",
+      "source_location": "L1"
+    },
+    {
       "id": "apps_api_resilitrip_domain_evaluation",
       "label": "evaluation.py",
       "_origin": "ast",
@@ -6596,6 +6651,17 @@
       "norm_label": "field_validator",
       "source_file": "",
       "source_location": ""
+    },
+    {
+      "id": "apps_api_resilitrip_domain_baseline_rationale_1",
+      "label": "Baseline itinerary projection only; recovery planning is intentionally absent.",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "models.py",
+      "file_type": "rationale",
+      "norm_label": "baseline itinerary projection only; recovery planning is intentionally absent.",
+      "source_file": "apps/api/resilitrip/domain/baseline.py",
+      "source_location": "L1"
     },
     {
       "id": "apps_api_resilitrip_domain_evaluation_rationale_1",
@@ -6760,6 +6826,17 @@
       "source_location": "L3"
     },
     {
+      "id": "apps_api_resilitrip_application_snapshots",
+      "label": "snapshots.py",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "plan_recovery",
+      "file_type": "code",
+      "norm_label": "snapshots.py",
+      "source_file": "apps/api/resilitrip/application/snapshots.py",
+      "source_location": "L1"
+    },
+    {
       "id": "apps_api_resilitrip_domain_events",
       "label": "events.py",
       "_origin": "ast",
@@ -6856,6 +6933,17 @@
       "file_type": "code",
       "norm_label": "test_planner_goldens.py",
       "source_file": "apps/api/tests/unit/test_planner_goldens.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "apps_api_resilitrip_application_snapshots_rationale_1",
+      "label": "Gate A1 creation of a version-one trip and its baseline projection.",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "plan_recovery",
+      "file_type": "rationale",
+      "norm_label": "gate a1 creation of a version-one trip and its baseline projection.",
+      "source_file": "apps/api/resilitrip/application/snapshots.py",
       "source_location": "L1"
     },
     {
@@ -7028,7 +7116,7 @@
       "label": "recovery.py",
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "code",
       "norm_label": "recovery.py",
       "source_file": "apps/api/resilitrip/domain/recovery.py",
@@ -7039,7 +7127,7 @@
       "label": "test_atomic_candidates.py",
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "code",
       "norm_label": "test_atomic_candidates.py",
       "source_file": "apps/api/tests/unit/test_atomic_candidates.py",
@@ -7050,7 +7138,7 @@
       "label": "Bounded atomic recovery-candidate enumeration; no finance or ranking.",
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "rationale",
       "norm_label": "bounded atomic recovery-candidate enumeration; no finance or ranking.",
       "source_file": "apps/api/resilitrip/domain/recovery.py",
@@ -7061,7 +7149,7 @@
       "label": "Deterministically enumerate the bounded fixture graph using atomic catalog\u2026",
       "_origin": "ast",
       "community": 7,
-      "community_name": "recovery.py",
+      "community_name": "ServiceCatalog",
       "file_type": "rationale",
       "norm_label": "deterministically enumerate the bounded fixture graph using atomic catalog...",
       "source_file": "apps/api/resilitrip/domain/recovery.py",
@@ -7266,114 +7354,15 @@
       "source_location": "L19"
     },
     {
-      "id": "test",
-      "label": "@playwright/test",
+      "id": "model_validator",
+      "label": "model_validator",
       "_origin": "ast",
       "community": 9,
-      "community_name": "helpers.ts",
-      "confidence": "EXTRACTED",
+      "community_name": "model_validator",
       "file_type": "code",
-      "norm_label": "@playwright/test",
-      "source_file": "@playwright/test"
-    },
-    {
-      "id": "apps_web_e2e_accessibility_spec",
-      "label": "accessibility.spec.ts",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "helpers.ts",
-      "file_type": "code",
-      "norm_label": "accessibility.spec.ts",
-      "source_file": "apps/web/e2e/accessibility.spec.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_web_e2e_demo_rehearsal_spec",
-      "label": "demo-rehearsal.spec.ts",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "helpers.ts",
-      "file_type": "code",
-      "norm_label": "demo-rehearsal.spec.ts",
-      "source_file": "apps/web/e2e/demo-rehearsal.spec.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_web_e2e_failure_states_spec",
-      "label": "failure-states.spec.ts",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "helpers.ts",
-      "file_type": "code",
-      "norm_label": "failure-states.spec.ts",
-      "source_file": "apps/web/e2e/failure-states.spec.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_web_e2e_helpers",
-      "label": "helpers.ts",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "helpers.ts",
-      "file_type": "code",
-      "norm_label": "helpers.ts",
-      "source_file": "apps/web/e2e/helpers.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_web_e2e_hero_spec",
-      "label": "hero.spec.ts",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "helpers.ts",
-      "file_type": "code",
-      "norm_label": "hero.spec.ts",
-      "source_file": "apps/web/e2e/hero.spec.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_web_e2e_itinerary_edit_spec",
-      "label": "itinerary-edit.spec.ts",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "helpers.ts",
-      "file_type": "code",
-      "norm_label": "itinerary-edit.spec.ts",
-      "source_file": "apps/web/e2e/itinerary-edit.spec.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_web_e2e_offline_spec",
-      "label": "offline.spec.ts",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "helpers.ts",
-      "file_type": "code",
-      "norm_label": "offline.spec.ts",
-      "source_file": "apps/web/e2e/offline.spec.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "apps_web_playwright_config",
-      "label": "playwright.config.ts",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "helpers.ts",
-      "file_type": "code",
-      "norm_label": "playwright.config.ts",
-      "source_file": "apps/web/playwright.config.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "ref_playwright_test",
-      "label": "@playwright/test",
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "helpers.ts",
-      "file_type": "concept",
-      "norm_label": "@playwright/test",
-      "source_file": "apps/web/package.json",
-      "source_location": "L25"
+      "norm_label": "model_validator",
+      "source_file": "",
+      "source_location": ""
     },
     {
       "id": "docs_01_product_decision_and_scope_lock_hero_recovery_scenario",
@@ -22724,15 +22713,6 @@
       "weight": 1.0
     },
     {
-      "source": "apps_web_e2e_accessibility_spec",
-      "target": "test",
-      "relation": "dynamic_import",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "apps/web/e2e/accessibility.spec.ts"
-    },
-    {
       "source": "apps_api_resilitrip_api_contracts_adoptioncommand",
       "target": "apps_api_resilitrip_domain_models_contractmodel",
       "relation": "inherits",
@@ -27109,5 +27089,5 @@
       "source_file": "docs/01_Product_Decision_and_Scope_Lock.md"
     }
   ],
-  "built_at_commit": "a3f141483e3d7ad3af9126d4ec298d0d45e5cab9"
+  "built_at_commit": "14363f2f6b9a1bd429d469db6d2c50b19c6d4091"
 }

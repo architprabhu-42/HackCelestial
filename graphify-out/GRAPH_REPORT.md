@@ -5,12 +5,12 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 657 nodes · 1656 edges · 42 communities (22 shown, 9 thin omitted)
+- 656 nodes · 1655 edges · 36 communities (18 shown, 7 thin omitted)
 - Extraction: 89% EXTRACTED · 11% INFERRED · 0% AMBIGUOUS · INFERRED: 184 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a3f14148`
+- Built from commit: `14363f2f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -22,22 +22,16 @@
 - models.py
 - plan_recovery
 - constraints.py
-- recovery.py
+- ServiceCatalog
 - compilerOptions
-- helpers.ts
+- model_validator
 - package.json
 - compilerOptions
 - devDependencies
 - ResiliTrip Repository Context
-- DomainValidationError
 - Graphify Pipeline
-- scripts
 - schema.d.ts
-- setup.ts
-- dependencies
-- @vitejs/plugin-react
 - Typed API Boundary
-- engines
 - tsconfig.json
 - api/__init__.py
 - routers/__init__.py
@@ -54,8 +48,8 @@
 4. `create_initial_trip()` - 32 edges
 5. `load_fixture()` - 29 edges
 6. `create_app()` - 27 edges
-7. `apply_timing_event()` - 26 edges
-8. `TripRepository` - 26 edges
+7. `TripRepository` - 26 edges
+8. `apply_timing_event()` - 26 edges
 9. `evaluate_itinerary()` - 21 edges
 10. `ServiceCatalog` - 20 edges
 
@@ -79,15 +73,15 @@
 - **Hero Fixture Planner Validation Flow** — docs_04_reference_scenario_and_fixture_specification_canonical_fixture, docs_05_algorithm_and_recovery_planning_specification_bounded_recovery_planner, data_golden_readme_planner_golden_outputs [EXTRACTED 1.00]
 - **ResiliTrip Delivery Contract** — docs_01_product_decision_and_scope_lock_product_scope_lock, docs_02_product_requirements_document_product_requirements, docs_06_technical_architecture_specification_local_first_architecture [EXTRACTED 1.00]
 
-## Communities (42 total, 9 thin omitted)
+## Communities (36 total, 7 thin omitted)
 
 ### Community 0 - "ContractModel"
-Cohesion: 0.06
+Cohesion: 0.07
 Nodes (62): AdoptionCommand, AdoptionRecord, AdoptionResponse, ApiErrorCode, ConstraintsReplaceCommand, CurrentStateReplaceCommand, EventResponse, EventResult (+54 more)
 
 ### Community 1 - "load_fixture"
-Cohesion: 0.07
-Nodes (62): api_problem_handler(), internal_error_handler(), problem_body(), Request, validation_handler(), default_settings(), Configuration for the local-only P0 application., Settings intentionally limited to the Gate A0 infrastructure needs. (+54 more)
+Cohesion: 0.06
+Nodes (69): LiveHealthResponse, ReadyHealthResponse, api_problem_handler(), internal_error_handler(), problem_body(), Request, validation_handler(), liveness() (+61 more)
 
 ### Community 2 - "App.tsx"
 Cohesion: 0.05
@@ -95,35 +89,35 @@ Nodes (61): AdoptionResponse, api, ApiProblem, ConstraintsReplaceCommand, Curren
 
 ### Community 3 - "routers/contracts.py"
 Cohesion: 0.09
-Nodes (43): ApiProblem, adopt_plan(), apply_event_route(), create_trip(), _db(), generate_plans(), get_plan(), get_trip() (+35 more)
+Nodes (42): ApiProblem, adopt_plan(), apply_event_route(), create_trip(), _db(), generate_plans(), get_plan(), get_trip() (+34 more)
 
 ### Community 4 - "models.py"
 Cohesion: 0.07
-Nodes (60): _check(), evaluate_itinerary(), datetime, EvidenceValue, Shared deterministic selected-itinerary evaluator for impact and later planning., Evaluate a complete DAG without mutating catalog, trip, or effective state., _seconds(), _timestamp() (+52 more)
+Nodes (63): evaluate_baseline(), Baseline itinerary projection only; recovery planning is intentionally absent., _check(), evaluate_itinerary(), datetime, EvidenceValue, Shared deterministic selected-itinerary evaluator for impact and later planning., Evaluate a complete DAG without mutating catalog, trip, or effective state. (+55 more)
 
 ### Community 5 - "plan_recovery"
-Cohesion: 0.11
-Nodes (52): create_initial_trip(), apply_cancellation_event(), apply_timing_event(), calculate_impacts(), evaluate_trip(), Pure timing-event application and deterministic impact diffing., Create an isolated immutable service-state branch for fixture perturbation…, replace_service_state() (+44 more)
+Cohesion: 0.10
+Nodes (54): create_initial_trip(), Gate A1 creation of a version-one trip and its baseline projection., snapshot_for_trip(), apply_cancellation_event(), apply_timing_event(), calculate_impacts(), evaluate_trip(), Pure timing-event application and deterministic impact diffing. (+46 more)
 
 ### Community 6 - "constraints.py"
 Cohesion: 0.22
 Nodes (18): classify_slack(), hotel_start_is_valid(), meets_cutoff(), money_within_limits(), plan_is_valid(), datetime, Exact, side-effect-free A1 constraint boundary rules., Classify slack: zero remains feasible but at risk; threshold itself is safe. (+10 more)
 
-### Community 7 - "recovery.py"
-Cohesion: 0.22
-Nodes (17): ActivityDefinition, ActivityKind, Dependency, build_catalog_indexes(), _candidate_id(), CatalogIndexes, derive_recovery_frontier(), enumerate_atomic_candidates() (+9 more)
+### Community 7 - "ServiceCatalog"
+Cohesion: 0.23
+Nodes (18): ActivityDefinition, ActivityKind, Dependency, ServiceCatalog, build_catalog_indexes(), _candidate_id(), CatalogIndexes, derive_recovery_frontier() (+10 more)
 
 ### Community 8 - "compilerOptions"
 Cohesion: 0.11
 Nodes (17): compilerOptions, allowJs, allowSyntheticDefaultImports, esModuleInterop, isolatedModules, jsx, lib, module (+9 more)
 
-### Community 9 - "helpers.ts"
-Cohesion: 0.40
-Nodes (5): applyD1(), generatePlans(), loadDemo(), previewF3(), @playwright/test
+### Community 9 - "model_validator"
+Cohesion: 0.14
+Nodes (4): Location, PolicyRecord, ServiceDefinition, model_validator
 
 ### Community 10 - "package.json"
-Cohesion: 0.13
-Nodes (14): name, private, type, version, @axe-core/playwright, jsdom, maplibre-gl, openapi-typescript (+6 more)
+Cohesion: 0.06
+Nodes (37): applyD1(), generatePlans(), loadDemo(), previewF3(), dependencies, maplibre-gl, react, react-dom (+29 more)
 
 ### Community 11 - "compilerOptions"
 Cohesion: 0.14
@@ -137,51 +131,35 @@ Nodes (13): devDependencies, @axe-core/playwright, jsdom, openapi-typescript, @p
 Cohesion: 0.11
 Nodes (23): baseline impact chromium win32, baseline workspace chromium win32, recovery comparison chromium win32, journey editor warning chromium win32, offline map fallback chromium win32, Containerized Local Runtime, Planner Golden Outputs, Mumbai Goa Hero Recovery Scenario (+15 more)
 
-### Community 14 - "DomainValidationError"
-Cohesion: 0.15
-Nodes (16): baseline_snapshot(), Gate A1 creation of a version-one trip and its baseline projection., evaluate_baseline(), Baseline itinerary projection only; recovery planning is intentionally absent., EvaluatedActivity, ExecutableScenarioFixture, DomainValidationError, ValueError (+8 more)
-
 ### Community 15 - "Graphify Pipeline"
 Cohesion: 0.22
 Nodes (10): Graphify Watch Mode, Graphify Optional Exports, Semantic Extraction Schema, Cross Repository Graph Merge, Post Commit Graph Update Hook, Graph Query Navigation, Media Transcription, Incremental Re-extraction (+2 more)
-
-### Community 16 - "scripts"
-Cohesion: 0.33
-Nodes (6): scripts, build, dev, test, test:e2e, test:watch
 
 ### Community 17 - "schema.d.ts"
 Cohesion: 0.33
 Nodes (5): components, $defs, operations, paths, webhooks
 
-### Community 19 - "dependencies"
-Cohesion: 0.40
-Nodes (5): dependencies, maplibre-gl, react, react-dom, @xyflow/react
-
 ### Community 21 - "Typed API Boundary"
 Cohesion: 0.67
 Nodes (3): Web Application Mount, Typed API Boundary, Versioned Trip Snapshot
-
-### Community 22 - "engines"
-Cohesion: 0.67
-Nodes (3): engines, node, npm
 
 ### Community 41 - "ResiliTrip AI Context"
 Cohesion: 0.25
 Nodes (7): Architecture, Change safety, Core invariants, Graph MCP, Local workflow, ResiliTrip AI Context, Start here
 
 ## Knowledge Gaps
-- **121 isolated node(s):** `resilitrip-api`, `name`, `version`, `private`, `type` (+116 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 225 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **121 isolated node(s):** `Start here`, `Architecture`, `Core invariants`, `Local workflow`, `Change safety` (+116 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 224 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `ContractModel` connect `ContractModel` to `routers/contracts.py`, `models.py`, `plan_recovery`, `constraints.py`, `recovery.py`, `DomainValidationError`?**
+- **Why does `ContractModel` connect `ContractModel` to `load_fixture`, `routers/contracts.py`, `models.py`, `plan_recovery`, `constraints.py`, `ServiceCatalog`, `model_validator`?**
   _High betweenness centrality (0.040) - this node is a cross-community bridge._
-- **Why does `TripAggregate` connect `routers/contracts.py` to `ContractModel`, `models.py`, `plan_recovery`, `recovery.py`, `DomainValidationError`?**
+- **Why does `TripAggregate` connect `routers/contracts.py` to `ContractModel`, `models.py`, `plan_recovery`, `ServiceCatalog`?**
   _High betweenness centrality (0.037) - this node is a cross-community bridge._
-- **Why does `load_fixture()` connect `load_fixture` to `routers/contracts.py`, `plan_recovery`, `DomainValidationError`?**
+- **Why does `load_fixture()` connect `load_fixture` to `ContractModel`, `routers/contracts.py`, `plan_recovery`?**
   _High betweenness centrality (0.031) - this node is a cross-community bridge._
 - **Are the 6 inferred relationships involving `plan_recovery()` (e.g. with `DomainReasonCode` and `FeasibilityStatus`) actually correct?**
   _`plan_recovery()` has 6 INFERRED edges - model-reasoned connections that need verification._
