@@ -1,11 +1,11 @@
 # Graph Report - resilitrip  (2026-09-09)
 
 ## Corpus Check
-- 137 files · ~176,874 words
+- 138 files · ~177,221 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 966 nodes · 2585 edges · 69 communities (40 shown, 18 thin omitted)
+- 973 nodes · 2591 edges · 76 communities (46 shown, 19 thin omitted)
 - Extraction: 88% EXTRACTED · 12% INFERRED · 0% AMBIGUOUS · INFERRED: 298 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
@@ -22,7 +22,7 @@
 - repositories.py
 - create_initial_trip
 - helpers.ts
-- test_r1_generic_topology.py
+- test_r1_goal_evaluation.py
 - package.json
 - compilerOptions
 - ResiliTrip README
@@ -45,7 +45,7 @@
 - Journey editor acknowledgement snapshot
 - Offline map fallback interface snapshot
 - 6. Entity definitions
-- EvaluationSnapshotHistory
+- test_r1_generic_trip_persistence.py
 - Gate A0 compatibility record
 - resilitrip-api
 - graphify reference: extra exports and benchmark
@@ -64,15 +64,22 @@
 - 11. Financial model
 - 12. Constraint model
 - 5. Aggregate roots and versioning
-- test_r1_generic_trip_persistence.py
+- test_r1_composed_evaluation.py
 - graphify reference: GitHub clone and cross-repo merge
 - graphify reference: transcribe video and audio
 - 8. State transitions
 - README.md
-- constraints.py
+- model_validator
 - connect
 - TripLifecycle
-- Connection
+- CurrentState
+- ServiceCatalog
+- semantic_snapshots.py
+- DomainValidationError
+- health.py
+- Changes from the Original Mumbai–Goa Demo
+- field_validator
+- baseline_snapshot
 
 ## God Nodes (most connected - your core abstractions)
 1. `ContractModel` - 99 edges
@@ -95,45 +102,45 @@
   README.md → docs/CURRENT_DEMO_ARCHITECTURE.md
 - `ResiliTrip README` --references--> `ResiliTrip demo runbook`  [EXTRACTED]
   README.md → docs/DEMO_RUNBOOK.md
-- `test_neg21_missing_full_replacement_field_rejected()` --uses--> `ConstraintsReplaceCommand`  [INFERRED]
-  apps/api/tests/unit/test_a1_negative_edits.py → apps/api/resilitrip/api/contracts.py
+- `ManualTripCreate` --uses--> `CurrentState`  [INFERRED]
+  apps/api/resilitrip/api/contracts.py → apps/api/resilitrip/domain/models.py
 
 ## Import Cycles
 - None detected.
 
-## Communities (69 total, 18 thin omitted)
+## Communities (76 total, 19 thin omitted)
 
 ### Community 0 - "routers/contracts.py"
-Cohesion: 0.16
-Nodes (33): ApiProblem, adopt_plan(), apply_event_route(), create_trip(), _db(), generate_plans(), get_plan(), get_trip() (+25 more)
+Cohesion: 0.14
+Nodes (35): ApiProblem, adopt_plan(), apply_event_route(), create_trip(), _db(), generate_plans(), get_plan(), get_trip() (+27 more)
 
 ### Community 1 - "App.tsx"
 Cohesion: 0.05
 Nodes (61): AdoptionResponse, api, ApiProblem, ConstraintsReplaceCommand, CurrentStateReplaceCommand, EventResponse, ItineraryEditCommand, MutationResponse (+53 more)
 
 ### Community 2 - "models.py"
-Cohesion: 0.06
-Nodes (74): evaluate_baseline(), Baseline itinerary projection only; recovery planning is intentionally absent., classify_slack(), Classify slack: zero remains feasible but at risk; threshold itself is safe., _check(), evaluate_itinerary(), datetime, EvidenceValue (+66 more)
+Cohesion: 0.05
+Nodes (90): evaluate_baseline(), Baseline itinerary projection only; recovery planning is intentionally absent., classify_slack(), hotel_start_is_valid(), meets_cutoff(), money_within_limits(), plan_is_valid(), datetime (+82 more)
 
 ### Community 3 - "ContractModel"
-Cohesion: 0.07
-Nodes (60): AdoptionCommand, AdoptionRecord, AdoptionResponse, ApiErrorCode, ConstraintsReplaceCommand, CurrentStateReplaceCommand, EventResponse, EventResult (+52 more)
+Cohesion: 0.16
+Nodes (24): AdoptionCommand, AdoptionRecord, AdoptionResponse, ApiErrorCode, EventResponse, EventResult, FixtureTripCreate, MutationResponse (+16 more)
 
 ### Community 4 - "repositories.py"
-Cohesion: 0.15
-Nodes (8): TimingReplayEvent, AdoptionRepository, canonical_json(), content_hash(), EventRepository, generic_snapshot_hash(), Canonical, hash-checked SQLite repositories for Gate A3., snapshot_hash()
+Cohesion: 0.27
+Nodes (5): canonical_json(), content_hash(), generic_snapshot_hash(), Canonical, hash-checked SQLite repositories for Gate A3., snapshot_hash()
 
 ### Community 5 - "create_initial_trip"
-Cohesion: 0.08
-Nodes (66): baseline_snapshot(), create_initial_trip(), Gate A1 creation of a version-one trip and its baseline projection., snapshot_for_trip(), apply_cancellation_event(), apply_timing_event(), calculate_impacts(), evaluate_trip() (+58 more)
+Cohesion: 0.09
+Nodes (63): create_initial_trip(), Gate A1 creation of a version-one trip and its baseline projection., snapshot_for_trip(), apply_timing_event(), calculate_impacts(), evaluate_trip(), Pure timing-event application and deterministic impact diffing., Create an isolated immutable service-state branch for fixture perturbation… (+55 more)
 
 ### Community 6 - "helpers.ts"
 Cohesion: 0.36
 Nodes (6): applyD1(), generatePlans(), loadDemo(), previewF3(), @axe-core/playwright, @playwright/test
 
-### Community 7 - "test_r1_generic_topology.py"
+### Community 7 - "test_r1_goal_evaluation.py"
 Cohesion: 0.17
-Nodes (18): AlternativePlanReference, DependencyStrength, DependencyType, PhysicalRouteSegment, model_validator, StrEnum, Generic, provider-independent trip topology primitives. This module…, One ordered physical movement, without asserting a service or timetable. (+10 more)
+Nodes (24): evaluate_structurally(), EvaluationReasonCode, FactKnowledge, GoalFact, GoalRequirementStrength, ProcessCutoffRule, datetime, model_validator (+16 more)
 
 ### Community 8 - "package.json"
 Cohesion: 0.12
@@ -175,9 +182,9 @@ Nodes (3): Graphify semantic extraction specification, Graphify skill, persisten
 Cohesion: 0.11
 Nodes (18): 6. Entity definitions, DM-01 — TravelerProfile, DM-02 — CurrentState, DM-03 — Location, DM-04 — ServiceInstance, DM-05 — TransferTemplate, DM-06 — Activity, DM-07 — Dependency (+10 more)
 
-### Community 30 - "EvaluationSnapshotHistory"
+### Community 30 - "test_r1_generic_trip_persistence.py"
 Cohesion: 0.31
-Nodes (10): EvaluationSnapshotHistory, An append-only in-memory history; prior frozen snapshots are never rewritten., aggregate(), at(), datetime, semantic_snapshot(), test_r1_generic_real_aggregate_persists_and_reloads(), test_r1_generic_real_rejects_demo_identity_and_truth_label() (+2 more)
+Nodes (13): append_snapshot(), EvaluationSnapshotHistory, Return a new frozen history, preserving every prior immutable snapshot., An append-only in-memory history; prior frozen snapshots are never rewritten., aggregate(), at(), datetime, Integration coverage for the isolated append-only generic R1 namespace. (+5 more)
 
 ### Community 44 - "graphify reference: extra exports and benchmark"
 Cohesion: 0.22
@@ -192,8 +199,8 @@ Cohesion: 0.29
 Nodes (7): 7.1 Current traveler phase, 7.2 Service status, 7.3 Feasibility status, 7.4 Planner result status, 7.5 Booking knowledge state, 7.6 Source display status, 7. State vocabularies
 
 ### Community 48 - "load_fixture"
-Cohesion: 0.07
-Nodes (60): api_problem_handler(), internal_error_handler(), problem_body(), Request, validation_handler(), default_settings(), Configuration for the local-only P0 application., Settings intentionally limited to the Gate A0 infrastructure needs. (+52 more)
+Cohesion: 0.08
+Nodes (52): api_problem_handler(), internal_error_handler(), problem_body(), Request, validation_handler(), default_settings(), Configuration for the local-only P0 application., Settings intentionally limited to the Gate A0 infrastructure needs. (+44 more)
 
 ### Community 49 - "dependencies"
 Cohesion: 0.40
@@ -239,43 +246,67 @@ Nodes (4): 12.1 Hard constraints, 12.2 Ranking preferences, 12.3 Constraint-chec
 Cohesion: 0.50
 Nodes (4): 5.1 Trip, 5.2 Service catalog, 5.3 Plan, 5. Aggregate roots and versioning
 
-### Community 60 - "test_r1_generic_trip_persistence.py"
-Cohesion: 0.05
-Nodes (120): compose_evaluation(), ComposedMoney, ComposedOutcome, CompositionReason, CompositionReasonCode, EvidenceReference, GenericCompositionInput, GenericCompositionResult (+112 more)
+### Community 60 - "test_r1_composed_evaluation.py"
+Cohesion: 0.06
+Nodes (101): compose_evaluation(), ComposedMoney, ComposedOutcome, CompositionReason, CompositionReasonCode, EvidenceReference, GenericCompositionInput, StrEnum (+93 more)
 
 ### Community 63 - "8. State transitions"
 Cohesion: 0.67
 Nodes (3): 8.1 Trip and plan lifecycle, 8.2 Event disposition, 8. State transitions
 
-### Community 65 - "constraints.py"
-Cohesion: 0.10
-Nodes (20): hotel_start_is_valid(), meets_cutoff(), money_within_limits(), plan_is_valid(), datetime, Exact, side-effect-free A1 constraint boundary rules., Arrival at the cutoff is valid; later arrival is not., Validity is exclusive at valid_until. (+12 more)
+### Community 65 - "model_validator"
+Cohesion: 0.14
+Nodes (4): Location, PolicyRecord, model_validator, ServiceDefinition
 
 ### Community 66 - "connect"
-Cohesion: 0.26
-Nodes (14): Connection, seed_catalog(), connect(), initialize(), Path, SQLite connection setup shared by the application and integration tests., Open SQLite with the mandatory foreign-key, WAL, and busy-timeout settings., Apply ordered, idempotent SQLite migrations without rewriting history. (+6 more)
+Cohesion: 0.15
+Nodes (23): Connection, seed_catalog(), connect(), _initial_schema(), initialize(), Connection, Path, _r1_generic_trip_namespace() (+15 more)
 
 ### Community 67 - "TripLifecycle"
 Cohesion: 0.18
 Nodes (7): Isolated aggregate for persisted generic R1 trips. This model intentionally…, TripLifecycle, TripMode, _checked(), parametrize, test_r1_demo_trip_defaults_to_active_lifecycle(), test_r1_rejects_invalid_mode_lifecycle_or_truth_label_combinations()
 
-### Community 68 - "Connection"
-Cohesion: 0.22
-Nodes (9): _initial_schema(), Connection, _r1_generic_trip_namespace(), _r1_trip_lifecycle(), _r1_trip_mode_namespace(), Install the historical A1/A3 schema for an empty database only., Add an explicit namespace without altering historical trip snapshots., Add current-record lifecycle without changing immutable snapshots. (+1 more)
+### Community 68 - "CurrentState"
+Cohesion: 0.25
+Nodes (14): ConstraintsReplaceCommand, Frozen-prefix validation for the future-itinerary replacement contract., validate_itinerary_replacement(), CurrentState, ItineraryDefinition, TravelerPhase, Validate a standalone replacement itinerary before it can become active., validate_dependency_dag() (+6 more)
+
+### Community 69 - "ServiceCatalog"
+Cohesion: 0.26
+Nodes (13): CurrentStateReplaceCommand, ItineraryEditCommand, ManualTripCreate, Booking, Constraints, MoneyItem, ProvenanceRecord, ServiceCatalog (+5 more)
+
+### Community 70 - "semantic_snapshots.py"
+Cohesion: 0.27
+Nodes (10): GenericCompositionResult, create_evaluation_snapshot(), ImmutableEvaluationSnapshot, datetime, model_validator, Immutable, semantic alternative-plan evaluation snapshots for generic R1 work., Stable semantic identity and its revision; intentionally no rank or score., Create a content-hashed snapshot from a deterministic composed evaluation. (+2 more)
+
+### Community 71 - "DomainValidationError"
+Cohesion: 0.29
+Nodes (9): ExecutableScenarioFixture, DomainValidationError, ValueError, Validate cross references, collection uniqueness, and the itinerary DAG., Normalized domain validation failure with a stable code and path., validate_fixture(), load_mutated(), parametrize (+1 more)
+
+### Community 72 - "health.py"
+Cohesion: 0.39
+Nodes (7): LiveHealthResponse, ReadyHealthResponse, liveness(), get, Request, Health contract endpoints., readiness()
+
+### Community 73 - "Changes from the Original Mumbai–Goa Demo"
+Cohesion: 0.29
+Nodes (6): Baseline preserved, Changes from the Original Mumbai–Goa Demo, Compatibility and verification, Documentation and delivery structure, Graphify knowledge graph, R1 generic-trip foundations
+
+### Community 75 - "baseline_snapshot"
+Cohesion: 0.60
+Nodes (3): baseline_snapshot(), test_t02_connected_journey_projection_matches_dependency_chain(), test_t03_baseline_snapshot_matches_document_04()
 
 ## Knowledge Gaps
-- **193 isolated node(s):** `resilitrip-api`, `name`, `version`, `private`, `type` (+188 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 339 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **18 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **198 isolated node(s):** `resilitrip-api`, `name`, `version`, `private`, `type` (+193 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 345 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `ContractModel` connect `ContractModel` to `constraints.py`, `models.py`, `TripLifecycle`, `repositories.py`, `create_initial_trip`, `test_r1_generic_topology.py`, `load_fixture`, `GenericTripAggregate`, `test_r1_generic_trip_persistence.py`, `EvaluationSnapshotHistory`?**
-  _High betweenness centrality (0.103) - this node is a cross-community bridge._
-- **Why does `create_initial_trip()` connect `create_initial_trip` to `routers/contracts.py`, `models.py`, `connect`, `TripLifecycle`, `test_r1_generic_topology.py`, `load_fixture`, `test_r1_generic_trip_persistence.py`?**
-  _High betweenness centrality (0.047) - this node is a cross-community bridge._
-- **Why does `plan_recovery()` connect `create_initial_trip` to `routers/contracts.py`, `models.py`, `ContractModel`, `test_r1_generic_topology.py`, `test_r1_generic_trip_persistence.py`?**
+- **Why does `ContractModel` connect `ContractModel` to `model_validator`, `models.py`, `TripLifecycle`, `CurrentState`, `ServiceCatalog`, `semantic_snapshots.py`, `test_r1_goal_evaluation.py`, `health.py`, `create_initial_trip`, `field_validator`, `DomainValidationError`, `GenericTripAggregate`, `test_r1_composed_evaluation.py`, `test_r1_generic_trip_persistence.py`?**
+  _High betweenness centrality (0.102) - this node is a cross-community bridge._
+- **Why does `create_initial_trip()` connect `create_initial_trip` to `routers/contracts.py`, `connect`, `models.py`, `TripLifecycle`, `DomainValidationError`, `test_r1_goal_evaluation.py`, `baseline_snapshot`, `load_fixture`, `test_r1_composed_evaluation.py`, `test_r1_generic_trip_persistence.py`?**
+  _High betweenness centrality (0.046) - this node is a cross-community bridge._
+- **Why does `plan_recovery()` connect `create_initial_trip` to `routers/contracts.py`, `models.py`, `test_r1_goal_evaluation.py`, `test_r1_composed_evaluation.py`, `test_r1_generic_trip_persistence.py`?**
   _High betweenness centrality (0.039) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `create_initial_trip()` (e.g. with `ExecutableScenarioFixture` and `ServiceStatus`) actually correct?**
   _`create_initial_trip()` has 2 INFERRED edges - model-reasoned connections that need verification._

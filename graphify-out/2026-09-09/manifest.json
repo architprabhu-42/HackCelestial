@@ -450,9 +450,9 @@
     "semantic_hash": ""
   },
   "artifacts/performance/hero-benchmark.json": {
-    "mtime": 1788946982.5498471,
-    "seen": 1788947068.289884,
-    "ast_hash": "c5da95ee7e6d8807a5e10fda3d95dd1c",
+    "mtime": 1788947085.8942835,
+    "seen": 1788969561.5048614,
+    "ast_hash": "71896fb8699027989d9ad630dd0bcfc1",
     "semantic_hash": ""
   },
   "contracts/openapi.json": {
@@ -861,6 +861,12 @@
     "mtime": 1788947001.0520759,
     "seen": 1788947068.2897632,
     "ast_hash": "70017f5ed6cce3fa1bbd7a4a478d25d9",
+    "semantic_hash": ""
+  },
+  "docs/CHANGES_FROM_ORIGINAL_MUMBAI_GOA_DEMO.md": {
+    "mtime": 1788969541.954503,
+    "seen": 1788969561.5049179,
+    "ast_hash": "9404341fec48495d6f7fd5ccd13d53c5",
     "semantic_hash": ""
   }
 }
