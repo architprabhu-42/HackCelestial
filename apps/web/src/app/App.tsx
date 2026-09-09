@@ -63,22 +63,30 @@ export function App() {
     setSnapshot(loaded); setSelectedActivity(loaded.evaluated_itinerary[0]?.activity_id ?? null)
     setPlanner(null); setAdoption(null); setPlansStale(false); setAnnouncement('Mumbai to Goa demo loaded')
   })
-  const reportD1 = async () => snapshot && run(async () => {
-    const response = await api.applyD1(snapshot.trip.id, snapshot.trip.version)
-    setSnapshot(response.event_result.snapshot); setPlanner(null); setSelectedPlan(null); setPlansStale(false); setSheet(null)
-    setAnnouncement('Delay applied. Your connected journey has been updated.')
-  })
+  const reportD1 = async () => {
+    if (!snapshot) return
+    try {
+      setBusy(true)
+      const response = await api.applyD1(snapshot.trip.id, snapshot.trip.version)
+      setSnapshot(response.event_result.snapshot); setPlanner(null); setSelectedPlan(null); setPlansStale(false); setSheet(null)
+      setAnnouncement('Delay applied. Your connected journey has been updated.')
+    } catch (reason) { throw new Error(errorMessage(reason)) } finally { setBusy(false) }
+  }
   const generate = async (preset: RankingPreset = ranking) => snapshot && run(async () => {
     const response = await api.generatePlans(snapshot.trip.id, snapshot.trip.version, snapshot.trip.catalog_version, preset)
     const accepted = acceptPlannerResponse(snapshot, response)
     if (!accepted) { setPlansStale(true); setAnnouncement('Your journey changed. Refresh options.'); return }
     setRanking(preset); setPlanner(accepted); setPlansStale(false); setSelectedPlan(null); setAnnouncement('Recovery options are ready.')
   })
-  const adopt = async () => snapshot && selectedPlan && acknowledged && run(async () => {
-    const response = await api.adoptPlan(snapshot.trip.id, snapshot.trip.version, selectedPlan.id)
-    setSnapshot(response.snapshot); setAdoption(response); setPlanner(null); setSelectedPlan(null); setSheet(null); setAcknowledged(false)
-    setAnnouncement('New proposed journey saved. No external booking occurred.')
-  })
+  const adopt = async () => {
+    if (!snapshot || !selectedPlan || !acknowledged) return
+    try {
+      setBusy(true)
+      const response = await api.adoptPlan(snapshot.trip.id, snapshot.trip.version, selectedPlan.id)
+      setSnapshot(response.snapshot); setAdoption(response); setPlanner(null); setSelectedPlan(null); setSheet(null); setAcknowledged(false)
+      setAnnouncement('New proposed journey saved. No external booking occurred.')
+    } catch (reason) { throw new Error(errorMessage(reason)) } finally { setBusy(false) }
+  }
   const saveEdit = async (command: ItineraryEditCommand) => {
     if (!snapshot) return
     try {
@@ -108,12 +116,12 @@ export function App() {
       {adoption && <AdoptionSuccess response={adoption} />}
       <section className="workspace-heading"><div><span className="eyebrow">Mumbai → Goa · Saturday, 26 September</span><h1>{adoption ? 'Your proposed journey' : snapshot.overall_status === 'infeasible' ? 'Your arrival plan has changed' : 'Your journey is on track'}</h1>
         <p>One connected view of transport, hotel and your wedding arrival.</p></div><span className={`status-pill ${snapshot.overall_status}`}>{snapshot.overall_status === 'infeasible' ? '⚠ Needs attention' : '✓ Connected journey'}</span></section>
-      <div className="workspace-grid">
-        <div className="map-column"><JourneyMap snapshot={snapshot} selectedId={selectedActivity} onSelect={setSelectedActivity} preview={selectedPlan} forceFallback={mapFallback} />
+      <div className="dashboard">
+        <div className="dashboard-status"><CurrentStatus location={locationName} snapshot={snapshot} next={nextTransport ? friendlyActivity(nextTransport, snapshot) : 'Journey complete'} onReport={() => { if (nextTransport) setSelectedActivity(nextTransport.activity_id); setSheet('report') }} busy={busy} /></div>
+        <div className="dashboard-map"><JourneyMap snapshot={snapshot} selectedId={selectedActivity} onSelect={setSelectedActivity} preview={selectedPlan} forceFallback={mapFallback} />
           <button className="map-switch" onClick={() => setMapFallback(value => !value)}>{mapFallback ? 'Show corridor map' : 'Use map-free route list'}</button>
-          <CurrentStatus location={locationName} snapshot={snapshot} next={nextTransport ? friendlyActivity(nextTransport, snapshot) : 'Journey complete'} onReport={() => { if (nextTransport) setSelectedActivity(nextTransport.activity_id); setSheet('report') }} busy={busy} />
         </div>
-        <div className="journey-column"><JourneyTimeline snapshot={snapshot} items={selectedPlan?.activity_sequence ?? snapshot.evaluated_itinerary} selected={selectedActivity} onSelect={setSelectedActivity} preview={Boolean(selectedPlan)} />
+        <div className="dashboard-timeline"><JourneyTimeline snapshot={snapshot} items={selectedPlan?.activity_sequence ?? snapshot.evaluated_itinerary} selected={selectedActivity} onSelect={setSelectedActivity} preview={Boolean(selectedPlan)} />
           {selected && <ActivityDetail snapshot={snapshot} activity={selected} />}</div>
       </div>
       {snapshot.impacts.length > 0 && <ImpactSummary snapshot={snapshot} onRecover={() => generate()} busy={busy} />}
@@ -181,16 +189,24 @@ function PlanPreview({ plan, snapshot, onUse, onCompare, onEdit }: { plan: Plan;
   return <section className="preview-panel"><div><span className="preview-chip">Preview</span><h2>{planTitle(plan, snapshot)}</h2><p>Choose before {formatIST(plan.valid_until)} or refresh options.</p></div><div className="preview-actions"><button className="quiet" onClick={onCompare}>Compare again</button><button className="quiet" onClick={onEdit}>Edit remaining journey</button><button onClick={onUse}>Use this plan</button></div></section>
 }
 
-function ReportSheet({ selected, snapshot, busy, onClose, onApply }: { selected: components['schemas']['EvaluatedActivity'] | null; snapshot: Snapshot; busy: boolean; onClose: () => void; onApply: () => void }) {
+function ReportSheet({ selected, snapshot, busy, onClose, onApply }: { selected: components['schemas']['EvaluatedActivity'] | null; snapshot: Snapshot; busy: boolean; onClose: () => void; onApply: () => void | Promise<void> }) {
   const dialogRef = useDialogFocus(onClose)
+  const [error, setError] = useState<string | null>(null)
+  const apply = async () => { setError(null); try { await onApply() } catch (reason) { setError(reason instanceof Error ? reason.message : 'This update could not be applied.') } }
   return <div className="sheet-backdrop"><section ref={dialogRef} className="sheet" role="dialog" aria-modal="true" aria-labelledby="report-title"><header><div><span className="eyebrow">Report a problem</span><h2 id="report-title">What changed?</h2></div><button data-dialog-initial-focus className="icon-button" onClick={onClose} aria-label="Close report problem sheet">×</button></header><div className="selected-service"><strong>{selected ? friendlyActivity(selected, snapshot) : 'Your next train'}</strong><span>Selected journey step</span></div>
-    <fieldset className="problem-options"><legend>Choose the issue</legend><label className="selected"><input type="radio" checked readOnly /> It is delayed</label><label><input type="radio" disabled /> It was cancelled</label><label><input type="radio" disabled /> I missed it</label></fieldset><div className="demo-update"><span>Demo update</span><strong>Departure 9:00 AM · Arrival 6:30 PM</strong><p>This updates the effective train time and checks every connected step.</p></div><footer><button className="secondary" onClick={onClose}>Cancel</button><button onClick={onApply} disabled={busy}>{busy ? 'Updating…' : 'Apply delay'}</button></footer></section></div>
+    <fieldset className="problem-options"><legend>Choose the issue</legend><label className="selected"><input type="radio" checked readOnly /> It is delayed</label><label><input type="radio" disabled /> It was cancelled</label><label><input type="radio" disabled /> I missed it</label></fieldset><div className="demo-update"><span>Demo update</span><strong>Departure 9:00 AM · Arrival 6:30 PM</strong><p>This updates the effective train time and checks every connected step.</p></div>
+    {error && <p className="inline-error" role="alert">{error}</p>}
+    <footer><button className="secondary" onClick={onClose}>Cancel</button><button onClick={apply} disabled={busy}>{busy ? 'Updating…' : 'Apply delay'}</button></footer></section></div>
 }
 
-export function AdoptionSheet({ plan, checked, busy, onCheck, onClose, onAdopt }: { plan: Plan; checked: boolean; busy: boolean; onCheck: (value: boolean) => void; onClose: () => void; onAdopt: () => void }) {
+export function AdoptionSheet({ plan, checked, busy, onCheck, onClose, onAdopt }: { plan: Plan; checked: boolean; busy: boolean; onCheck: (value: boolean) => void; onClose: () => void; onAdopt: () => void | Promise<void> }) {
   const dialogRef = useDialogFocus(onClose)
+  const [error, setError] = useState<string | null>(null)
+  const submit = async () => { setError(null); try { await onAdopt() } catch (reason) { setError(reason instanceof Error ? reason.message : 'This plan could not be saved.') } }
   return <div className="sheet-backdrop"><section ref={dialogRef} className="sheet" role="dialog" aria-modal="true" aria-labelledby="adopt-title"><header><div><span className="eyebrow">Simulation</span><h2 id="adopt-title">Use this as your new plan?</h2></div><button data-dialog-initial-focus className="icon-button" aria-label="Close adoption sheet" onClick={onClose}>×</button></header><p><strong>{formatINR(plan.cash_required_paise)}</strong> cash required · arrive {formatIST(plan.final_required_arrival_at)}</p>
-    <label className="acknowledgement"><input type="checkbox" checked={checked} onChange={event => onCheck(event.target.checked)} /> I understand this is a simulated plan. ResiliTrip has not booked, cancelled or paid for anything.</label><footer><button className="secondary" onClick={onClose}>Back</button><button disabled={!checked || busy} onClick={onAdopt}>{busy ? 'Saving…' : 'Use simulated plan'}</button></footer></section></div>
+    <label className="acknowledgement"><input type="checkbox" checked={checked} onChange={event => onCheck(event.target.checked)} /> I understand this is a simulated plan. ResiliTrip has not booked, cancelled or paid for anything.</label>
+    {error && <p className="inline-error" role="alert">{error}</p>}
+    <footer><button className="secondary" onClick={onClose}>Back</button><button disabled={!checked || busy} onClick={submit}>{busy ? 'Saving…' : 'Use simulated plan'}</button></footer></section></div>
 }
 
 function AdoptionSuccess({ response }: { response: AdoptionResponse }) {

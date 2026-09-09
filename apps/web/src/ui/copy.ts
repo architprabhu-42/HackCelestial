@@ -16,6 +16,7 @@ const copy: Partial<Record<Code, string>> = {
   STALE_PLAN: 'This option is based on an older journey. Refresh options to continue.',
   PLAN_EXPIRED: 'This option has expired. Refresh options to continue.',
   VERSION_CONFLICT: 'Your journey changed. Refresh before trying again.',
+  EVENT_ID_CONFLICT: 'This delay has already been applied to your journey.',
   ITINERARY_EDIT_INVALID: 'This order cannot work with the connected journey. Adjust the draft and try again.',
   COMPLETED_ACTIVITY_IMMUTABLE: 'Completed journey steps are locked.',
   ACTIVE_ACTIVITY_IMMUTABLE: 'Your current journey step is locked.',
