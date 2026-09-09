@@ -4,6 +4,7 @@ import { api, ApiProblem, type AdoptionResponse, type ItineraryEditCommand, type
 import { acceptPlannerResponse, replaceSnapshot } from '../state/coherence'
 import { consumerCopy } from '../ui/copy'
 import { formatINR, formatIST, formatKind, formatMargin } from '../ui/format'
+import { DependencyDiagram } from '../components/DependencyDiagram'
 import { JourneyEditor } from '../components/JourneyEditor'
 import { JourneyMap, friendlyActivity } from '../components/JourneyMap'
 import { RankingControl } from '../components/RankingControl'
@@ -108,7 +109,6 @@ export function App() {
     <header className="app-header"><a className="brand" href="#main" aria-label="ResiliTrip home"><span>R</span> ResiliTrip</a>
       {snapshot && <nav aria-label="Journey actions"><button className="quiet" onClick={() => setSheet('edit')} disabled={!snapshot.available_actions.can_edit_itinerary}>Edit journey</button><button className="quiet" onClick={reset}>Reset scenario</button></nav>}
     </header>
-    <div className="truth-strip" role="note"><span aria-hidden="true">◇</span> Synthetic travel scenario · Options are not live or bookable</div>
     <div className="sr-only" role="status" aria-live="polite">{announcement}</div>
     {!snapshot ? <Landing busy={busy} error={error} onStart={loadDemo} /> : <main id="main" className="workspace">
       {error && <StatePanel status="system_error" onAction={() => setError(null)} />}
@@ -135,10 +135,32 @@ export function App() {
 }
 
 function Landing({ busy, error, onStart }: { busy: boolean; error: string | null; onStart: () => void }) {
-  return <main id="main" className="landing"><section className="hero"><span className="eyebrow">Travel disruption, made understandable</span><h1>Plan for the whole journey</h1><p>See how one delay affects your transfers, hotel and the moment you need to arrive—then compare practical ways forward.</p>
-    <button className="primary large" onClick={onStart} disabled={busy}>{busy ? 'Preparing your journey…' : 'Try Mumbai to Goa demo'} <span aria-hidden="true">→</span></button><small>No sign-up. Runs with a local, fictional scenario.</small></section>
-    <section className="landing-route" aria-label="Demo journey overview"><div className="route-illustration"><span className="city">Mumbai</span><span className="route-dots">● · · ✈ · · ●</span><span className="city">Goa</span></div><h2>A connected trip, not just a ticket</h2><p>Train, transfers, hotel and wedding—all checked together.</p></section>
-    {error && <StatePanel status="system_error" onAction={onStart} />}</main>
+  return <main id="main" className="landing-page">
+    <section className="landing-hero">
+      <div className="landing-hero-copy">
+        <span className="eyebrow">Itinerary dependency graph</span>
+        <h1>When your train to Goa is delayed, see exactly what breaks.</h1>
+        <p>ResiliTrip models your trip as a dependency graph — transport, transfers, hotel check-in and the event you can’t miss. Report a disruption and it traces every downstream conflict, then ranks 2–3 concrete rebooking options by cash required and arrival margin.</p>
+        <div className="landing-cta">
+          <button className="primary large" onClick={onStart} disabled={busy}>{busy ? 'Preparing your journey…' : 'Try Mumbai to Goa demo'} <span aria-hidden="true">→</span></button>
+          <small>No sign-up. Runs on a local, fictional scenario — nothing is booked or charged.</small>
+        </div>
+      </div>
+      <div className="landing-diagram">
+        <h2>One delay, four dependent bookings</h2>
+        <p>Train, transfer, hotel check-in and wedding arrival — each step depends on the one before it. Delay the train and the engine recalculates every downstream constraint automatically.</p>
+        <DependencyDiagram />
+      </div>
+    </section>
+    <section className="landing-steps" aria-label="How ResiliTrip works">
+      <ol>
+        <li><span className="step-index">01</span><h3>Report the disruption</h3><p>Mark a service as delayed, cancelled or missed. No need to re-enter the rest of the trip.</p></li>
+        <li><span className="step-index">02</span><h3>Trace the dependency graph</h3><p>Every downstream transfer, hotel window and arrival deadline is re-evaluated against the new time.</p></li>
+        <li><span className="step-index">03</span><h3>Compare ranked rebookings</h3><p>Get 2–3 concrete options, ranked by cash required and arrival margin — not generic search results.</p></li>
+      </ol>
+    </section>
+    {error && <StatePanel status="system_error" onAction={onStart} />}
+  </main>
 }
 
 function CurrentStatus({ location, snapshot, next, onReport, busy }: { location: string; snapshot: Snapshot; next: string; onReport: () => void; busy: boolean }) {
