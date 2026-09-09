@@ -1,0 +1,14 @@
+# Generated dependencies, build products, caches, and temporary diagnostics.
+.venv/
+apps/api/.venv/
+apps/web/node_modules/
+apps/web/dist/
+apps/web/test-results/
+.tools/
+.uv-cache/
+.pytest-tmp*/
+.test-tmp*/
+.contract-check-tmp/
+.debug-api/
+tmp*/
+graphify-out/
