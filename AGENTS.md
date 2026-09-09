@@ -2,6 +2,8 @@
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
 
+For a first pass on the repository, read `docs/AI_CONTEXT.md` before using the graph for focused codebase questions.
+
 When the user types `/graphify`, use the installed graphify skill or instructions before doing anything else.
 
 Rules:
