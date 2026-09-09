@@ -9,13 +9,13 @@
     "transfer_templates": 5
   },
   "duration_ms": {
-    "max": 14.8831,
-    "p50": 3.5673500000000002,
-    "p95": 4.8156
+    "max": 16.0868,
+    "p50": 3.95855,
+    "p95": 4.8805
   },
   "measured_runs": 100,
   "method": "real fixture \u2192 D1 timing event \u2192 shared impact evaluator \u2192 bounded recovery planner \u2192 canonical serialization",
-  "recorded_at": "2026-09-07T20:14:20.391627+00:00",
+  "recorded_at": "2026-09-09T09:44:45.820946+00:00",
   "result_status_counts": {
     "complete": 100,
     "partial_search": 0

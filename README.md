@@ -1,6 +1,26 @@
 # ResiliTrip
 
-ResiliTrip is a local-first travel-disruption recovery demonstration. It uses the fictional Mumbai → Goa scenario only: every schedule, fare and option is **synthetic and not bookable**. It never makes provider bookings, cancellations or payments.
+ResiliTrip currently is a local-first travel-disruption recovery demonstration. It
+uses the fictional Mumbai → Goa scenario only: every schedule, fare and option is
+**synthetic and not bookable**. It never makes provider bookings, cancellations or
+payments.
+
+## Documentation
+
+- [Current demo architecture](docs/CURRENT_DEMO_ARCHITECTURE.md) and
+  [AI onboarding context](docs/AI_CONTEXT.md)
+- [Future implementation roadmap](docs/IMPLEMENTATION_PLAN.md) — planned work, not
+  currently shipped
+- [Product decisions](docs/01_Product_Decision_and_Scope_Lock.md),
+  [requirements](docs/02_Product_Requirements_Document.md),
+  [target architecture](docs/06_Technical_Architecture_Specification.md), and
+  [target UX](docs/08_UX_Interaction_and_Demo_Specification.md)
+- [Demo runbook](docs/DEMO_RUNBOOK.md) and the retained current-demo references:
+  [domain](docs/03_Domain_Model_and_India_Travel_Glossary.md),
+  [fixture](docs/04_Reference_Scenario_and_Fixture_Specification.md),
+  [algorithms](docs/05_Algorithm_and_Recovery_Planning_Specification.md),
+  [API contract](docs/07_API_and_Data_Contract_Specification.md), and
+  [tests](docs/09_Test_Strategy_and_Golden_Validation_Specification.md).
 
 ## Windows PowerShell quick start
 

@@ -1482,11 +1482,9 @@ export interface components {
              * @enum {string}
              */
             last_mutation_kind: "created" | "event" | "constraints" | "current_state" | "itinerary_edit" | "adoption" | "reset";
-            /**
-             * Mode
-             * @constant
-             */
-            mode: "demo";
+            /** @default active */
+            lifecycle: components["schemas"]["TripLifecycle"];
+            mode: components["schemas"]["TripMode"];
             original_itinerary: components["schemas"]["ItineraryDefinition-Output"];
             /** Provenance */
             provenance: components["schemas"]["ProvenanceRecord"][];
@@ -1513,6 +1511,16 @@ export interface components {
             /** Trip Version */
             trip_version: number;
         };
+        /**
+         * TripLifecycle
+         * @enum {string}
+         */
+        TripLifecycle: "draft" | "active";
+        /**
+         * TripMode
+         * @enum {string}
+         */
+        TripMode: "demo" | "real";
         /** TripSnapshotResponse */
         TripSnapshotResponse: {
             snapshot: components["schemas"]["TripViewSnapshot"];

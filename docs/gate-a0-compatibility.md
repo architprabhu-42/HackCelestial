@@ -1,6 +1,6 @@
 # Gate A0 compatibility record
 
-Status: passed.
+Status: historical record — passed when captured; not a current verification result.
 
 ## Runtime and tooling
 
@@ -41,6 +41,7 @@ The Vite build warns that the initial MapLibre bundle exceeds 500 kB after
 minification. This is non-blocking for Gate A0; code splitting is considered
 only when real UI modules are introduced.
 
-## A0 completion
+## Historical A0 completion
 
-All Gate A0 compatibility checks are complete. Gate A1 may begin.
+These checks were complete when this record was written. Re-run relevant checks
+before relying on this as current evidence.

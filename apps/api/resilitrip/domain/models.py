@@ -36,6 +36,12 @@ class ContractModel(BaseModel):
 
 class TripMode(StrEnum):
     DEMO = "demo"
+    REAL = "real"
+
+
+class TripLifecycle(StrEnum):
+    DRAFT = "draft"
+    ACTIVE = "active"
 
 
 class LocationKind(StrEnum):
@@ -761,7 +767,8 @@ class TripAggregate(ContractModel):
     id: EntityId
     version: Annotated[int, Field(strict=True, ge=1)]
     scenario_id: EntityId | None
-    mode: Literal["demo"]
+    mode: TripMode
+    lifecycle: TripLifecycle = TripLifecycle.ACTIVE
     display_timezone: Literal["Asia/Kolkata"]
     currency: Literal["INR"]
     truth_label: str
@@ -784,9 +791,19 @@ class TripAggregate(ContractModel):
     @field_validator("truth_label")
     @classmethod
     def aggregate_truth_label(cls, value: str) -> str:
-        if value != TRUTH_LABEL:
-            raise ValueError("truth_label must be the P0 synthetic/not-bookable literal")
+        if not value.strip():
+            raise ValueError("truth_label must not be blank")
         return value
+
+    @model_validator(mode="after")
+    def truth_label_matches_mode(self) -> "TripAggregate":
+        if self.mode == TripMode.DEMO and self.truth_label != TRUTH_LABEL:
+            raise ValueError("demo trips must retain the synthetic/not-bookable truth label")
+        if self.mode == TripMode.DEMO and self.lifecycle is not TripLifecycle.ACTIVE:
+            raise ValueError("demo trips must remain active")
+        if self.mode == TripMode.REAL and self.truth_label == TRUTH_LABEL:
+            raise ValueError("real trips must not use the synthetic scenario truth label")
+        return self
 
 
 class AvailableActions(ContractModel):

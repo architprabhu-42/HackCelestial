@@ -4,9 +4,10 @@
 **Version:** 1.0  
 **Contract version:** `resilitrip-api-1.0`  
 **Date:** 6 September 2026  
-**Status:** Proposed code-generation baseline  
-**Depends on:** Documents 01–06  
-**Feeds:** UX Specification, Test Strategy, implementation backlog and generated OpenAPI/TypeScript artifacts
+**Status:** Retained current-demo contract reference
+**Future authority:** `IMPLEMENTATION_PLAN.md`; evolve this contract deliberately
+with versioned OpenAPI and TypeScript updates as roadmap slices are implemented.
+**Feeds:** Test Strategy and generated OpenAPI/TypeScript artifacts
 
 ## 1. Purpose
 
@@ -1641,4 +1642,6 @@ This contract is ready to lock when:
 | C — Product/UI |  | Pending |  |
 | D — API/integration |  | Pending |  |
 
-After approval, create **Document 08 — UX, Interaction and Demo Specification**. It must consume these exact states and fields without inventing a separate client-side calculation contract.
+Future UI slices must consume these states and fields without inventing a separate
+client-side calculation contract. See `IMPLEMENTATION_PLAN.md` for the future UI
+direction and `DEMO_RUNBOOK.md` for the current demo flow.

@@ -5,6 +5,13 @@ apps/web/dist/
 .tools/
 .uv-cache/
 .pytest-tmp/
+.pytest-tmp*/
+.test-tmp*/
+.contract-check-tmp/
+.debug-api/
+apps/web/test-results/
+graphify-out/cache/
+tmp*/
 data/local/
 artifacts/
 __pycache__/

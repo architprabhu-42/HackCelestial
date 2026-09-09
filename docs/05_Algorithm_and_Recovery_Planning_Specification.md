@@ -3,9 +3,10 @@
 **Document:** 05 of the ResiliTrip implementation pack  
 **Version:** 1.0  
 **Date:** 6 September 2026  
-**Status:** Proposed algorithm baseline  
-**Depends on:** Documents 01–04  
-**Feeds:** Technical Architecture, API Contracts, implementation backlog and test strategy
+**Status:** Retained current-demo algorithm reference
+**Future authority:** `IMPLEMENTATION_PLAN.md`; roadmap work may replace this
+bounded synthetic-catalog approach through versioned implementation slices.
+**Feeds:** API Contracts and test strategy
 
 ## 1. Purpose
 
@@ -947,4 +948,6 @@ This document is ready to lock when:
 | C — Product/UI |  | Pending |  |
 | D — API/integration |  | Pending |  |
 
-After approval, create **Document 06 — Technical Architecture Specification**. It must assign these algorithms to concrete modules and transactions without duplicating or changing their rules.
+Future implementation slices must assign these algorithms to concrete modules and
+transactions without duplicating or changing their rules. See
+`IMPLEMENTATION_PLAN.md` and `CURRENT_DEMO_ARCHITECTURE.md` for authority.

@@ -3,9 +3,10 @@
 **Document:** 03 of the ResiliTrip implementation pack  
 **Version:** 1.0  
 **Date:** 6 September 2026  
-**Status:** Proposed domain baseline  
-**Depends on:** Document 01 — Product Decision and Scope Lock; Document 02 — Product Requirements Document  
-**Feeds:** Fixture Specification, Algorithm Specification, Technical Architecture and API/Data Contracts
+**Status:** Retained current-demo reference
+**Future authority:** `IMPLEMENTATION_PLAN.md`; this document does not limit the
+generic-trip roadmap.
+**Feeds:** Fixture Specification, Algorithm Specification and API/Data Contracts
 
 ## 1. Purpose
 
@@ -777,7 +778,7 @@ The following must hold before a trip or plan can be certified:
 |---|---|---|
 | DM-O01 | Document 04 — Fixture Specification | Exact complete records for every hero location, activity, service, dependency, booking, money item, policy and provenance value |
 | DM-O02 | Document 05 — Algorithm Specification | Exact evaluator order, path-enumeration state and search completeness calculation |
-| DM-O03 | Document 06 — Technical Architecture | Persistence representation, component boundaries and dependency versions |
+| DM-O03 | Current Demo Architecture and roadmap | Current component boundaries; future persistence and architecture decisions |
 | DM-O04 | Document 07 — API/Data Contracts | Exact field names, unions, formats, response envelopes and schema generation |
 | DM-O05 | UX Specification | Plain-language copy for every reason code and responsive component behavior |
 | DM-O06 | Test Strategy | Boundary, property, contract and end-to-end tests for every invariant |

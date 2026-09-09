@@ -12,7 +12,7 @@ const dependencies = [{ id: 'dep:one', from_id: 'act:train', to_id: 'act:wedding
 
 export function makeSnapshot(version = 2): Snapshot {
   return {
-    trip: { schema_version: 'resilitrip-api-1.0', id: 'trip:test', version, scenario_id: 'mumbai-goa-v2', mode: 'demo', display_timezone: 'Asia/Kolkata', currency: 'INR', truth_label: 'SYNTHETIC SCENARIO — NOT BOOKABLE', traveler: { party_size: 1, display_name: 'Asha', accessibility_required: false }, catalog_version: 'catalog:test', decision_allowance_sec: 900,
+    trip: { schema_version: 'resilitrip-api-1.0', id: 'trip:test', version, scenario_id: 'mumbai-goa-v2', mode: 'demo', lifecycle: 'active', display_timezone: 'Asia/Kolkata', currency: 'INR', truth_label: 'SYNTHETIC SCENARIO — NOT BOOKABLE', traveler: { party_size: 1, display_name: 'Asha', accessibility_required: false }, catalog_version: 'catalog:test', decision_allowance_sec: 900,
       current_state: { as_of: '2026-09-26T05:00:00+05:30', location_id: 'rail:mumbai', phase: 'at_location', active_service_id: null, completed_activity_ids: [], next_recovery_point_id: null, provenance_id: 'prov:test' },
       constraints: { party_size: 1, max_cash_required_paise: 1000000, max_incremental_cost_paise: 900000, allowed_modes: ['rail','air','road_transfer'], required_commitment_ids: ['act:wedding'], accessibility_required: false, ranking_preset: 'cheapest', max_new_fixed_legs: 2, max_transfer_legs: 8, horizon_end: '2026-09-27T05:00:00+05:30', risk_threshold_sec: 1800 },
       original_itinerary: { activities, dependencies }, active_itinerary: { activities, dependencies }, bookings: [], baseline_money_items: [], baseline_remaining_spend_paise: 130000,

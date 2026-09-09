@@ -3722,10 +3722,12 @@
             "title": "Last Mutation Kind",
             "type": "string"
           },
+          "lifecycle": {
+            "$ref": "#/components/schemas/TripLifecycle",
+            "default": "active"
+          },
           "mode": {
-            "const": "demo",
-            "title": "Mode",
-            "type": "string"
+            "$ref": "#/components/schemas/TripMode"
           },
           "original_itinerary": {
             "$ref": "#/components/schemas/ItineraryDefinition-Output"
@@ -3823,6 +3825,22 @@
         ],
         "title": "TripCreatedResponse",
         "type": "object"
+      },
+      "TripLifecycle": {
+        "enum": [
+          "draft",
+          "active"
+        ],
+        "title": "TripLifecycle",
+        "type": "string"
+      },
+      "TripMode": {
+        "enum": [
+          "demo",
+          "real"
+        ],
+        "title": "TripMode",
+        "type": "string"
       },
       "TripSnapshotResponse": {
         "additionalProperties": false,

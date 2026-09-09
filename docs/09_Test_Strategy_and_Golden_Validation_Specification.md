@@ -3,9 +3,10 @@
 **Document:** 09 of the ResiliTrip implementation pack  
 **Version:** 1.0  
 **Date:** 6 September 2026  
-**Status:** Proposed final pre-coding specification  
-**Depends on:** Documents 01–08  
-**Feeds:** Implementation, CI, demo rehearsal and release decision  
+**Status:** Retained current-demo test reference
+**Future authority:** `IMPLEMENTATION_PLAN.md`; retain current-demo evidence while
+adding roadmap test gates as features are implemented.
+**Feeds:** CI, demo rehearsal and release evidence
 **Execution model:** One Codex account; sequence work by dependency, with no person assignments
 
 ## 1. Purpose
@@ -18,17 +19,15 @@ The implementation may refine file paths and test helper names, but it must not 
 
 Use this oracle order when documents or implementation disagree:
 
-1. Document 01 owns P0 scope, exclusions and claim boundaries.
-2. Document 02 owns user-visible requirements and NFRs.
-3. Document 03 owns domain meanings and invariants.
-4. Document 04 owns exact hero fixture values and calculations.
-5. Document 05 owns algorithm behavior and deterministic ordering.
-6. Document 06 owns architecture, transactions and runtime boundaries.
-7. Document 07 owns serialized API contracts.
-8. Document 08 owns interaction, copy meaning and accessibility behavior.
-9. This document owns test IDs, evidence form and release gates.
+1. `IMPLEMENTATION_PLAN.md` owns future scope, exclusions and delivery gates.
+2. Current implemented behavior, code and passing current tests establish the
+   present demo baseline.
+3. Document 03 owns retained domain meanings; Document 04 owns exact demo fixture
+   values; Document 05 owns retained demo algorithm behavior; Document 07 owns the
+   current serialized contract; this document owns current-demo test evidence.
 
-If two higher-authority documents genuinely conflict, stop implementation of the affected behavior and record the contradiction. A test must not silently choose the easier interpretation.
+If authorities genuinely conflict, stop implementation of the affected behavior and
+record the contradiction. A test must not silently choose the easier interpretation.
 
 ## 3. Test principles
 

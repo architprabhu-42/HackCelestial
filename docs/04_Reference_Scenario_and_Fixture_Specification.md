@@ -3,10 +3,11 @@
 **Document:** 04 of the ResiliTrip implementation pack  
 **Version:** 1.0  
 **Date:** 6 September 2026  
-**Status:** Proposed fixture baseline  
+**Status:** Retained current-demo fixture reference
 **Scenario:** `mumbai-goa-v2`  
-**Depends on:** Documents 01–03  
-**Feeds:** Algorithm Specification, Architecture, API Contracts, Test Strategy and demo data
+**Future authority:** `IMPLEMENTATION_PLAN.md`; this fixture remains a synthetic
+demo baseline, not a restriction on future generic trips.
+**Feeds:** Algorithm Specification, API Contracts, Test Strategy and demo data
 
 ## 1. Purpose
 
