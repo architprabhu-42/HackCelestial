@@ -49,6 +49,26 @@ export const api = {
         valid_until: null, source_ref: 'replay:mumbai-goa-v2' },
     }),
   }),
+  applyCancellation: (tripId: string, version: number) => request<EventResponse>(`/api/v1/trips/${encodeURIComponent(tripId)}/events`, {
+    method: 'POST', body: JSON.stringify({
+      event_id: 'event:T1-cancelled', source_id: 'replay:mumbai-goa-v2', source_sequence: 1,
+      expected_trip_version: version, type: 'SERVICE_CANCELLED', service_id: 'svc:T1:2026-09-26',
+      observed_at: '2026-09-26T05:00:00+05:30', effective_at: '2026-09-26T05:00:00+05:30',
+      provenance: { id: 'prov:replay:T1-cancelled', kind: 'synthetic', verification: 'fixture',
+        observed_at: '2026-09-26T05:00:00+05:30', retrieved_at: '2026-09-26T05:00:00+05:30',
+        valid_until: null, source_ref: 'replay:mumbai-goa-v2' },
+    }),
+  }),
+  applyMissed: (tripId: string, version: number) => request<EventResponse>(`/api/v1/trips/${encodeURIComponent(tripId)}/events`, {
+    method: 'POST', body: JSON.stringify({
+      event_id: 'event:T1-missed', source_id: 'replay:mumbai-goa-v2', source_sequence: 1,
+      expected_trip_version: version, type: 'SERVICE_CANCELLED', service_id: 'svc:T1:2026-09-26',
+      observed_at: '2026-09-26T06:15:00+05:30', effective_at: '2026-09-26T06:15:00+05:30',
+      provenance: { id: 'prov:replay:T1-missed', kind: 'synthetic', verification: 'fixture',
+        observed_at: '2026-09-26T06:15:00+05:30', retrieved_at: '2026-09-26T06:15:00+05:30',
+        valid_until: null, source_ref: 'replay:mumbai-goa-v2' },
+    }),
+  }),
   generatePlans: (tripId: string, version: number, catalogVersion: string, ranking: RankingPreset) =>
     request<PlannerResponse>(`/api/v1/trips/${encodeURIComponent(tripId)}/plans`, {
       method: 'POST', headers: plannerTestControl(), body: JSON.stringify({ expected_trip_version: version, expected_catalog_version: catalogVersion, ranking_preset: ranking }),

@@ -9,7 +9,7 @@
       {"id":"prov:guidance:rail-policy","kind":"official_replay","verification":"unverified","observed_at":"2026-09-06T00:00:00+05:30","retrieved_at":"2026-09-06T00:00:00+05:30","valid_until":null,"source_ref":"audited-conflicting-official-guidance"}
     ],
     "locations":[
-      {"id":"rail:CSMT","kind":"rail_station","name":"Chhatrapati Shivaji Maharaj Terminus","code":"CSMT","terminal":null,"latitude":18.9398,"longitude":72.8355,"provenance_id":"prov:estimate:map-points"},
+      {"id":"rail:CSMT","kind":"rail_station","name":"Chhatrapati Shivaji Maharaj Terminus","code":"CSMT","terminal":null,"latitude":18.94,"longitude":72.88,"provenance_id":"prov:estimate:map-points"},
       {"id":"rail:MAO","kind":"rail_station","name":"Madgaon Junction","code":"MAO","terminal":null,"latitude":15.267,"longitude":73.958,"provenance_id":"prov:estimate:map-points"},
       {"id":"airport:BOM:T2","kind":"airport_terminal","name":"Mumbai Airport Terminal 2","code":"BOM","terminal":"T2","latitude":19.1,"longitude":72.874,"provenance_id":"prov:estimate:map-points"},
       {"id":"airport:GOX:ARR","kind":"airport_terminal","name":"Manohar International Airport Arrivals","code":"GOX","terminal":"ARR","latitude":15.7443,"longitude":73.8602,"provenance_id":"prov:estimate:map-points"},

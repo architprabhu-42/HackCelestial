@@ -76,25 +76,49 @@ export function JourneyMap({ snapshot, selectedId, onSelect, preview, forceFallb
       map.addLayer({ id: layerId, type: 'line', source: sourceId, layout: { 'line-cap': 'round' }, paint })
     })
 
+    const currentLocationId = snapshot.trip.current_state.location_id
+    const destinationId = (() => {
+      for (let i = snapshot.evaluated_itinerary.length - 1; i >= 0; i--) {
+        const item = snapshot.evaluated_itinerary[i]
+        if (item.destination_id) return item.destination_id
+      }
+      return snapshot.evaluated_itinerary.at(-1)?.origin_id ?? null
+    })()
+
     const bounds = new maplibregl.LngLatBounds()
     snapshot.catalog.locations.forEach(location => {
       const lngLat: [number, number] = [location.longitude, location.latitude]
       bounds.extend(lngLat)
       const activity = visibleActivities.find(item => item.origin_id === location.id || item.destination_id === location.id)
       const selected = activity?.activity_id === selectedId
+      const isCurrent = location.id === currentLocationId
+      const isDestination = !isCurrent && location.id === destinationId
       const el = document.createElement('div')
-      el.className = selected ? 'map-pin selected' : 'map-pin'
+      const anchor: maplibregl.PositionAnchor = isDestination ? 'bottom' : isCurrent ? 'center' : 'left'
       el.setAttribute('role', 'button')
       el.setAttribute('tabindex', '0')
-      el.setAttribute('aria-label', `Select ${location.name}`)
-      const dot = document.createElement('span'); dot.className = 'map-pin-dot'
-      const label = document.createElement('span'); label.className = 'map-pin-label'; label.textContent = location.name
-      el.append(dot, label)
+      el.setAttribute('aria-label', isCurrent ? `${location.name}, your current location` : isDestination ? `${location.name}, destination` : `Select ${location.name}`)
+      if (isCurrent) {
+        el.className = selected ? 'map-pin map-pin-current selected' : 'map-pin map-pin-current'
+        el.innerHTML = '<span class="map-pin-beacon"><span class="map-pin-beacon-ping" aria-hidden="true"></span><span class="map-pin-beacon-dot" aria-hidden="true"></span></span>'
+        const label = document.createElement('span'); label.className = 'map-pin-label'; label.textContent = `${location.name} · You are here`
+        el.append(label)
+      } else if (isDestination) {
+        el.className = selected ? 'map-pin map-pin-destination selected' : 'map-pin map-pin-destination'
+        const label = document.createElement('span'); label.className = 'map-pin-label'; label.textContent = location.name
+        el.innerHTML = '<svg class="map-pin-icon" viewBox="0 0 24 34" width="24" height="34" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 22 12 22s12-13 12-22c0-6.6-5.4-12-12-12z" fill="#c0392b" stroke="#fff" stroke-width="1.5"></path><circle cx="12" cy="12" r="4.5" fill="#fff"></circle></svg>'
+        el.append(label)
+      } else {
+        el.className = selected ? 'map-pin selected' : 'map-pin'
+        const dot = document.createElement('span'); dot.className = 'map-pin-dot'
+        const label = document.createElement('span'); label.className = 'map-pin-label'; label.textContent = location.name
+        el.append(dot, label)
+      }
       if (activity) {
         el.addEventListener('click', () => onSelect(activity.activity_id))
         el.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onSelect(activity.activity_id) } })
       }
-      const marker = new maplibregl.Marker({ element: el, anchor: 'left' }).setLngLat(lngLat).addTo(map)
+      const marker = new maplibregl.Marker({ element: el, anchor }).setLngLat(lngLat).addTo(map)
       markersRef.current.push(marker)
     })
 

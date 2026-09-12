@@ -13,6 +13,7 @@ import { useDialogFocus } from '../ui/dialog'
 type Snapshot = components['schemas']['TripViewSnapshot']
 type PlannerResult = components['schemas']['PlannerResult']
 type Plan = components['schemas']['PlanEvaluation']
+type ReportedIssue = 'delayed' | 'cancelled' | 'missed'
 
 const errorMessage = (reason: unknown) => reason instanceof ApiProblem
   ? consumerCopy(reason.problem.error.code, reason.problem.error.message)
@@ -63,13 +64,17 @@ export function App() {
     setSnapshot(loaded); setSelectedActivity(loaded.evaluated_itinerary[0]?.activity_id ?? null)
     setPlanner(null); setAdoption(null); setPlansStale(false); setAnnouncement('Mumbai to Goa demo loaded')
   })
-  const reportD1 = async () => {
+  const reportIssue = async (issue: ReportedIssue) => {
     if (!snapshot) return
     try {
       setBusy(true)
-      const response = await api.applyD1(snapshot.trip.id, snapshot.trip.version)
+      const response = issue === 'delayed' ? await api.applyD1(snapshot.trip.id, snapshot.trip.version)
+        : issue === 'cancelled' ? await api.applyCancellation(snapshot.trip.id, snapshot.trip.version)
+        : await api.applyMissed(snapshot.trip.id, snapshot.trip.version)
       setSnapshot(response.event_result.snapshot); setPlanner(null); setSelectedPlan(null); setPlansStale(false); setSheet(null)
-      setAnnouncement('Delay applied. Your connected journey has been updated.')
+      setAnnouncement(issue === 'delayed' ? 'Delay applied. Your connected journey has been updated.'
+        : issue === 'cancelled' ? 'Cancellation applied. Your connected journey has been updated.'
+        : 'Missed connection applied. Your connected journey has been updated.')
     } catch (reason) { throw new Error(errorMessage(reason)) } finally { setBusy(false) }
   }
   const generate = async (preset: RankingPreset = ranking) => snapshot && run(async () => {
@@ -127,7 +132,7 @@ export function App() {
       {snapshot.impacts.length > 0 && <ImpactSummary snapshot={snapshot} onRecover={() => generate()} busy={busy} />}
       {(planner || busy) && <RecoverySection snapshot={snapshot} planner={planner} stale={plansStale} busy={busy} ranking={ranking} onRanking={generate} onPreview={plan => { setSelectedPlan(plan); setSelectedActivity(plan.activity_sequence[0]?.activity_id ?? null) }} />}
       {selectedPlan && !plansStale && <PlanPreview plan={selectedPlan} snapshot={snapshot} onUse={() => setSheet('adopt')} onCompare={() => setSelectedPlan(null)} onEdit={() => setSheet('edit')} />}
-      {sheet === 'report' && <ReportSheet selected={selected} snapshot={snapshot} busy={busy} onClose={() => setSheet(null)} onApply={reportD1} />}
+      {sheet === 'report' && <ReportSheet selected={selected} snapshot={snapshot} busy={busy} onClose={() => setSheet(null)} onApply={reportIssue} />}
       {sheet === 'adopt' && selectedPlan && <AdoptionSheet plan={selectedPlan} checked={acknowledged} busy={busy} onCheck={setAcknowledged} onClose={() => setSheet(null)} onAdopt={adopt} />}
       {sheet === 'edit' && <JourneyEditor snapshot={snapshot} busy={busy} onClose={() => setSheet(null)} onSave={saveEdit} />}
     </main>}
@@ -135,10 +140,70 @@ export function App() {
 }
 
 function Landing({ busy, error, onStart }: { busy: boolean; error: string | null; onStart: () => void }) {
-  return <main id="main" className="landing"><section className="hero"><span className="eyebrow">Travel disruption, made understandable</span><h1>Plan for the whole journey</h1><p>See how one delay affects your transfers, hotel and the moment you need to arrive—then compare practical ways forward.</p>
-    <button className="primary large" onClick={onStart} disabled={busy}>{busy ? 'Preparing your journey…' : 'Try Mumbai to Goa demo'} <span aria-hidden="true">→</span></button><small>No sign-up. Runs with a local, fictional scenario.</small></section>
-    <section className="landing-route" aria-label="Demo journey overview"><div className="route-illustration"><span className="city">Mumbai</span><span className="route-dots">● · · ✈ · · ●</span><span className="city">Goa</span></div><h2>A connected trip, not just a ticket</h2><p>Train, transfers, hotel and wedding—all checked together.</p></section>
-    {error && <StatePanel status="system_error" onAction={onStart} />}</main>
+  return <main id="main" className="landing-page">
+    <section className="hero-section">
+      <div className="hero-copy">
+        <span className="hero-eyebrow">◇ Autonomous trip resilience engine</span>
+        <h1 className="hero-title">Zero delay anxiety.<br /><em>Self-healing</em><br />travel itineraries.</h1>
+        <p className="hero-lead">Modern itineraries are fragile webs of trains, transfers and hotels. When one link breaks, ResiliTrip recalculates every downstream step in seconds — showing a simulated recovery plan and guiding you to your destination. No bookings, cancellations or payments are ever made.</p>
+        <div className="hero-actions">
+          <button className="primary large" onClick={onStart} disabled={busy}>{busy ? 'Preparing your journey…' : 'Try Mumbai to Goa demo'} <span aria-hidden="true">→</span></button>
+          <a className="ghost-button" href="#how-it-works">▷ How it works</a>
+        </div>
+        <div className="hero-trust"><span>✓ Local-first · no external bookings</span><span aria-hidden="true">·</span><span>⚡ Instant plan comparison</span></div>
+      </div>
+      <div className="hero-cards" aria-hidden="true">
+        <article className="preview-card">
+          <header><span className="chip chip-danger">● Disruption detected</span></header>
+          <div className="preview-graphic">
+            <div className="preview-graphic-row"><span>Mumbai → Goa train</span><strong className="danger-copy">+180m delay</strong></div>
+            <svg viewBox="0 0 200 40" aria-hidden="true"><path d="M10 20 H 60 L 90 32 L 130 8 L 190 8" stroke="#D3CDBD" strokeDasharray="3,3" strokeWidth="2" fill="none" /><path d="M10 20 H 60 L 90 12 L 140 22 L 190 22" stroke="#9E2A2B" strokeWidth="2.5" fill="none" /><circle cx="60" cy="20" r="3.5" fill="#9E2A2B" /><circle cx="90" cy="12" r="3" fill="#1B3B2B" /><circle cx="140" cy="22" r="3.5" fill="#9E2A2B" /></svg>
+            <div className="preview-graphic-note">⚠ Wedding arrival no longer works</div>
+          </div>
+          <h3>Connected impact analysis</h3>
+          <p>Every downstream step — transfers, hotel, arrival — is rechecked against your required time the moment a delay is reported.</p>
+          <footer>Status: 3 steps affected →</footer>
+        </article>
+        <article className="preview-card featured">
+          <header><span className="chip chip-primary">✨ Recommended recovery</span></header>
+          <div className="preview-graphic">
+            <div className="preview-graphic-row"><strong>Fly F3 to Goa</strong><span className="tertiary-copy">115 min early</span></div>
+            <ul className="preview-graphic-list"><li><span>✈ Flight F3 to Goa</span><span>₹6,500</span></li><li><span>🚕 Direct hotel transfer</span><span>Ready</span></li></ul>
+            <div className="preview-graphic-bar"><span /></div>
+          </div>
+          <h3>Compare recovery plans</h3>
+          <p>Ranked by cash required, arrival margin and how many original bookings change — you choose before anything is saved.</p>
+          <footer><span className="tertiary-copy">◇ Simulated only</span> · never booked</footer>
+        </article>
+      </div>
+    </section>
+    <section className="stats-bar" aria-label="About this demo">
+      <div className="stat-item"><span className="stat-icon">◈</span><div><div className="stat-value">1 scenario</div><div className="stat-label">Mumbai → Goa · fictional</div></div></div>
+      <div className="stat-item"><span className="stat-icon">⚡</span><div><div className="stat-value">Instant</div><div className="stat-label">Recovery plans, recalculated locally</div></div></div>
+      <div className="stat-item"><span className="stat-icon">₹</span><div><div className="stat-value">₹0</div><div className="stat-label">Ever charged — nothing is bookable</div></div></div>
+      <div className="stat-item"><span className="stat-icon">◇</span><div><div className="stat-value">100% local</div><div className="stat-label">No external bookings or live data</div></div></div>
+    </section>
+    <section className="how-it-works" id="how-it-works">
+      <header className="how-it-works-header">
+        <div><span className="section-kicker">● How it works</span><h2 className="section-title">A connected trip, not just a ticket</h2></div>
+        <p>Traditional booking sites treat each leg separately. ResiliTrip keeps your train, transfers, hotel and event in one connected view.</p>
+      </header>
+      <div className="stage-grid">
+        <article className="stage-card"><span className="stage-icon">1</span><span className="stage-kicker">Stage 01 · Report</span><h3>Report a problem</h3><p>Tell ResiliTrip a service is delayed, and it becomes the new effective time for everything downstream.</p></article>
+        <article className="stage-card featured"><span className="stage-icon">2</span><span className="stage-kicker">Stage 02 · Analyze</span><h3>Connected impact analysis</h3><p>See exactly which steps still work, which break, and by how much — before you decide anything.</p></article>
+        <article className="stage-card"><span className="stage-icon">3</span><span className="stage-kicker">Stage 03 · Recover</span><h3>Compare recovery plans</h3><p>Rank alternatives by cost, arrival time or fewest changes, then simulate adopting one — nothing is ever booked.</p></article>
+      </div>
+    </section>
+    <section className="cta-banner">
+      <div className="cta-copy"><span className="cta-kicker">◇ Simulation lab</span><h3>Try a delay yourself, right now</h3><p>Report a 3-hour delay on the Mumbai–Goa train and watch ResiliTrip recalculate your hotel, transfers and wedding arrival in real time.</p></div>
+      <button className="primary large" onClick={onStart} disabled={busy}>{busy ? 'Preparing your journey…' : 'Try Mumbai to Goa demo'} <span aria-hidden="true">→</span></button>
+    </section>
+    {error && <StatePanel status="system_error" onAction={onStart} />}
+    <footer className="landing-footer">
+      <div className="brand landing-footer-brand"><span>R</span> ResiliTrip</div>
+      <p>A local-first travel-disruption recovery demonstration. Every schedule, fare and option is synthetic and not bookable — it never makes provider bookings, cancellations or payments.</p>
+    </footer>
+  </main>
 }
 
 function CurrentStatus({ location, snapshot, next, onReport, busy }: { location: string; snapshot: Snapshot; next: string; onReport: () => void; busy: boolean }) {
@@ -189,14 +254,22 @@ function PlanPreview({ plan, snapshot, onUse, onCompare, onEdit }: { plan: Plan;
   return <section className="preview-panel"><div><span className="preview-chip">Preview</span><h2>{planTitle(plan, snapshot)}</h2><p>Choose before {formatIST(plan.valid_until)} or refresh options.</p></div><div className="preview-actions"><button className="quiet" onClick={onCompare}>Compare again</button><button className="quiet" onClick={onEdit}>Edit remaining journey</button><button onClick={onUse}>Use this plan</button></div></section>
 }
 
-function ReportSheet({ selected, snapshot, busy, onClose, onApply }: { selected: components['schemas']['EvaluatedActivity'] | null; snapshot: Snapshot; busy: boolean; onClose: () => void; onApply: () => void | Promise<void> }) {
+const ISSUE_COPY: Record<ReportedIssue, { label: string; update: string; detail: string; action: string }> = {
+  delayed: { label: 'It is delayed', update: 'Departure 9:00 AM · Arrival 6:30 PM', detail: 'This updates the effective train time and checks every connected step.', action: 'Apply delay' },
+  cancelled: { label: 'It was cancelled', update: 'Train T1 to Madgaon Junction is cancelled', detail: 'This marks the service unavailable and checks every connected step.', action: 'Apply cancellation' },
+  missed: { label: 'I missed it', update: "You didn't board Train T1 to Madgaon Junction", detail: 'This marks the service unavailable and checks every connected step.', action: 'Apply missed connection' },
+}
+
+function ReportSheet({ selected, snapshot, busy, onClose, onApply }: { selected: components['schemas']['EvaluatedActivity'] | null; snapshot: Snapshot; busy: boolean; onClose: () => void; onApply: (issue: ReportedIssue) => void | Promise<void> }) {
   const dialogRef = useDialogFocus(onClose)
+  const [issue, setIssue] = useState<ReportedIssue>('delayed')
   const [error, setError] = useState<string | null>(null)
-  const apply = async () => { setError(null); try { await onApply() } catch (reason) { setError(reason instanceof Error ? reason.message : 'This update could not be applied.') } }
+  const copy = ISSUE_COPY[issue]
+  const apply = async () => { setError(null); try { await onApply(issue) } catch (reason) { setError(reason instanceof Error ? reason.message : 'This update could not be applied.') } }
   return <div className="sheet-backdrop"><section ref={dialogRef} className="sheet" role="dialog" aria-modal="true" aria-labelledby="report-title"><header><div><span className="eyebrow">Report a problem</span><h2 id="report-title">What changed?</h2></div><button data-dialog-initial-focus className="icon-button" onClick={onClose} aria-label="Close report problem sheet">×</button></header><div className="selected-service"><strong>{selected ? friendlyActivity(selected, snapshot) : 'Your next train'}</strong><span>Selected journey step</span></div>
-    <fieldset className="problem-options"><legend>Choose the issue</legend><label className="selected"><input type="radio" checked readOnly /> It is delayed</label><label><input type="radio" disabled /> It was cancelled</label><label><input type="radio" disabled /> I missed it</label></fieldset><div className="demo-update"><span>Demo update</span><strong>Departure 9:00 AM · Arrival 6:30 PM</strong><p>This updates the effective train time and checks every connected step.</p></div>
+    <fieldset className="problem-options"><legend>Choose the issue</legend>{(Object.keys(ISSUE_COPY) as ReportedIssue[]).map(key => <label key={key} className={issue === key ? 'selected' : ''}><input type="radio" name="issue" checked={issue === key} onChange={() => setIssue(key)} /> {ISSUE_COPY[key].label}</label>)}</fieldset><div className="demo-update"><span>Demo update</span><strong>{copy.update}</strong><p>{copy.detail}</p></div>
     {error && <p className="inline-error" role="alert">{error}</p>}
-    <footer><button className="secondary" onClick={onClose}>Cancel</button><button onClick={apply} disabled={busy}>{busy ? 'Updating…' : 'Apply delay'}</button></footer></section></div>
+    <footer><button className="secondary" onClick={onClose}>Cancel</button><button onClick={apply} disabled={busy}>{busy ? 'Updating…' : copy.action}</button></footer></section></div>
 }
 
 export function AdoptionSheet({ plan, checked, busy, onCheck, onClose, onAdopt }: { plan: Plan; checked: boolean; busy: boolean; onCheck: (value: boolean) => void; onClose: () => void; onAdopt: () => void | Promise<void> }) {
